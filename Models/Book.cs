@@ -12,8 +12,5 @@ namespace dwCheckApi.Models
         public string BookDescription { get; set; }
         public byte[] BookCoverImage { get; set; }
         public string BookCoverImageUrl { get; set; }
-        // audit data
-        public DateTime Created { get; set; }
-        public DateTime Modified { get; set; }
     }
 }
