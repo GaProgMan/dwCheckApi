@@ -180,7 +180,7 @@ It has been released, as is, using a GPL v3 licence. For more information on the
               }
             ]        
 
-## Seeding the Database
+# Seeding the Database
 
 During startup, in the Configure method, `dwCheck` will apply any outstanding mirgrations (which is not a fantastic practise, but will be ok for now) then seeds the database via the `EnsureSeedData` extention method. This is an automatic process and requires no user input.
 
