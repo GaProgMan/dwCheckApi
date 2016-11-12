@@ -7,6 +7,7 @@ namespace dwCheckApi.Services
     {
         // Search and Get
         Book FindById(int id);
+        Book FindByOrdinal (int id);
         IEnumerable<Book> Search(string searchKey);
         IEnumerable<Book> GetAll();
 

@@ -29,6 +29,12 @@ namespace dwCheckApi.Services
                    .FirstOrDefault(book => book.BookId == id);
         }
 
+        public Book FindByOrdinal (int id)
+        {
+            return _dwContext.Books.
+                    FirstOrDefault(book => book.BookOrdinal == id);
+        }
+
         public IEnumerable<Book> GetAll()
         {
             return _dwContext.Books.AsNoTracking();
