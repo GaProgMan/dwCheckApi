@@ -1,7 +1,9 @@
 using dwCheckApi.Models;
+using dwCheckApi.ViewModels;
 using dwCheckApi.Services;
-
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace dwCheckApi.Controllers
 {
@@ -21,16 +23,36 @@ namespace dwCheckApi.Controllers
             return "Incorrect use of API.";
         }
 
-        // GET /5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET/5
+        [HttpGet("Get/{id}")]
+        public JsonResult GetByOrdinal(int id)
         {
             var book = _bookService.FindByOrdinal(id);
             if (book != null)
             {
-                return $"{book.BookName}";
+                var viewModel = new BookViewModel () {
+                    BookId = book.BookId,
+                    BookOrdinal = book.BookOrdinal,
+                    BookName = book.BookName,
+                    BookIsbn10 = book.BookIsbn10,
+                    BookIsbn13 = book.BookIsbn13,
+                    BookDescription = book.BookDescription,
+                    BookCoverImageUrl = book.BookCoverImageUrl
+                };
+                return Json(viewModel);
             }
-            return "Not found";
+            return Json("Not found");
+        }
+
+        [HttpGet("Search")]
+        public JsonResult Search(string searchString)
+        {
+            if (!string.IsNullOrWhiteSpace(searchString))
+            {
+                var books = _bookService.Search(searchString).ToList();
+                return Json(books);
+            }
+            return Json("No results found");
         }
     }
 }
