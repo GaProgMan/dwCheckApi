@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace dwCheckApi.Controllers
 {
-    [Route("/")]
+    [Route("/Books")]
     public class BooksController : Controller
     {
         private IBookService _bookService;
