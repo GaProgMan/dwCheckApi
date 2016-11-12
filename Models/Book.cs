@@ -6,6 +6,7 @@ namespace dwCheckApi.Models
     {
         // our primary key
         public int BookId { get; set; }
+        public int BookOrdinal { get; set; }
         public string BookName { get; set; }
         public string BookIsbn10 { get; set; }
         public string BookIsbn13 { get; set; }
