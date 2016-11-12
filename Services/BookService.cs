@@ -18,31 +18,18 @@ namespace dwCheckApi.Services
             _dwContext = dwContext;
         }
 
-        public void AddOrUpdate(Book item)
-        {
-            throw new NotImplementedException();
-        }
-
         public Book FindById(int id)
         {
             return _dwContext.Books
-                   .FirstOrDefault(book => book.BookId == id);
+                .AsNoTracking()
+                .FirstOrDefault(book => book.BookId == id);
         }
 
         public Book FindByOrdinal (int id)
         {
-            return _dwContext.Books.
-                    FirstOrDefault(book => book.BookOrdinal == id);
-        }
-
-        public IEnumerable<Book> GetAll()
-        {
-            return _dwContext.Books.AsNoTracking();
-        }
-
-        public void Remove(int id)
-        {
-            throw new NotImplementedException();
+            return _dwContext.Books
+                .AsNoTracking()
+                .FirstOrDefault(book => book.BookOrdinal == id);
         }
 
         public IEnumerable<Book> Search(string searchKey)
@@ -54,10 +41,11 @@ namespace dwCheckApi.Services
                            || book.BookIsbn10.Contains(searchKey)
                            || book.BookIsbn13.Contains(searchKey));
         }
-
-        public void Update(Book item)
+        public IEnumerable<Book> GetAll()
         {
-            throw new NotImplementedException();
+            return _dwContext.Books
+                .AsNoTracking()
+                .OrderBy(book => book.BookOrdinal);
         }
     }
 }

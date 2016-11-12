@@ -10,14 +10,5 @@ namespace dwCheckApi.Services
         Book FindByOrdinal (int id);
         IEnumerable<Book> Search(string searchKey);
         IEnumerable<Book> GetAll();
-
-        // Create and Update
-        void AddOrUpdate(Book item);
-
-        // Update
-        void Update(Book item);
-
-        // Delete
-        void Remove(int id);
     }
 }
