@@ -25,7 +25,7 @@ namespace dwCheckApi.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            var book = _bookService.FindById(id);
+            var book = _bookService.FindByOrdinal(id);
             if (book != null)
             {
                 return $"{book.BookName}";
