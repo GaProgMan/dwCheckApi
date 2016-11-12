@@ -5,6 +5,8 @@ This project is a .NET core implemented Web API for listing all of the (canon) [
 
 It uses Entity Framework Core to communicate with a Sqlite database, which contains a record for each of the Discworld novels.
 
+It has been released, as is, using a GPL v3 licence. For more information on the GPL V3 licence, please see either the `LICENSE` file in the root of the repository or see the tl;dr Legal page for [GPL V3](https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3))
+
 ## Building and Running
 
 1. Change directory to the root of the code
@@ -182,6 +184,15 @@ It uses Entity Framework Core to communicate with a Sqlite database, which conta
 
 During startup, in the Configure method, `dwCheck` will apply any outstanding mirgrations (which is not a fantastic practise, but will be ok for now) then seeds the database via the `EnsureSeedData` extention method. This is an automatic process and requires no user input.
 
-## Data Source
+# Data Source
 
 The [L-Space wiki](http://wiki.lspace.org/mediawiki/Bibliography#Novels) is currently being used to seed the database. All data is copyright to Terry Pratchett and/or Transworld Publishers no infringement was intended.
+
+# TODO
+
+Strikethrough or remove when done
+
+ - Add Character Classes
+ - Add foreign key relationship between Character and Book (one Book has many Characters)
+ - Add a Character service
+ - Add a Character controller
