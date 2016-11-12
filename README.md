@@ -27,6 +27,28 @@ It uses Entity Framework Core to communicate with a Sqlite database, which conta
 
     This will start the Kestrel webserver, load the `dwCheckApi` application and tell you, via the terminal, what the url to access `dwCheckApi` will be. Usually this will be `http://localhost:5000`, but it may be different based on your system configuration.
 
+## Classes
+
+`dwCheckApi` has the following classes:
+
+1. Book
+
+   The `Book` class represents each of the novels in the Discworld main canon. As the time of writing, this does not include any of the "Science of Discworld" titles.
+
+   The `Book` class contains the following fields:
+
+   | Property          | Type        | Description          |
+   | ------------------| ------------|----------------------|
+   | BookId            | int         | Primary key          |
+   | BookOrdinal       | int         | Release Order        |
+   | BookName          | string      | Book Name |
+   | BookDescription   | string      | Book description (taken from the back of the book) |
+   | BookIsbn10        | string      | ISBN 10 of the book  |
+   | BookIsbn13        | string      | ISBN 13 of the book  |
+   | BookCoverImage    | byte array  | Represents the image for the cover art |
+   | BookCoverImageUrl | string      | is a URL to the cover art (to be used as a backup, if BookCoverImage is null) |
+
+
 ## Polling and Usage of the API
 
 `dwCheckApi` has the following Controllers:
@@ -101,6 +123,60 @@ It uses Entity Framework Core to communicate with a Sqlite database, which conta
                   "bookCoverImageUrl":"http://wiki.lspace.org/mediawiki/images/9/96/Cover_Interesting_Times.jpg"
               }
             ]
+    
+    1. All
+
+        It is not recommended to use this action, it is included for testing purposes only. It is not recommended that users have access to this controller method as it will return ALL Book data in the system - which could be expensive both computationally and with refards to bandwidth (once the server is hosted).
+
+        The `All` action takes no parameters and returns all Book records, ordered by ordinal (which is based on release order). If the user wishes to request all data, they can do so by issuing the folllowing request:
+
+            /Books/Search?searchString=Rincewind
+        
+        This will return a lot of data, a small sample of which is presented here as an example:
+
+            [
+              {
+                  "bookId":1,
+                  "bookOrdinal":1,
+                  "bookName":"The Colour of Magic",
+                  "bookIsbn10":"086140324X",
+                  "bookIsbn13":"9780552138932",
+                  "bookDescription":"On a world supported on the back of a giant turtle (sex unknown), a gleeful, explosive, wickedly eccentric expedition sets out. There's an avaricious but inept wizard, a naive tourist whose luggage moves on hundreds of dear little legs, dragons who only exist if you believe in them, and of course THE EDGE of the planet ...",
+                  "bookCoverImage":null,
+                  "bookCoverImageUrl":"http://wiki.lspace.org/mediawiki/images/c/c9/Cover_The_Colour_Of_Magic.jpg"
+              },
+              {
+                  "bookId":23,
+                  "bookOrdinal":2,
+                  "bookName":"The Light Fantastic",
+                  "bookIsbn10":"0861402030",
+                  "bookIsbn13":"9780747530794",
+                  "bookDescription":"As it moves towards a seemingly inevitable collision with a malevolent red star, the Discworld has only one possible saviour. Unfortunately, this happens to be the singularly inept and cowardly wizard called Rincewind, who was last seen falling off the edge of the world ....",
+                  "bookCoverImage":null,
+                  "bookCoverImageUrl":"http://wiki.lspace.org/mediawiki/images/f/f1/Cover_The_Light_Fantastic.jpg"
+              },
+              ... many records removed
+              {
+                  "bookId":20,
+                  "bookOrdinal":40,
+                  "bookName":"Raising Steam",
+                  "bookIsbn10":"0857522272",
+                  "bookIsbn13":"9780857522276",
+                  "bookDescription":"To the consternation of the patrician, Lord Vetinari, a new invention has arrived in Ankh-Morpork - a great clanging monster of a machine that harnesses the power of all of the elements: earth, air, fire and water. This being Ankh-Morpork, it's soon drawing astonished crowds, some of whom caught the zeitgeist early and arrive armed with notepads and very sensible rainwear. Moist von Lipwig is not a man who enjoys hard work - as master of the Post Office, the Mint and the Royal Bank his input is, of course, vital... but largely dependent on words, which are fortunately not very heavy and don't always need greasing. However, he does enjoy being alive, which makes a new job offer from Vetinari hard to refuse... Steam is rising over Discworld, driven by Mister Simnel, the man wi' t'flat cap and sliding rule who has an interesting arrangement with the sine and cosine. Moist will have to grapple with gallons of grease, goblins, a fat controller with a history of throwing employees down the stairs and some very angry dwarfs if he's going to stop it all going off the rails...",
+                  "bookCoverImage":null,
+                  "bookCoverImageUrl":"http://wiki.lspace.org/mediawiki/images/1/1b/RaisingSteam.jpg"
+              },
+              {
+                  "bookId":41,
+                  "bookOrdinal":41,
+                  "bookName":"The Shepheard's Crown",
+                  "bookIsbn10":"0857534815",
+                  "bookIsbn13":"9780857534811",
+                  "bookDescription":"A SHIVERING OF WORLDS.Deep in the Chalk, something is stirring. The owls and the foxes can sense it, and Tiffany Aching feels it in her boots. An old enemy is gathering strength. This is a time of endings and beginnings, old friends and new, a blurring of edges and a shifting of power. Now Tiffany stands between the light and the dark, the good and the bad. As the fairy horde prepares for invasion, Tiffany must summon all the witches to stand with her. To protect the land. Her land. There will be a reckoning ...",
+                  "bookCoverImage":null,
+                  "bookCoverImageUrl":"http://wiki.lspace.org/mediawiki/images/b/b6/Tsc.jpg"
+              }
+            ]        
 
 ## Seeding the Database
 
