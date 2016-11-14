@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
 namespace dwCheckApi.Models
 {
     public class Book
@@ -11,5 +14,6 @@ namespace dwCheckApi.Models
         public string BookDescription { get; set; }
         public byte[] BookCoverImage { get; set; }
         public string BookCoverImageUrl { get; set; }
+        public virtual ICollection<Character> Characters { get; set; } = new Collection<Character>();
     }
 }

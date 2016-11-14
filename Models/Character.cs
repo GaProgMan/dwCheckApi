@@ -4,5 +4,6 @@ namespace dwCheckApi.Models
     {
         public int CharacterId { get; set; }
         public string CharacterName { get; set; }
+        public virtual Book Book { get; set; }
     }
 }

@@ -8,9 +8,10 @@ using dwCheckApi.DatabaseContexts;
 namespace dwCheckApi.Migrations
 {
     [DbContext(typeof(DwContext))]
-    partial class DwContextModelSnapshot : ModelSnapshot
+    [Migration("20161114223829_AddedListOfCharactersToBookEntity")]
+    partial class AddedListOfCharactersToBookEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
