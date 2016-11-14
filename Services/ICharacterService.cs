@@ -5,8 +5,7 @@ namespace dwCheckApi.Services
 {
     public interface ICharacterService
     {
-                // Search and Get
-        Character FindById(int id);
+        // Search and Get
         IEnumerable<Character> Search(string searchKey);
         IEnumerable<Character> GetAll();
     }

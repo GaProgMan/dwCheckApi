@@ -1,8 +1,7 @@
 using dwCheckApi.Models;
 using dwCheckApi.DatabaseContexts;
-
 using Microsoft.EntityFrameworkCore;
-
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,14 +14,6 @@ namespace dwCheckApi.Services
         public CharacterService (DwContext dwContext)
         {
             _dwContext = dwContext;
-        }
-
-        public Character FindById(int id)
-        {
-            return _dwContext
-                .Characters
-                .AsNoTracking()
-                .FirstOrDefault(ch => ch.CharacterId == id);
         }
 
         public IEnumerable<Character> GetAll()
