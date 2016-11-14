@@ -46,5 +46,6 @@ namespace dwCheckApi.DatabaseContexts
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<Character> Characters { get; set; }
     }
 }
