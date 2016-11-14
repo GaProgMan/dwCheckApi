@@ -6,13 +6,13 @@ using System.Linq;
 namespace dwCheckApi.Controllers
 {
     [Route("/[controller]")]
-    public class BooksController : BaseController
+    public class CharactersController : BaseController
     {
-        private IBookService _bookService;
+        private ICharacterService _characterService;
 
-        public BooksController(IBookService bookService)
+        public CharactersController(ICharacterService characterService)
         {
-            _bookService = bookService;
+            _characterService = characterService;
         }
 
         [HttpGet]
@@ -27,20 +27,8 @@ namespace dwCheckApi.Controllers
             // This method will be computationally expensive and
             // the payload will be massive.
             // Included here for testing purposes
-            var books = _bookService.GetAll();
+            var books = _characterService.GetAll();
             return Json(books.ToList());
-        }
-
-        // GET/5
-        [HttpGet("Get/{id}")]
-        public JsonResult GetByOrdinal(int id)
-        {
-            var book = _bookService.FindByOrdinal(id);
-            if (book != null)
-            {
-                return Json(book);
-            }
-            return Json("Not found");
         }
 
         [HttpGet("Search")]
@@ -48,8 +36,10 @@ namespace dwCheckApi.Controllers
         {
             if (!string.IsNullOrWhiteSpace(searchString))
             {
-                var books = _bookService.Search(searchString).ToList();
-                return Json(books);
+                var characters = _characterService
+                    .Search(searchString)
+                    .ToList();
+                return Json(characters);
             }
             return Json("No results found");
         }
