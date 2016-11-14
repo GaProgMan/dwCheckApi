@@ -1,5 +1,3 @@
-using System;
-
 namespace dwCheckApi.Models
 {
     public class Book
