@@ -6,6 +6,9 @@ using System.Linq;
 
 // Explicit joins of entities is taken from here:
 // https://weblogs.asp.net/jeff/ef7-rc-navigation-properties-and-lazy-loading
+// At the time of committing 5da65e093a64d7165178ef47d5c21e8eeb9ae1fc, Entity
+// Framework Core had no built in support for Lazy Loading, so the above was
+// used on all DbSet queries.
 
 namespace dwCheckApi.Services 
 {
