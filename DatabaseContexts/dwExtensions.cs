@@ -41,23 +41,43 @@ namespace dwCheckApi.DatabaseContexts
 
         private static List<Book> GenerateAllBookEntiies()
         {
+			// Hmm... Need to rethink this. Maybe generate a whole
+			// list of characters and select them for each book
+			// from that list separately
+			var allCharacters = new List<Character>()
+			{
+				new Character {
+					CharacterName = "Blind Io"
+				}, new Character {
+					CharacterName = "Death"
+				}, new Character {
+					CharacterName = "Fate"
+				}, new Character{
+					CharacterName = "Offler"
+				}, new Character {
+					CharacterName = "The Luggage"
+				}, new Character{
+					CharacterName = "The Partician"
+				}, new Character {
+					CharacterName = "Rincewind"
+				}, new Character{
+					CharacterName = "The Lady"
+				}, new Character {
+					CharacterName = "Twoflower"
+				}, new Character {
+					CharacterName = "Ridcully"
+				}
+			};
+			
             var colourOfMagic = new Book {
-                    BookName = "The Colour of Magic",
-                    BookOrdinal = 1,
-                    BookIsbn10 = "086140324X",
-                    BookIsbn13 = "9780552138932",
-                    BookDescription = "On a world supported on the back of a giant turtle (sex unknown), a gleeful, explosive, wickedly eccentric expedition sets out. There's an avaricious but inept wizard, a naive tourist whose luggage moves on hundreds of dear little legs, dragons who only exist if you believe in them, and of course THE EDGE of the planet ...",
-                    BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/c/c9/Cover_The_Colour_Of_Magic.jpg"
-                };
-                colourOfMagic.Characters = new List<Character>() {
-                    new Character {
-                        CharacterName = "Rincewind"
-                    }, new Character {
-                        CharacterName = "Two Flower"
-                    }, new Character {
-                        CharacterName = "Ridcully"
-                    }
-                };
+				BookName = "The Colour of Magic",
+				BookOrdinal = 1,
+				BookIsbn10 = "086140324X",
+				BookIsbn13 = "9780552138932",
+				BookDescription = "On a world supported on the back of a giant turtle (sex unknown), a gleeful, explosive, wickedly eccentric expedition sets out. There's an avaricious but inept wizard, a naive tourist whose luggage moves on hundreds of dear little legs, dragons who only exist if you believe in them, and of course THE EDGE of the planet ...",
+				BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/c/c9/Cover_The_Colour_Of_Magic.jpg"
+			};
+			colourOfMagic.Characters = allCharacters;
                 
             return new List<Book>(){
                 colourOfMagic
