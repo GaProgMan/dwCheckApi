@@ -18,7 +18,10 @@ namespace dwCheckApi.Services
 
         public IEnumerable<Character> GetAll()
         {
-            return _dwContext.Characters.AsNoTracking();
+            return _dwContext.Characters
+                .AsNoTracking()
+                // Explicitly join entities
+                .Include(character => character.Book);
         }
 
         public IEnumerable<Character> Search(string searchKey)
@@ -26,6 +29,7 @@ namespace dwCheckApi.Services
             return _dwContext
                 .Characters
                 .AsTracking()
+                .Include(character => character.Book)
                 .Where(ch => ch.CharacterName.Contains(searchKey));
 
         }

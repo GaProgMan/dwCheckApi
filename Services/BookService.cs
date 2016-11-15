@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
+// Explicit joins of entities is taken from here:
+// https://weblogs.asp.net/jeff/ef7-rc-navigation-properties-and-lazy-loading
+
 namespace dwCheckApi.Services 
 {
     public class BookService : IBookService
@@ -19,6 +22,8 @@ namespace dwCheckApi.Services
         {
             return _dwContext.Books
                 .AsNoTracking()
+                // Explicitly join entities
+                .Include(book => book.Characters)
                 .FirstOrDefault(book => book.BookId == id);
         }
 
@@ -26,6 +31,7 @@ namespace dwCheckApi.Services
         {
             return _dwContext.Books
                 .AsNoTracking()
+                .Include(book => book.Characters)
                 .FirstOrDefault(book => book.BookOrdinal == id);
         }
 
@@ -33,6 +39,7 @@ namespace dwCheckApi.Services
         {
             return _dwContext.Books
                        .AsNoTracking()
+                       .Include(book => book.Characters)
                        .Where(book => book.BookName.Contains(searchKey)
                            || book.BookDescription.Contains(searchKey)
                            || book.BookIsbn10.Contains(searchKey)
@@ -42,6 +49,7 @@ namespace dwCheckApi.Services
         {
             return _dwContext.Books
                 .AsNoTracking()
+                .Include(book => book.Characters)
                 .OrderBy(book => book.BookOrdinal);
         }
     }
