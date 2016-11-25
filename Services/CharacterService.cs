@@ -16,22 +16,30 @@ namespace dwCheckApi.Services
             _dwContext = dwContext;
         }
 
-        public IEnumerable<Character> GetAll()
-        {
-            return _dwContext.Characters
-                .AsNoTracking()
-                // Explicitly join entities
-                .Include(character => character.Book);
-        }
-
         public IEnumerable<Character> Search(string searchKey)
         {
-            return _dwContext
-                .Characters
-                .AsTracking()
-                .Include(character => character.Book)
+            return BaseQuery()
                 .Where(ch => ch.CharacterName.Contains(searchKey));
 
+        }
+
+        public Character GetById (int id)
+        {
+            return BaseQuery()
+                .FirstOrDefault(character => character.CharacterId == id);
+        }
+
+        private IEnumerable<Character> BaseQuery()
+        {
+            // Explicit joins of entities is taken from here:
+            // https://weblogs.asp.net/jeff/ef7-rc-navigation-properties-and-lazy-loading
+            // At the time of committing 5da65e093a64d7165178ef47d5c21e8eeb9ae1fc, Entity
+            // Framework Core had no built in support for Lazy Loading, so the above was
+            // used on all DbSet queries.
+            return _dwContext.Characters
+                .AsNoTracking()
+                .Include(character => character.BookCharacter)
+                .ThenInclude(bookCharacter => bookCharacter.Book);
         }
     }
 }

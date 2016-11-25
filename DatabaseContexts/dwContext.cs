@@ -14,6 +14,16 @@ namespace dwCheckApi.DatabaseContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<BookCharacter>()
+                .HasOne(bc => bc.Book)
+                .WithMany(book => book.BookCharacter)
+                .HasForeignKey(bc => bc.BookId);
+
+            modelBuilder.Entity<BookCharacter>()
+                .HasOne(bc => bc.Character)
+                .WithMany(ch => ch.BookCharacter)
+                .HasForeignKey(bc => bc.CharacterId);
+
             // Create shadow properties
             // For more information onShoadow properties, see:
             // https://docs.efproject.net/en/latest/modeling/shadow-properties.html
@@ -47,5 +57,6 @@ namespace dwCheckApi.DatabaseContexts
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Character> Characters { get; set; }
+        public DbSet<BookCharacter> BookCharacter { get; set; }
     }
 }

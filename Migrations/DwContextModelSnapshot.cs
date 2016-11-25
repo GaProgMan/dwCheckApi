@@ -43,27 +43,47 @@ namespace dwCheckApi.Migrations
                     b.ToTable("Books");
                 });
 
+            modelBuilder.Entity("dwCheckApi.Models.BookCharacter", b =>
+                {
+                    b.Property<int>("BookCharacterId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BookId");
+
+                    b.Property<int>("CharacterId");
+
+                    b.HasKey("BookCharacterId");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("CharacterId");
+
+                    b.ToTable("BookCharacter");
+                });
+
             modelBuilder.Entity("dwCheckApi.Models.Character", b =>
                 {
                     b.Property<int>("CharacterId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("BookId");
-
                     b.Property<string>("CharacterName");
 
                     b.HasKey("CharacterId");
 
-                    b.HasIndex("BookId");
-
                     b.ToTable("Characters");
                 });
 
-            modelBuilder.Entity("dwCheckApi.Models.Character", b =>
+            modelBuilder.Entity("dwCheckApi.Models.BookCharacter", b =>
                 {
                     b.HasOne("dwCheckApi.Models.Book", "Book")
-                        .WithMany("Characters")
-                        .HasForeignKey("BookId");
+                        .WithMany("BookCharacter")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("dwCheckApi.Models.Character", "Character")
+                        .WithMany("BookCharacter")
+                        .HasForeignKey("CharacterId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

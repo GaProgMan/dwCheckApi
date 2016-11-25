@@ -21,16 +21,6 @@ namespace dwCheckApi.Controllers
             return IncorrectUseOfApi();
         }
 
-        [HttpGet("All")]
-        public JsonResult GetAll()
-        {
-            // This method will be computationally expensive and
-            // the payload will be massive.
-            // Included here for testing purposes
-            var books = _bookService.GetAll();
-            return Json(books.ToList());
-        }
-
         // GET/5
         [HttpGet("Get/{id}")]
         public JsonResult GetByOrdinal(int id)

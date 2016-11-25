@@ -9,6 +9,5 @@ namespace dwCheckApi.Services
         Book FindById(int id);
         Book FindByOrdinal (int id);
         IEnumerable<Book> Search(string searchKey);
-        IEnumerable<Book> GetAll();
     }
 }

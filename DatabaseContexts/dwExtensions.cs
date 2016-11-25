@@ -34,17 +34,37 @@ namespace dwCheckApi.DatabaseContexts
                 {
                     context.Books.AddRange(GenerateAllBookEntiies());
 
+                    context.Characters.AddRange(GenerateAllCharacters());
+
+                    context.SaveChanges();  
+
+                    context.BookCharacter.AddRange(GenerateAllBookCharacter(context));
+
                     context.SaveChanges();
                 }
             }
         }
 
-        private static List<Book> GenerateAllBookEntiies()
+        private static List<BookCharacter> GenerateAllBookCharacter(DwContext context)
         {
-			// Hmm... Need to rethink this. Maybe generate a whole
-			// list of characters and select them for each book
-			// from that list separately
-			var allCharacters = new List<Character>()
+            var book = context.Books.First(bo => bo.BookOrdinal == 1);
+            var character = context.Characters.First();
+
+            var bookChars = new List<BookCharacter>()
+            {
+                new BookCharacter
+                {
+                    Character = character,
+                    Book = book
+                }
+            };
+
+            return bookChars;
+        }
+
+        private static List<Character> GenerateAllCharacters()
+        {
+            return new List<Character>()
 			{
 				new Character {
 					CharacterName = "Blind Io"
@@ -68,7 +88,10 @@ namespace dwCheckApi.DatabaseContexts
 					CharacterName = "Ridcully"
 				}
 			};
-			
+        }
+
+        private static List<Book> GenerateAllBookEntiies()
+        {
             var colourOfMagic = new Book {
 				BookName = "The Colour of Magic",
 				BookOrdinal = 1,
@@ -77,7 +100,6 @@ namespace dwCheckApi.DatabaseContexts
 				BookDescription = "On a world supported on the back of a giant turtle (sex unknown), a gleeful, explosive, wickedly eccentric expedition sets out. There's an avaricious but inept wizard, a naive tourist whose luggage moves on hundreds of dear little legs, dragons who only exist if you believe in them, and of course THE EDGE of the planet ...",
 				BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/c/c9/Cover_The_Colour_Of_Magic.jpg"
 			};
-			colourOfMagic.Characters = allCharacters;
                 
             return new List<Book>(){
                 colourOfMagic

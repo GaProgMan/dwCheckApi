@@ -4,12 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-// Explicit joins of entities is taken from here:
-// https://weblogs.asp.net/jeff/ef7-rc-navigation-properties-and-lazy-loading
-// At the time of committing 5da65e093a64d7165178ef47d5c21e8eeb9ae1fc, Entity
-// Framework Core had no built in support for Lazy Loading, so the above was
-// used on all DbSet queries.
-
 namespace dwCheckApi.Services 
 {
     public class BookService : IBookService
@@ -23,37 +17,36 @@ namespace dwCheckApi.Services
 
         public Book FindById(int id)
         {
-            return _dwContext.Books
-                .AsNoTracking()
-                // Explicitly join entities
-                .Include(book => book.Characters)
+            return BaseQuery()
                 .FirstOrDefault(book => book.BookId == id);
         }
 
         public Book FindByOrdinal (int id)
         {
-            return _dwContext.Books
-                .AsNoTracking()
-                .Include(book => book.Characters)
+            return BaseQuery()
                 .FirstOrDefault(book => book.BookOrdinal == id);
         }
 
         public IEnumerable<Book> Search(string searchKey)
         {
-            return _dwContext.Books
-                       .AsNoTracking()
-                       .Include(book => book.Characters)
-                       .Where(book => book.BookName.Contains(searchKey)
-                           || book.BookDescription.Contains(searchKey)
-                           || book.BookIsbn10.Contains(searchKey)
-                           || book.BookIsbn13.Contains(searchKey));
+            return BaseQuery()
+                .Where(book => book.BookName.Contains(searchKey)
+                    || book.BookDescription.Contains(searchKey)
+                    || book.BookIsbn10.Contains(searchKey)
+                    || book.BookIsbn13.Contains(searchKey));
         }
-        public IEnumerable<Book> GetAll()
+
+        private IEnumerable<Book> BaseQuery()
         {
+            // Explicit joins of entities is taken from here:
+            // https://weblogs.asp.net/jeff/ef7-rc-navigation-properties-and-lazy-loading
+            // At the time of committing 5da65e093a64d7165178ef47d5c21e8eeb9ae1fc, Entity
+            // Framework Core had no built in support for Lazy Loading, so the above was
+            // used on all DbSet queries.
             return _dwContext.Books
                 .AsNoTracking()
-                .Include(book => book.Characters)
-                .OrderBy(book => book.BookOrdinal);
+                .Include(book => book.BookCharacter)
+                .ThenInclude(bookCharacter => bookCharacter.Character);
         }
     }
 }

@@ -7,6 +7,6 @@ namespace dwCheckApi.Services
     {
         // Search and Get
         IEnumerable<Character> Search(string searchKey);
-        IEnumerable<Character> GetAll();
+        Character GetById (int id);
     }
 }
