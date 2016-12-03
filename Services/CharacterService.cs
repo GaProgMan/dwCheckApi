@@ -20,13 +20,16 @@ namespace dwCheckApi.Services
         {
             var blankSearchString = string.IsNullOrEmpty(searchKey);
 
-            var results = blankSearchString ?
-                BaseQuery() :
-                BaseQuery()
-                    .Where(ch => ch.CharacterName.ToLower()
-                            .Contains(searchKey.ToLower()));
+            var results = BaseQuery();
 
-            return results;
+            if (!blankSearchString)
+            {
+                searchKey = searchKey.ToLower();
+                results = BaseQuery()
+                    .Where(ch => ch.CharacterName.ToLower().Contains(searchKey));
+            }
+
+            return results.OrderBy(ch => ch.CharacterName);
         }
 
         public Character GetById (int id)

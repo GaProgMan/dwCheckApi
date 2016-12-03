@@ -31,13 +31,18 @@ namespace dwCheckApi.Services
         {
             var blankSearchString = string.IsNullOrWhiteSpace(searchKey);
 
-            var results = blankSearchString ?
-                BaseQuery() : 
+            var results = BaseQuery();
+
+            if (!blankSearchString)
+            {
+                searchKey = searchKey.ToLower();
                 BaseQuery()
-                    .Where(book => book.BookName.ToLower().Contains(searchKey.ToLower())
-                        || book.BookDescription.ToLower().Contains(searchKey.ToLower())
-                        || book.BookIsbn10.ToLower().Contains(searchKey.ToLower())
-                        || book.BookIsbn13.ToLower().Contains(searchKey.ToLower()));
+                    .Where(book => book.BookName.ToLower().Contains(searchKey)
+                        || book.BookDescription.ToLower().Contains(searchKey)
+                        || book.BookIsbn10.ToLower().Contains(searchKey)
+                        || book.BookIsbn13.ToLower().Contains(searchKey));
+            }
+                
 
             return results.OrderBy(book => book.BookOrdinal);
         }
