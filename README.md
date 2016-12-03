@@ -48,15 +48,15 @@ To request a Release build of dwCheckApi, then the following command should prod
 
     dotnet build --configuration Release
 
-## Classes
+## Entities
 
-`dwCheckApi` has the following classes:
+`dwCheckApi` has the following entities:
 
 1. Book
 
-   The `Book` class represents each of the novels in the Discworld main canon. As the time of writing, this does not include any of the "Science of Discworld" titles.
+   The `Book` entity represents each of the novels in the Discworld main canon. As the time of writing, this does not include any of the "Science of Discworld" titles.
 
-   The `Book` class contains the following fields:
+   The `Book` entity contains the following fields:
 
    | Property          | Type        | Description          |
    | ------------------| ------------|----------------------|
@@ -71,7 +71,7 @@ To request a Release build of dwCheckApi, then the following command should prod
 
 1. Character
 
-   The `Character` class represents each of the characters in the Discworld, and contains only two fields:
+   The `Character` entity represents each of the characters in the Discworld, and contains only two fields:
 
    | Property          | Type        | Description          |
    | ------------------| ------------|----------------------|
@@ -217,7 +217,7 @@ The data returned from `dwCheck`'s server is in a slightly different, more simpl
 
    1. Get
 
-    The `Get` action takes an integer Id. This field represents the id of the character entry in the database. It is not recommended that a consumer of this api uses this controller method, as the id entry relies entirely on the order in which Entity Framework Core persists the entries to the database whil creating the dataset, and this is unpredictable. It is included here for completeness, and will probably be removed in a later version. 
+    The `Get` action takes an integer Id. This field represents the id of the character entry in the database. It is not recommended that a consumer of this api uses this controller method, as the id entry relies entirely on the order in which Entity Framework Core persists the entries to the database while creating the dataset, and this is unpredictable. It is included here for completeness, and will probably be removed in a later version. 
             
     This ordinal is based on release order, so if the user want data on 'Night Watch', they would set a GET request to:
 
