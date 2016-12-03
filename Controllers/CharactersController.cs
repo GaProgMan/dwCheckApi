@@ -1,3 +1,4 @@
+using dwCheckApi.Helpers;
 using dwCheckApi.ViewModels;
 using dwCheckApi.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -25,21 +26,30 @@ namespace dwCheckApi.Controllers
         [HttpGet("Get/{id}")]
         public JsonResult GetById(int id)
         {
-            var character = _characterService.GetById(id);
-            return Json(character);
+            var dbCharacter = _characterService.GetById(id);
+            if (dbCharacter != null)
+            {
+                var viewModel = CharacterViewModelHelpers.ConvertToviewModel(dbCharacter);
+                return Json(viewModel);
+            }
+            return Json("Not found");
         }
 
         [HttpGet("Search")]
         public JsonResult Search(string searchString)
         {
-            if (!string.IsNullOrWhiteSpace(searchString))
+            var characters = _characterService
+                .Search(searchString);
+
+            if (characters.Any())
             {
-                var characters = _characterService
-                    .Search(searchString)
-                    .ToList();
-                return Json(characters);
+                var viewModels = CharacterViewModelHelpers
+                    .ConvertToViewModels(characters.ToList());
+                    
+                return Json(viewModels);
             }
-            return Json("No results found");
+
+            return Json("Not Found");
         }
     }
 }

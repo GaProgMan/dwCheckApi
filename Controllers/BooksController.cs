@@ -1,3 +1,4 @@
+using dwCheckApi.Helpers;
 using dwCheckApi.ViewModels;
 using dwCheckApi.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -21,27 +22,32 @@ namespace dwCheckApi.Controllers
             return IncorrectUseOfApi();
         }
 
-        // GET/5
+        // Get/5
         [HttpGet("Get/{id}")]
         public JsonResult GetByOrdinal(int id)
         {
             var book = _bookService.FindByOrdinal(id);
             if (book != null)
             {
-                return Json(book);
+                var viewModel = BookViewModelHelpers.ConvertToViewModel(book);
+                return Json(viewModel);
             }
             return Json("Not found");
         }
 
+        // Search?searchKey
         [HttpGet("Search")]
         public JsonResult Search(string searchString)
         {
-            if (!string.IsNullOrWhiteSpace(searchString))
+            var dbBooks = _bookService.Search(searchString).ToList();
+            if(dbBooks.Any())
             {
-                var books = _bookService.Search(searchString).ToList();
-                return Json(books);
+                var viewModelBooks = BookViewModelHelpers.ConvertToViewModels(dbBooks);
+                return Json(viewModelBooks);
             }
-            return Json("No results found");
+
+            return Json("Not found");
+            
         }
     }
 }
