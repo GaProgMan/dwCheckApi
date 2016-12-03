@@ -1,13 +1,14 @@
-using dwCheckApi.Models;
-using System;
+using System.Collections.Generic;
 
 namespace dwCheckApi.ViewModels
 {
     public class BookViewModel
     {
-        public BookViewModel() { }
+        public BookViewModel()
+        {
+            Characters = new List<string>();
+        }
 
-        public int BookId { get; set; }
         public int BookOrdinal { get; set; }
         public string BookName { get; set; }
         public string BookIsbn10 { get; set; }
@@ -15,5 +16,6 @@ namespace dwCheckApi.ViewModels
         public string BookDescription { get; set; }
         public byte[] BookCoverImage { get; set; }
         public string BookCoverImageUrl { get; set; }
+        public List<string> Characters { get; set; }
     }
 }
