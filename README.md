@@ -36,9 +36,9 @@ It has been released, as is, using a GPL v3 licence. For more information on the
 
 The following commands can be used to run different versions of dwCheckApi
 
-    `dotnet bin/Debug/netcoreapp1.0/dwCheckApi.dll` (for the debug build)
+    dotnet bin/Debug/netcoreapp1.0/dwCheckApi.dll (for the debug build)
 
-    `dotnet bin/Release/netcoreapp1.0/dwCheckApi.dll` (for the release build)
+    dotnet bin/Release/netcoreapp1.0/dwCheckApi.dll (for the release build)
 
 This set of commands explicitly inform the .NET Core runtime which build of the server we would like to run.
 
@@ -46,7 +46,7 @@ If you do not explicitly provide a configuration in the build step, then the deb
 
 To request a Release build of dwCheckApi, then the following command should produce one:
 
-    `dotnet build --configuration Release`
+    dotnet build --configuration Release
 
 ## Classes
 
