@@ -48,16 +48,17 @@ namespace dwCheckApi.DatabaseContexts
         private static List<BookCharacter> GenerateAllBookCharacter(DwContext context)
         {
             var book = context.Books.First(bo => bo.BookOrdinal == 1);
-            var character = context.Characters.First();
+            var characters = context.Characters;
 
-            var bookChars = new List<BookCharacter>()
+            var bookChars = new List<BookCharacter>();
+            foreach (var ch in characters)
             {
-                new BookCharacter
+                bookChars.Add(new BookCharacter
                 {
-                    Character = character,
+                    Character = ch,
                     Book = book
-                }
-            };
+                });
+            }
 
             return bookChars;
         }
