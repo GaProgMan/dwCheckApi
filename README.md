@@ -23,11 +23,30 @@ It has been released, as is, using a GPL v3 licence. For more information on the
 
     This step isn't fully neccessary, but I like to do build and run as separate steps.
 
+    *Note: this step explicitly builds a debug version of dwCheckApi. See the sub section on Build Information for more information.*
+
 1. Issue the `dotnet` run command
 
     `dotnet run`
 
     This will start the Kestrel webserver, load the `dwCheckApi` application and tell you, via the terminal, what the url to access `dwCheckApi` will be. Usually this will be `http://localhost:5000`, but it may be different based on your system configuration.
+
+
+### .NET Core Build Information
+
+The following commands can be used to run different versions of dwCheckApi
+
+    `dotnet bin/Debug/netcoreapp1.0/dwCheckApi.dll` (for the debug build)
+
+    `dotnet bin/Release/netcoreapp1.0/dwCheckApi.dll` (for the release build)
+
+This set of commands explicitly inform the .NET Core runtime which build of the server we would like to run.
+
+If you do not explicitly provide a configuration in the build step, then the debug version of dwCheckApi will be built. If you explicitly request a Release build, but issue `dotnet run`, then a debug version of dwCheckApi will be built.
+
+To request a Release build of dwCheckApi, then the following command should produce one:
+
+    `dotnet build --configuration Release`
 
 ## Classes
 
