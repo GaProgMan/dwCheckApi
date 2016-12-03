@@ -247,10 +247,4 @@ The [L-Space wiki](http://wiki.lspace.org/mediawiki/Bibliography#Novels) is curr
 
 Strikethrough or remove when done
 
-- ~~Add Character Classes~~
-
- - Add foreign key relationship between Character and Book (one Book has many Characters)
-
-- ~~Add a Character service~~
-
-- ~~Add a Character controller~~
+- Update README sections for models and returned data types
