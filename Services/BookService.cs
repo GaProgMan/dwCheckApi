@@ -29,11 +29,17 @@ namespace dwCheckApi.Services
 
         public IEnumerable<Book> Search(string searchKey)
         {
-            return BaseQuery()
-                .Where(book => book.BookName.Contains(searchKey)
-                    || book.BookDescription.Contains(searchKey)
-                    || book.BookIsbn10.Contains(searchKey)
-                    || book.BookIsbn13.Contains(searchKey));
+            var blankSearchString = string.IsNullOrWhiteSpace(searchKey);
+
+            var results = blankSearchString ?
+                BaseQuery() : 
+                BaseQuery()
+                    .Where(book => book.BookName.ToLower().Contains(searchKey.ToLower())
+                        || book.BookDescription.ToLower().Contains(searchKey.ToLower())
+                        || book.BookIsbn10.ToLower().Contains(searchKey.ToLower())
+                        || book.BookIsbn13.ToLower().Contains(searchKey.ToLower()));
+
+            return results.OrderBy(book => book.BookOrdinal);
         }
 
         private IEnumerable<Book> BaseQuery()

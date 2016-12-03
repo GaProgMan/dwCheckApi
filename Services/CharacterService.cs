@@ -18,9 +18,15 @@ namespace dwCheckApi.Services
 
         public IEnumerable<Character> Search(string searchKey)
         {
-            return BaseQuery()
-                .Where(ch => ch.CharacterName.Contains(searchKey));
+            var blankSearchString = string.IsNullOrEmpty(searchKey);
 
+            var results = blankSearchString ?
+                BaseQuery() :
+                BaseQuery()
+                    .Where(ch => ch.CharacterName.ToLower()
+                            .Contains(searchKey.ToLower()));
+
+            return results;
         }
 
         public Character GetById (int id)
