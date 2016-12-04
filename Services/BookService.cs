@@ -27,6 +27,21 @@ namespace dwCheckApi.Services
                 .FirstOrDefault(book => book.BookOrdinal == id);
         }
 
+        public Book GetByName(string bookName)
+        {
+            var blankSearchString = string.IsNullOrWhiteSpace(bookName);
+
+            if (string.IsNullOrEmpty(bookName))
+            {
+                // TODO: what here?
+                return null;
+            }
+
+            bookName = bookName.ToLower();
+
+            return BaseQuery().FirstOrDefault(book => book.BookName.ToLower() == (bookName));
+        }
+
         public IEnumerable<Book> Search(string searchKey)
         {
             var blankSearchString = string.IsNullOrWhiteSpace(searchKey);
@@ -36,7 +51,7 @@ namespace dwCheckApi.Services
             if (!blankSearchString)
             {
                 searchKey = searchKey.ToLower();
-                BaseQuery()
+                results = results
                     .Where(book => book.BookName.ToLower().Contains(searchKey)
                         || book.BookDescription.ToLower().Contains(searchKey)
                         || book.BookIsbn10.ToLower().Contains(searchKey)

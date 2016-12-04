@@ -38,6 +38,19 @@ namespace dwCheckApi.Services
                 .FirstOrDefault(character => character.CharacterId == id);
         }
 
+        public Character GetByName(string characterName)
+        {
+            if(string.IsNullOrWhiteSpace(characterName))
+            {
+                // TODO : what here?
+                return null;
+            }
+
+            characterName = characterName.ToLower();
+
+            return BaseQuery().FirstOrDefault(ch => ch.CharacterName.ToLower() == characterName);
+        }
+
         private IEnumerable<Character> BaseQuery()
         {
             // Explicit joins of entities is taken from here:
