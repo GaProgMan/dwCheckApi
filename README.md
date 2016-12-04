@@ -21,8 +21,6 @@ It has been released, as is, using a GPL v3 licence. For more information on the
 
     `dotnet build`
 
-    This step isn't fully neccessary, but I like to do build and run as separate steps.
-
     *Note: this step explicitly builds a debug version of dwCheckApi. See the sub section on Build Information for more information.*
 
 1. Issue the `dotnet` run command
@@ -48,61 +46,30 @@ To request a Release build of dwCheckApi, then the following command should prod
 
     dotnet build --configuration Release
 
-## Entities
-
-`dwCheckApi` has the following entities:
-
-1. Book
-
-   The `Book` entity represents each of the novels in the Discworld main canon. As the time of writing, this does not include any of the "Science of Discworld" titles.
-
-   The `Book` entity contains the following fields:
-
-   | Property          | Type        | Description          |
-   | ------------------| ------------|----------------------|
-   | BookId            | int         | Primary key          |
-   | BookOrdinal       | int         | Release Order        |
-   | BookName          | string      | Book Name |
-   | BookDescription   | string      | Book description (taken from the back of the book) |
-   | BookIsbn10        | string      | ISBN 10 of the book  |
-   | BookIsbn13        | string      | ISBN 13 of the book  |
-   | BookCoverImage    | byte array  | Represents the image for the cover art |
-   | BookCoverImageUrl | string      | is a URL to the cover art (to be used as a backup, if BookCoverImage is null) |
-
-1. Character
-
-   The `Character` entity represents each of the characters in the Discworld, and contains only two fields:
-
-   | Property          | Type        | Description          |
-   | ------------------| ------------|----------------------|
-   | CharacterId       | int         | Primary key          |
-   | CharacterName     | string      | Character's Name     |
-
 ## View Models
 
 The data returned from `dwCheck`'s server is in a slightly different, more simplified format, than that used for the Database Models.
 
 1. Book
 
-   The `Book` view model represents the data found in the `Book` database model and takes a similar format. However any linked characters are inlcuded in an array.
+   The `Book` view model represents a novel in the Discworld series, and the names of any linked characters are included.
 
    The `Book` view model contains the following fields:
 
    | Property          | Type             | Description          |
    | ------------------| -----------------|----------------------|
-   | BookId            | int              | Primary key          |
    | BookOrdinal       | int              | Release Order        |
    | BookName          | string           | Book Name |
-   | BookDescription   | string           | Book description (taken from the back of the book) |
    | BookIsbn10        | string           | ISBN 10 of the book  |
    | BookIsbn13        | string           | ISBN 13 of the book  |
+   | BookDescription   | string           | Book description (taken from the back of the book) |
    | BookCoverImage    | byte array       | Represents the image for the cover art |
    | BookCoverImageUrl | string           | is a URL to the cover art (to be used as a backup, if BookCoverImage is null) |
    | Characters        | array of strings | an array, containing 0 or more entries, of character name strings |
 
 1. Character
 
-   The `Character` view model represents the data found in the `Character` database model and takes a similar format. However any linked books are included in an array.
+   The `Character` view model represents a character from the Discworld universe, and the names of any books they have appeared as major characters in are included.
    
    The `Character` view model contains the following fields:
 
@@ -129,7 +96,6 @@ The data returned from `dwCheck`'s server is in a slightly different, more simpl
         This will return the following JSON data:
 
             {
-                "bookId":8,
                 "bookOrdinal":29,
                 "bookName":"Night Watch",
                 "bookIsbn10":"0552148997",
@@ -273,9 +239,3 @@ This is an automatic process and requires no user input.
 The [L-Space wiki](http://wiki.lspace.org/mediawiki/Bibliography#Novels) is currently being used to seed the database.
 
 All character and book data are copyrighted to Terry Pratchett and/or Transworld Publishers no infringement was intended.
-
-# TODO
-
-Strikethrough or remove when done
-
-- Update README sections for models and returned data types
