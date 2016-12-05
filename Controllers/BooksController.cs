@@ -29,12 +29,10 @@ namespace dwCheckApi.Controllers
             var book = _bookService.FindByOrdinal(id);
             if (book == null)
             {
-                return Json("Not found");
-                
+                return ErrorResponse("Not found");
             }
             
-            var viewModel = BookViewModelHelpers.ConvertToViewModel(book);
-            return Json(viewModel);
+            return SingleResult(BookViewModelHelpers.ConvertToViewModel(book));
         }
 
         [HttpGet("GetByName")]
@@ -42,16 +40,16 @@ namespace dwCheckApi.Controllers
         {
             if (string.IsNullOrWhiteSpace(bookName))
             {
-                return Json("Book name is required");
+                return ErrorResponse("Book name is required");
             }
             var book = _bookService.GetByName(bookName);
 
             if (book == null)
             {
-                return Json("No book with that name could be found");
+                return ErrorResponse("No book with that name could be found");
             }
 
-            return Json(BookViewModelHelpers.ConvertToViewModel(book));
+            return SingleResult(BookViewModelHelpers.ConvertToViewModel(book));
         }
 
         // Search?searchKey
@@ -62,11 +60,10 @@ namespace dwCheckApi.Controllers
 
             if (!dbBooks.Any())
             {
-                return Json("Not found");
+                return ErrorResponse();
             }
 
-            var viewModelBooks = BookViewModelHelpers.ConvertToViewModels(dbBooks);
-            return Json(viewModelBooks);
+            return MultipleResults(BookViewModelHelpers.ConvertToViewModels(dbBooks));
         }
     }
 }

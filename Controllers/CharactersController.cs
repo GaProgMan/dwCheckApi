@@ -29,10 +29,10 @@ namespace dwCheckApi.Controllers
             var dbCharacter = _characterService.GetById(id);
             if (dbCharacter == null)
             {
-                return Json("Not found");
+                return ErrorResponse("Not found");
             }
-            var viewModel = CharacterViewModelHelpers.ConvertToviewModel(dbCharacter);
-            return Json(viewModel);
+            
+            return SingleResult(CharacterViewModelHelpers.ConvertToviewModel(dbCharacter));
         }
 
         [HttpGet("GetByName")]
@@ -40,17 +40,17 @@ namespace dwCheckApi.Controllers
         {
             if (string.IsNullOrWhiteSpace(characterName))
             {
-                return Json("Character name is required");
+                return ErrorResponse("Character name is required");
             }
 
             var character = _characterService.GetByName(characterName);
 
             if (character == null)
             {
-                return Json ("No character found");
+                return ErrorResponse("No character found");
             }
 
-            return Json(CharacterViewModelHelpers.ConvertToviewModel(character));
+            return SingleResult(CharacterViewModelHelpers.ConvertToviewModel(character));
         }
 
         [HttpGet("Search")]
@@ -61,11 +61,10 @@ namespace dwCheckApi.Controllers
 
             if (!characters.Any())
             {
-                return Json("Not Found");
+                return ErrorResponse("Not Found");
             }
-
-            var viewModels = CharacterViewModelHelpers.ConvertToViewModels(characters.ToList());                    
-            return Json(viewModels);
+                            
+            return MultipleResults(CharacterViewModelHelpers.ConvertToViewModels(characters.ToList()));
         }
     }
 }
