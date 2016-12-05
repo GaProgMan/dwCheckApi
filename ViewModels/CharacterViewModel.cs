@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace dwCheckApi.ViewModels
 {
-    public class CharacterViewModel
+    public class CharacterViewModel : BaseViewModel
     {
         public CharacterViewModel()
         { 
