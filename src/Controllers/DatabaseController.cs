@@ -18,5 +18,11 @@ namespace dwCheckApi.Controllers
         {
             _databaseService.SeedDatabase();
         }
+
+        [HttpGet("DropData")]
+        public void DropData()
+        {
+            _databaseService.ClearDatabase();
+        }
     }
 }
