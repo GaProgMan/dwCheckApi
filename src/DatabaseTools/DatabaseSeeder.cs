@@ -23,6 +23,10 @@ namespace dwCheckApi.DatabaseTools
             {
                 var dataSet = File.ReadAllText(filePath);
                 var seedData = JsonConvert.DeserializeObject<List<Book>>(dataSet);
+
+                // ensure that we only get the distinct books (based on their name)
+                var distinctSeedData = seedData.GroupBy(b => b.BookName).Select(b => b.First());
+
                 _context.Books.AddRange(seedData);
                 _context.SaveChanges();
             }
@@ -34,8 +38,12 @@ namespace dwCheckApi.DatabaseTools
             if (File.Exists(filePath))
             {
                 var dataSet = File.ReadAllText(filePath);
-                var seedData = JsonConvert.DeserializeObject<List<Character>>(dataSet);
-                _context.Characters.AddRange(seedData);
+                var seedData = JsonConvert.DeserializeObject<IEnumerable<Character>>(dataSet);
+
+                // ensure that we only get the distinct characters (based on their name)
+                var distinctSeedData = seedData.GroupBy(c => c.CharacterName).Select(c => c.First());
+
+                _context.Characters.AddRange(distinctSeedData);
                 _context.SaveChanges();
             }
         }
@@ -48,22 +56,25 @@ namespace dwCheckApi.DatabaseTools
                 var dataSet = File.ReadAllText(filePath);
                 var seedData = JsonConvert.DeserializeObject<List<BookCharacterSeedData>>(dataSet);
 
-                foreach(var bc in seedData)
+                foreach(var seedBook in seedData)
                 {
-                    var book = _context.Books.Single(b => b.BookName == bc.BookName);
-                    var characters = _context.Characters.Where(c => bc.CharacterNames.Contains(c.CharacterName));
+                    var dbBook = _context.Books.Single(b => b.BookName == seedBook.BookName);
 
-                    foreach (var character in characters)
+                    foreach (var seedChar in seedBook.CharacterNames)
                     {
-                        _context.BookCharacters.Add(new BookCharacter
+                        var dbChar = _context.Characters.FirstOrDefault(c => c.CharacterName == seedChar);
+                        if (dbChar != null)
                         {
-                            Book = book,
-                            Character = character
-                        });
+                            _context.BookCharacters.Add(new BookCharacter
+                            {
+                                Book = dbBook,
+                                Character = dbChar
+                            }); 
+                        }
                     }
                 }
                 _context.SaveChanges();
-                }
+            }
         }
     }
 }
