@@ -9,9 +9,9 @@ It has been released, as is, using a GPL v3 licence. For more information on the
 
 ## Building and Running
 
-1. Change directory to the root of the code
+1. Change directory to the src directory
 
-    `cd dwCheckApi`
+    `cd src`
 
 1. Issue the `dotnet` restore command (this resolves all NuGet packages)
 
@@ -228,7 +228,7 @@ The data returned from `dwCheck`'s server is in a slightly different, more simpl
 
 # Seeding the Database
 
-During startup, in the Configure method, `dwCheck` will apply any outstanding mirgrations (which is not an acceptable best practise, but is ok for during development. This feature will be disabled once the code is ready for release) then seeds the database via the `EnsureSeedData` extention method, if there is no data.
+During startup, in the Configure method, `dwCheck` will apply any outstanding mirgrations (which is not an acceptable best practise, but is ok for during development. This feature will be disabled once the code reaches release candidate) then seeds the database via the `EnsureSeedData` extention method, if there is no data.
 
 *Note: Seeding of the initial dataset will not happen if deCheckApi detects a pre-existing database. However, migrations may still be applied*
 
