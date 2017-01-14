@@ -1,6 +1,92 @@
 [
     {
-        "BookName" : "The Colour of Magic",
-        "CharacterNames" : ["Rincewind", "Ridcully"]
+        "BookName": "The Colour of Magic",
+        "CharacterNames": [
+            "Bel-Shamharoth",
+            "Hrun, the Barbarian",
+            "Liessa Wyrmbidder",
+            "The Luggage",
+            "Rincewind",
+            "Twoflower"
+            ]
+    },
+    {
+        "BookName": "The Light Fantastic",
+        "CharacterNames": [
+            "Rincewind",
+            "Twoflower",
+            "The Luggage",
+            "Ymper Trymon",
+            "Cohen"
+        ]
+    },
+    {
+        "BookName": "Equal Rites",
+        "CharacterNames": [
+            "Granny Esme Weatherwax",
+            "Eskarina Smith",
+            "Simon",
+            "Drum Billet",
+            "Archchancellor Cutangle"
+        ]
+    },
+    {
+        "BookName": "Mort",
+        "CharacterNames": [
+            "Death",
+            "Mort",
+            "Ysabell",
+            "Binky",
+            "Albert",
+            "Keli"
+        ]
+    },
+    {
+        "BookName": "Sourcery",
+        "CharacterNames":[
+            "Marmaric Carding",
+            "Coin",
+            "Conina",
+            "The Luggage",
+            "Nijel the Destroyer",
+            "Rincewind",
+            "Spelter"
+        ]
+    },
+    {
+        "BookName": "Wyrd Sisters",
+        "CharacterNames":[
+            "Nanny Ogg",
+            "Magrat Garlick",
+            "King Verence",
+            "Leonal Felmet",
+            "Lady Felmet",
+            "The Fool",
+            "Tomjon",
+            "Olwyn Vitoller",
+            "Hwel"
+        ]
+    },
+    {
+        "BookName": "Pyramids",
+        "CharacterNames":[
+            "Dios",
+            "Teppic",
+            "Chidder",
+            "Ptraci"
+        ]
+    },
+    {
+        "BookName": "Guards! Guards!",
+        "CharacterNames":[
+            "Carrot Ironfoundersson",
+            "Samuel Vimes",
+            "Fred Colon",
+            "Nobby Nobs",
+            "Havelock Vetinari",
+            "Lupine Wonse",
+            "The Elucidated Brethren of the Ebon Night",
+            "Sybil Ramkin"
+        ]
     }
 ]

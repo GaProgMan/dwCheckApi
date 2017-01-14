@@ -1,32 +1,137 @@
 [
     {
-        "CharacterName" :"Blind Io"
+        "CharacterName" : "Bel-Shamharoth"
     },
     {
-        "CharacterName" : "Death"
+        "CharacterName" : "Hrun, the Barbarian"
     },
     {
-        "CharacterName" : "Fate"
+        "CharacterName": "Liessa Wyrmbidder"
     },
     {
-        "CharacterName" : "Offler"
+        "CharacterName": "The Luggage"
     },
     {
-        "CharacterName" : "The Luggage"
+        "CharacterName": "Rincewind"
     },
     {
-        "CharacterName" : "The Partician"
+        "CharacterName": "Twoflower"
     },
     {
-        "CharacterName" : "Rincewind"
-    }, 
-    {
-        "CharacterName" : "The Lady"
+        "CharacterName": "Ymper Trymon"
     },
     {
-        "CharacterName" : "Twoflower"
+        "CharacterName": "Cohen"
     },
     {
-        "CharacterName" : "Ridcully"
+        "CharacterName": "Granny Esme Weatherwax"
+    },
+    {
+        "CharacterName": "Eskarina Smith"
+    },
+    {
+        "CharacterName": "Simon"
+    },
+    {
+        "CharacterName": "Drum Billet"
+    },
+    {
+        "CharacterName": "Archchancellor Cutangle"
+    },
+    {
+        "CharacterName": "Death"
+    },
+    {
+        "CharacterName": "Mort"
+    },
+    {
+        "CharacterName": "Ysabell"
+    },
+    {
+        "CharacterName": "Binky"
+    },
+    {
+        "CharacterName": "Albert"
+    },
+    {
+        "CharacterName": "Keli"
+    },
+    {
+        "CharacterName": "Marmaric Carding"
+    },
+    {
+        "CharacterName": "Coin"
+    },
+    {
+        "CharacterName": "Conina"
+    },
+    {
+        "CharacterName": "Nijel the Destroyer"
+    },
+    {
+        "CharacterName": "Spelter"
+    },
+    {
+        "CharacterName": "Nanny Ogg"
+    },
+    {
+        "CharacterName": "Magrat Garlick"
+    },
+    {
+        "CharacterName": "King Verence"
+    },
+    {
+        "CharacterName": "Leonal Felmet"
+    },
+    {
+        "CharacterName": "Lady Felmet"
+    },
+    {
+        "CharacterName": "The Fool"
+    },
+    {
+        "CharacterName": "Tomjon"
+    },
+    {
+        "CharacterName": "Olwyn Vitoller"
+    },
+    {
+        "CharacterName": "Hwel"
+    },
+    {
+        "CharacterName": "Dios"
+    },
+    {
+        "CharacterName": "Teppic"
+    },
+    {
+        "CharacterName": "Chidder"
+    },
+    {
+        "CharacterName": "Ptraci"
+    },
+    {
+        "CharacterName": "Carrot Ironfoundersson"
+    },
+    {
+        "CharacterName": "Samuel Vimes"
+    },
+    {
+        "CharacterName": "Fred Colon"
+    },
+    {
+        "CharacterName": "Nobby Nobs"
+    },
+    {
+        "CharacterName": "Havelock Vetinari"
+    },
+    {
+        "CharacterName": "Lupine Wonse"
+    },
+    {
+        "CharacterName": "The Elucidated Brethren of the Ebon Night"
+    },
+    {
+        "CharacterName": "Sybil Ramkin"
     }
 ]

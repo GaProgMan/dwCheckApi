@@ -43,130 +43,13 @@ namespace dwCheckApi.DatabaseContexts
                 }
 
                 context.SaveChanges();
-                // if (!context.BookCharacters.Any())
-                // {
-                //     context.BookCharacters.AddRange(GenerateBookCharacters());
-                //     context.SaveChanges();
-                // }
-                // if(!context.Books.Any())
-                // {
-                //     context.Books.AddRange(GenerateAllBookEntiies());
-
-                //     context.Characters.AddRange(GenerateAllCharacters());
-
-                //     context.SaveChanges();  
-
-                //     context.BookCharacter.AddRange(GenerateAllBookCharacter(context));
-
-                //     context.SaveChanges();
-                // }
             }
         }
 
-        private static List<BookCharacter> GenerateBookCharacters()
-        {
-            var books = GenerateAllBookEntiies();
-            var characters = GenerateAllCharacters();
-
-            return new List<BookCharacter> () {
-                new BookCharacter {
-                    Book = books.Single(b => b.BookName == "The Colour of Magic"),
-                    Character = characters.Single(c => c.CharacterName == "Rincewind")
-                }
-            };
-        }
-
-        private static List<Character> GenerateAllCharacters()
-        {
-            return new List<Character>()
-			{
-				new Character {
-					CharacterName = "Blind Io"
-				}, new Character {
-					CharacterName = "Death"
-				}, new Character {
-					CharacterName = "Fate"
-				}, new Character{
-					CharacterName = "Offler"
-				}, new Character {
-					CharacterName = "The Luggage"
-				}, new Character{
-					CharacterName = "The Partician"
-				}, new Character {
-					CharacterName = "Rincewind"
-				}, new Character{
-					CharacterName = "The Lady"
-				}, new Character {
-					CharacterName = "Twoflower"
-				}, new Character {
-					CharacterName = "Ridcully"
-				}
-			};
-        }
-
         private static List<Book> GenerateAllBookEntiies()
-        {
-            var colourOfMagic = new Book {
-				BookName = "The Colour of Magic",
-				BookOrdinal = 1,
-				BookIsbn10 = "086140324X",
-				BookIsbn13 = "9780552138932",
-				BookDescription = "On a world supported on the back of a giant turtle (sex unknown), a gleeful, explosive, wickedly eccentric expedition sets out. There's an avaricious but inept wizard, a naive tourist whose luggage moves on hundreds of dear little legs, dragons who only exist if you believe in them, and of course THE EDGE of the planet ...",
-				BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/c/c9/Cover_The_Colour_Of_Magic.jpg"
-			};
-                
+        {       
             return new List<Book>(){
-                colourOfMagic
-                ,new Book {
-                    BookName = "The Light Fantastic",
-                    BookOrdinal = 2,
-                    BookIsbn10 = "0861402030",
-                    BookIsbn13 = "9780747530794",
-                    BookDescription = "As it moves towards a seemingly inevitable collision with a malevolent red star, the Discworld has only one possible saviour. Unfortunately, this happens to be the singularly inept and cowardly wizard called Rincewind, who was last seen falling off the edge of the world ....",
-                    BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/f/f1/Cover_The_Light_Fantastic.jpg"
-                },new Book {
-                    BookName = "Equal Rites",
-                    BookOrdinal = 3,
-                    BookIsbn10 = "0304364258",
-                    BookIsbn13 = "9780304364251",
-                    BookDescription = "The last thing the wizard Drum Billet did, before Death laid a bony hand on his shoulder, was to pass on his staff of power to the eighth son of an eighth son. Unfortunately for his colleagues in the chauvinistic (not to say misogynistic) world of magic, he failed to check on the new-born baby's sex...",
-                    BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/e/e0/Equal_Rites.jpg"
-                }, new Book {
-                    BookName = "Mort",
-                    BookOrdinal = 4,
-                    BookIsbn10 = "0552152617",
-                    BookIsbn13 = "9780552152617",
-                    BookDescription = "Death comes to us all. When he came to Mort, he offered him a job. After being assured that being dead was not compulsory, Mort accepted. However, he soon found that romantic longings did not mix easily with the responsibilities of being Death's apprentice ....",
-                    BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/2/24/Cover_Mort.jpg"
-                }, new Book {
-                    BookName = "Sourcery",
-                    BookOrdinal = 5,
-                    BookIsbn10 = "0575042176",
-                    BookIsbn13 = "9780575042179",
-                    BookDescription = "There was an eighth son of an eighth son. He was, quite naturally, a wizard. And there it should have ended. However (for reasons we'd better not go into), he had seven sons. And then he had an eighth son... a wizard squared... a source of magic... a Sourcerer.",
-                    BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/a/a0/Sourcery.jpg"
-                }, new Book {
-                    BookName = "Wyrd Sisters",
-                    BookOrdinal = 6,
-                    BookIsbn10 = "0552134600",
-                    BookIsbn13 = "9780552134606",
-                    BookDescription = "Witches are not by their nature gregarious, and they certainly don't have leaders. Granny Weatherwax was the most highly-regarded of the leaders they didn't have. But even she found that meddling in royal politics was a lot more difficult than certain playwrights would have you believe ...",
-                    BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/3/33/Cover_Wyrd_Sisters.jpg"
-                }, new Book {
-                    BookName = "Pyramids",
-                    BookOrdinal = 7,
-                    BookIsbn10 = "0552134619",
-                    BookIsbn13 = "9780552134613",
-                    BookDescription = "Being trained by the Assassins' Guild in Ankh-Morpork did not fit Teppic for the task assigned to him by fate. He inherited the throne of the desert kingdom of Djelibeybi rather earlier than he expected (his father wasn't too happy about it either), but that was only the beginning of his problems ...",
-                    BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/b/be/Cover_Pyramids.jpg"
-                }, new Book {
-                    BookName = "Guards! Guards!",
-                    BookOrdinal = 8,
-                    BookIsbn10 = "0552134627",
-                    BookIsbn13 = "9780552134620",
-                    BookDescription = "This is where the dragons went. They lie ... not dead, not asleep, but ... dormant. And although the space they occupy isn't like normal space, nevertheless they are packed in tightly. They could put you in mind of a can of sardines, if you thought sardines were huge and scaly. And presumably, somewhere, there's a key ...",
-                    BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/0/06/G%21G%21.jpg"
-                }, new Book {
+                new Book {
                     BookName = "Eric",
                     BookOrdinal = 9,
                     BookIsbn10 = "0575046368",
