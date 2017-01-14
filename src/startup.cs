@@ -1,6 +1,5 @@
 using dwCheckApi.DatabaseContexts;
 using dwCheckApi.Services;
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -38,6 +37,7 @@ namespace dwCheckApi
             // DI our Book service in
             services.AddTransient<IBookService, BookService>();
             services.AddTransient<ICharacterService, CharacterService>();
+            services.AddTransient<IDatabaseService, DatabaseService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
