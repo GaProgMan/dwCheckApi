@@ -32,7 +32,8 @@ namespace dwCheckApi
 
             // Give ourselves access to the DwContext
             services.AddDbContext<DwContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("dwCheckApiConnection")));
+                //options.UseSqlite(Configuration.GetConnectionString("dwCheckApiConnection")));
+                options.UseSqlite(Configuration["Data:SqliteConnection:ConnectionString"]));
 
             // DI our Book service in
             services.AddTransient<IBookService, BookService>();

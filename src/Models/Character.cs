@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace dwCheckApi.Models
 {
-    public class Character
+    public class Character : BaseAuditClass
     {
         public int CharacterId { get; set; }
         public string CharacterName { get; set; }

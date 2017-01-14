@@ -1,5 +1,4 @@
 using dwCheckApi.Helpers;
-using dwCheckApi.ViewModels;
 using dwCheckApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;

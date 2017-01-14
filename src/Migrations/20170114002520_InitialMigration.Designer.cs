@@ -5,16 +5,16 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using dwCheckApi.DatabaseContexts;
 
-namespace dwCheckApi.Migrations
+namespace src.Migrations
 {
     [DbContext(typeof(DwContext))]
-    [Migration("20161124201834_initialMigration")]
-    partial class initialMigration
+    [Migration("20170114002520_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.0.0-rtm-21431");
+                .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
 
             modelBuilder.Entity("dwCheckApi.Models.Book", b =>
                 {
@@ -46,20 +46,19 @@ namespace dwCheckApi.Migrations
 
             modelBuilder.Entity("dwCheckApi.Models.BookCharacter", b =>
                 {
-                    b.Property<int>("BookCharacterId")
-                        .ValueGeneratedOnAdd();
-
                     b.Property<int>("BookId");
 
                     b.Property<int>("CharacterId");
 
-                    b.HasKey("BookCharacterId");
+                    b.Property<DateTime>("Created");
 
-                    b.HasIndex("BookId");
+                    b.Property<DateTime>("Modified");
+
+                    b.HasKey("BookId", "CharacterId");
 
                     b.HasIndex("CharacterId");
 
-                    b.ToTable("BookCharacter");
+                    b.ToTable("BookCharacters");
                 });
 
             modelBuilder.Entity("dwCheckApi.Models.Character", b =>
@@ -68,6 +67,10 @@ namespace dwCheckApi.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("CharacterName");
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<DateTime>("Modified");
 
                     b.HasKey("CharacterId");
 

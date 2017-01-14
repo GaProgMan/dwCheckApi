@@ -1,9 +1,7 @@
+using dwCheckApi.DatabaseTools;
 using dwCheckApi.Models;
-using dwCheckApi.Services;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 
@@ -30,37 +28,52 @@ namespace dwCheckApi.DatabaseContexts
         {
             if (context.AllMigrationsApplied())
             {
-                if(!context.Books.Any())
+                var dbSeeder = new DatabaseSeeder(context);
+                if (!context.Books.Any())
                 {
-                    context.Books.AddRange(GenerateAllBookEntiies());
-
-                    context.Characters.AddRange(GenerateAllCharacters());
-
-                    context.SaveChanges();  
-
-                    context.BookCharacter.AddRange(GenerateAllBookCharacter(context));
-
-                    context.SaveChanges();
+                    dbSeeder.SeedBookEntitiesFromJson();
                 }
+                if (!context.Characters.Any())
+                {
+                    dbSeeder.SeedCharacterEntitiesFromJson();
+                }
+                if (!context.BookCharacters.Any())
+                {
+                    dbSeeder.SeedBookCharacterEntriesFromJson();
+                }
+
+                context.SaveChanges();
+                // if (!context.BookCharacters.Any())
+                // {
+                //     context.BookCharacters.AddRange(GenerateBookCharacters());
+                //     context.SaveChanges();
+                // }
+                // if(!context.Books.Any())
+                // {
+                //     context.Books.AddRange(GenerateAllBookEntiies());
+
+                //     context.Characters.AddRange(GenerateAllCharacters());
+
+                //     context.SaveChanges();  
+
+                //     context.BookCharacter.AddRange(GenerateAllBookCharacter(context));
+
+                //     context.SaveChanges();
+                // }
             }
         }
 
-        private static List<BookCharacter> GenerateAllBookCharacter(DwContext context)
+        private static List<BookCharacter> GenerateBookCharacters()
         {
-            var book = context.Books.First(bo => bo.BookOrdinal == 1);
-            var characters = context.Characters;
+            var books = GenerateAllBookEntiies();
+            var characters = GenerateAllCharacters();
 
-            var bookChars = new List<BookCharacter>();
-            foreach (var ch in characters)
-            {
-                bookChars.Add(new BookCharacter
-                {
-                    Character = ch,
-                    Book = book
-                });
-            }
-
-            return bookChars;
+            return new List<BookCharacter> () {
+                new BookCharacter {
+                    Book = books.Single(b => b.BookName == "The Colour of Magic"),
+                    Character = characters.Single(c => c.CharacterName == "Rincewind")
+                }
+            };
         }
 
         private static List<Character> GenerateAllCharacters()

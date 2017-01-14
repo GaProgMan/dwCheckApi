@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace dwCheckApi.Migrations
+namespace src.Migrations
 {
-    public partial class initialMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace dwCheckApi.Migrations
                 columns: table => new
                 {
                     BookId = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
+                        .Annotation("Sqlite:Autoincrement", true),
                     BookCoverImage = table.Column<byte[]>(nullable: true),
                     BookCoverImageUrl = table.Column<string>(nullable: true),
                     BookDescription = table.Column<string>(nullable: true),
@@ -34,8 +34,10 @@ namespace dwCheckApi.Migrations
                 columns: table => new
                 {
                     CharacterId = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
-                    CharacterName = table.Column<string>(nullable: true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CharacterName = table.Column<string>(nullable: true),
+                    Created = table.Column<DateTime>(nullable: false),
+                    Modified = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -43,25 +45,25 @@ namespace dwCheckApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BookCharacter",
+                name: "BookCharacters",
                 columns: table => new
                 {
-                    BookCharacterId = table.Column<int>(nullable: false)
-                        .Annotation("Autoincrement", true),
                     BookId = table.Column<int>(nullable: false),
-                    CharacterId = table.Column<int>(nullable: false)
+                    CharacterId = table.Column<int>(nullable: false),
+                    Created = table.Column<DateTime>(nullable: false),
+                    Modified = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BookCharacter", x => x.BookCharacterId);
+                    table.PrimaryKey("PK_BookCharacters", x => new { x.BookId, x.CharacterId });
                     table.ForeignKey(
-                        name: "FK_BookCharacter_Books_BookId",
+                        name: "FK_BookCharacters_Books_BookId",
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "BookId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookCharacter_Characters_CharacterId",
+                        name: "FK_BookCharacters_Characters_CharacterId",
                         column: x => x.CharacterId,
                         principalTable: "Characters",
                         principalColumn: "CharacterId",
@@ -69,20 +71,15 @@ namespace dwCheckApi.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BookCharacter_BookId",
-                table: "BookCharacter",
-                column: "BookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BookCharacter_CharacterId",
-                table: "BookCharacter",
+                name: "IX_BookCharacters_CharacterId",
+                table: "BookCharacters",
                 column: "CharacterId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BookCharacter");
+                name: "BookCharacters");
 
             migrationBuilder.DropTable(
                 name: "Books");
