@@ -1,11 +1,10 @@
 using dwCheckApi.Models;
 using dwCheckApi.DatabaseContexts;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace dwCheckApi.Services 
+namespace dwCheckApi.Services
 {
     public class CharacterService : ICharacterService
     {

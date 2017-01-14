@@ -1,9 +1,6 @@
 using dwCheckApi.Models;
 using dwCheckApi.ViewModels;
 
-using System.Collections.Generic;
-using System.Linq;
-
 namespace dwCheckApi.Helpers
 {
     public static class BookCharacterViewModelHelpers

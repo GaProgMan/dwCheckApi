@@ -1,9 +1,7 @@
+using dwCheckApi.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
-using dwCheckApi.Models;
-
-// the Entity Framework namespace
-using Microsoft.EntityFrameworkCore;
 
 namespace dwCheckApi.DatabaseContexts 
 {

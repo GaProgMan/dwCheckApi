@@ -23,6 +23,12 @@ It has been released, as is, using a GPL v3 licence. For more information on the
 
     *Note: this step explicitly builds a debug version of dwCheckApi. See the sub section on Build Information for more information.*
 
+1. Issue the Entity Framework command to update the database
+
+    `dotnet ef database update`
+
+    This will ensure that all migrations are used to create or alter the local database instance, ready for seeding to.
+
 1. Issue the `dotnet` run command
 
     `dotnet run`

@@ -5,7 +5,6 @@ namespace dwCheckApi.Models
 {
     public class Book : BaseAuditClass
     {
-        // our primary key
         public int BookId { get; set; }
         public int BookOrdinal { get; set; }
         public string BookName { get; set; }
