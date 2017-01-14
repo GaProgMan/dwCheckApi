@@ -86,7 +86,87 @@
             "Havelock Vetinari",
             "Lupine Wonse",
             "The Elucidated Brethren of the Ebon Night",
-            "Sybil Ramkin"
+            "Sybil Ramkin",
+            "Cut-Me-Own-Throat Dibbler",
+            "The Librarian",
+            "Reet",
+            "Detritus",
+            "Brother Fingers",
+            "Brother Dunnikin",
+            "Brother Doorkeeper",
+            "Brother Watchtower",
+            "Brother Plasterer"
+        ]
+    },
+    {
+        "BookName": "Eric",
+        "CharacterNames":[
+            "Eric",
+            "Rincewind",
+            "The Luggage",
+            "Archchancellor Ezrolith Churn",
+            "Astfgl, King of Hell",
+            "Elenor of Tsort",
+            "Lavaeolus",
+            "Duke Vassenego",
+            "Quezovercoatl",
+            "Ponce da Quirm",
+            "The Creator",
+            "Death"
+        ]
+    },
+    {
+        "BookName": "Moving Pictures",
+        "CharacterNames": [
+            "Thomas Silverfish",
+            "Victor Tugelbend",
+            "Ruby",
+            "Gaspode",
+            "Theda Withel",
+            "Oswald",
+            "Deccan Ribobe",
+            "Marietta Cosmopilite",
+            "Gaffer Bird",
+            "Galena",
+            "Laddie",
+            "Soll Dibbler"
+        ]
+    },
+    {
+        "BookName": "Reaper Man",
+        "CharacterNames":[
+            "Death",
+            "Renata Flitworth",
+            "Auditors of Reality",
+            "Azrael",
+            "New Death",
+            "Death of Rats",
+            "Windle Poons",
+            "Mustrum Ridcully",
+            "The Senior Wrangler",
+            "The Dean",
+            "The Bursar",
+            "The Lecturer in Recent Runes",
+            "Lupine",
+            "Ludmilla Cake",
+            "Mrs. Cake",
+            "Reg Shoe",
+            "Schleppel",
+            "Mr. Ixolite",
+            "Arthur Winkings",
+            "Doreen Winkings",
+            "Gabby Wheels", 
+            "Duke Bottomley",
+            "William Spigot",
+            "Captain Douglas",
+            "Albert",
+            "Sal Lifton",
+            "Ned Simnel",
+            "Rufus",
+            "Fred Colon",
+            "Modo",
+            "Cut-Me-Own-Throat Dibbler",
+            "Havelock Vetinari"
         ]
     }
 ]

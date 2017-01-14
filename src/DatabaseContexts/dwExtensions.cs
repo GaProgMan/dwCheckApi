@@ -50,26 +50,6 @@ namespace dwCheckApi.DatabaseContexts
         {       
             return new List<Book>(){
                 new Book {
-                    BookName = "Eric",
-                    BookOrdinal = 9,
-                    BookIsbn10 = "0575046368",
-                    BookIsbn13 = "9780575046368",
-                    BookDescription ="Eric is the Discworld's only demonology hacker. Pity he's not very good at it. All he wants is three wishes granted. Nothing fancy - to be immortal, rule the world, have the most beautiful woman in the world fall madly in love with him, the usual stuff. But instead of a tractable demon, he calls up Rincewind, probably the most incompetent wizard in the universe, and the extremely intractable and hostile form of travel accessory known as the Luggage. With them on his side, Eric's in for a ride through space and time that is bound to make him wish (quite fervently) again - this time that he'd never been born.",
-                    BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/2/27/Cover_Eric_%28alt%29.jpg"
-                }, new Book {
-                    BookName = "Moving Pictures",
-                    BookOrdinal = 10,
-                    BookIsbn10 = "0575064862",
-                    BookIsbn13 = "9780575064867",
-                    BookDescription = "The alchemists of the Discworld have discovered the magic of the silver screen. But what is the dark secret of Holy Wood hill? It's up to Victor Tugelbend ('Can't sing. Can't dance. Can handle a sword a little') and Theda Withel ('I come from a little town you've probably never heard of') to find out ... Moving Pictures, the tenth Discworld novel, is a gloriously funny saga set against the background of a world gone mad!",
-                    BookCoverImageUrl = "http://wiki.lspace.org/mediawiki/images/c/c6/Cover_Moving_Pictures.jpg"
-                }, new Book {
-                    BookName = "Reaper Man",
-                    BookOrdinal = 11,
-                    BookIsbn10 = "0552134643",
-                    BookIsbn13 = "9780552134644",
-                    BookDescription = "Death is missing – presumed ... er ... gone. Which leads to the kind of chaos to always expect when an important public service is withdrawn. Ghosts and poltergeists fill up the Discworld. Dead Rights activist Reg Shoe – 'You Don't Have to Take This Lying Down' – suddenly has more work than he had ever dreamed of. And newly deceased wizard Windle Poons wakes up in his coffin to find that he has come back as a corpse. But it's up to Windle and the members of Ankh-Morpork's rather unfrightening group of undead to save the world for the living."
-                }, new Book {
                     BookName = "Witches Abroad",
                     BookOrdinal = 12,
                     BookIsbn10 = "0552134651",
