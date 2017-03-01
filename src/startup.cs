@@ -56,7 +56,7 @@ namespace dwCheckApi
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
                     var context = serviceScope.ServiceProvider.GetService<DwContext>();       
-                    context.Database.Migrate();
+                    //context.Database.Migrate();
                     context.EnsureSeedData();
                 }
             //}

@@ -1,4 +1,5 @@
 using dwCheckApi.Services;
+using dwCheckApi.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dwCheckApi.Controllers
@@ -14,15 +15,20 @@ namespace dwCheckApi.Controllers
         }
 
         [HttpGet("SeedData")]
-        public void SeedData()
+        public JsonResult SeedData()
         {
-            _databaseService.SeedDatabase();
+            var entitiesAdded = _databaseService.SeedDatabase();
+
+            return MessageResult($"Number of new entities added: {entitiesAdded}");
+
         }
 
         [HttpGet("DropData")]
-        public void DropData()
+        public JsonResult DropData()
         {
-            _databaseService.ClearDatabase();
+            var success = _databaseService.ClearDatabase();
+
+            return MessageResult("Database tabled dropped and recreated", success);
         }
     }
 }

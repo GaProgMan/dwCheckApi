@@ -1,0 +1,997 @@
+[
+    {
+        "CharacterName" : "Bel-Shamharoth"
+    },
+    {
+        "CharacterName" : "Hrun, the Barbarian"
+    },
+    {
+        "CharacterName": "Liessa Wyrmbidder"
+    },
+    {
+        "CharacterName": "The Luggage"
+    },
+    {
+        "CharacterName": "Rincewind"
+    },
+    {
+        "CharacterName": "Twoflower"
+    },
+    {
+        "CharacterName": "Ymper Trymon"
+    },
+    {
+        "CharacterName": "Cohen"
+    },
+    {
+        "CharacterName": "Granny Esme Weatherwax"
+    },
+    {
+        "CharacterName": "Eskarina Smith"
+    },
+    {
+        "CharacterName": "Simon"
+    },
+    {
+        "CharacterName": "Drum Billet"
+    },
+    {
+        "CharacterName": "Archchancellor Cutangle"
+    },
+    {
+        "CharacterName": "Death"
+    },
+    {
+        "CharacterName": "Mort"
+    },
+    {
+        "CharacterName": "Ysabell"
+    },
+    {
+        "CharacterName": "Binky"
+    },
+    {
+        "CharacterName": "Albert"
+    },
+    {
+        "CharacterName": "Keli"
+    },
+    {
+        "CharacterName": "Marmaric Carding"
+    },
+    {
+        "CharacterName": "Coin"
+    },
+    {
+        "CharacterName": "Conina"
+    },
+    {
+        "CharacterName": "Nijel the Destroyer"
+    },
+    {
+        "CharacterName": "Spelter"
+    },
+    {
+        "CharacterName": "Nanny Ogg"
+    },
+    {
+        "CharacterName": "Magrat Garlick"
+    },
+    {
+        "CharacterName": "King Verence"
+    },
+    {
+        "CharacterName": "Leonal Felmet"
+    },
+    {
+        "CharacterName": "Lady Felmet"
+    },
+    {
+        "CharacterName": "The Fool"
+    },
+    {
+        "CharacterName": "Tomjon"
+    },
+    {
+        "CharacterName": "Olwyn Vitoller"
+    },
+    {
+        "CharacterName": "Hwel"
+    },
+    {
+        "CharacterName": "Dios"
+    },
+    {
+        "CharacterName": "Teppic"
+    },
+    {
+        "CharacterName": "Chidder"
+    },
+    {
+        "CharacterName": "Ptraci"
+    },
+    {
+        "CharacterName": "Carrot Ironfoundersson"
+    },
+    {
+        "CharacterName": "Samuel Vimes"
+    },
+    {
+        "CharacterName": "Fred Colon"
+    },
+    {
+        "CharacterName": "Nobby Nobs"
+    },
+    {
+        "CharacterName": "Havelock Vetinari"
+    },
+    {
+        "CharacterName": "Lupine Wonse"
+    },
+    {
+        "CharacterName": "The Elucidated Brethren of the Ebon Night"
+    },
+    {
+        "CharacterName": "Sybil Ramkin"
+    },
+    {
+        "CharacterName": "Cut-Me-Own-Throat Dibbler"
+    },
+    {
+        "CharacterName": "The Librarian"
+    },
+    {
+        "CharacterName": "Reet"
+    },
+    {
+        "CharacterName": "Detritus"
+    },
+    {
+        "CharacterName": "Brother Fingers"
+    },
+    {
+        "CharacterName": "Brother Dunnikin"
+    },
+    {
+        "CharacterName": "Brother Doorkeeper"
+    },
+    {
+        "CharacterName": "Brother Watchtower"
+    },
+    {
+        "CharacterName": "Brother Plasterer"
+    }
+    ,
+    {
+        "CharacterName": "Eric"
+    },
+    {
+        "CharacterName": "Archchancellor Ezrolith Churn"
+    },
+    {
+        "CharacterName": "Astfgl, King of Hell"
+    },
+    {
+        "CharacterName": "Elenor of Tsort"
+    },
+    {
+        "CharacterName": "Lavaeolus"
+    },
+    {
+        "CharacterName": "Duke Vassenego"
+    },
+    {
+        "CharacterName": "Quezovercoatl"
+    },
+    {
+        "CharacterName": "Ponce da Quirm"
+    },
+    {
+        "CharacterName": "The Creator"
+    },
+    {
+        "CharacterName": "Thomas Silverfish"
+    }
+    ,
+    {
+        "CharacterName": "Victor Tugelbend"
+    },
+    {
+        "CharacterName": "Ruby"
+    },
+    {
+        "CharacterName": "Gaspode"
+    },
+    {
+        "CharacterName": "Theda Withel"
+    },
+    {
+        "CharacterName": "Oswald"
+    },
+    {
+        "CharacterName": "Deccan Ribobe"
+    },
+    {
+        "CharacterName": "Marietta Cosmopilite"
+    },
+    {
+        "CharacterName": "Gaffer Bird"
+    },
+    {
+        "CharacterName": "Galena"
+    },
+    {
+        "CharacterName": "Laddie"
+    },
+    {
+        "CharacterName": "Soll Dibbler"
+    },
+    {
+        "CharacterName": "Renata Flitworth"
+    },
+    {
+        "CharacterName": "Auditors of Reality"
+    },
+    {
+        "CharacterName": "Azrael"
+    },
+    {
+        "CharacterName": "New Death"
+    },
+    {
+        "CharacterName": "Death of Rats"
+    },
+    {
+        "CharacterName": "Windle Poons"
+    },
+    {
+        "CharacterName": "Mustrum Ridcully"
+    },
+    {
+        "CharacterName": "The Senior Wrangler"
+    },
+    {
+        "CharacterName": "The Dean"
+    },
+    {
+        "CharacterName": "The Bursar"
+    },
+    {
+        "CharacterName": "The Lecturer in Recent Runes"
+    },
+    {
+        "CharacterName": "Lupine"
+    },
+    {
+        "CharacterName": "Ludmilla Cake"
+    },
+    {
+        "CharacterName": "Mrs. Cake"
+    },
+    {
+        "CharacterName": "Reg Shoe"
+    },
+    {
+        "CharacterName": "Schleppel"
+    },
+    {
+        "CharacterName": "Mr. Ixolite"
+    },
+    {
+        "CharacterName": "Arthur Winkings"
+    },
+    {
+        "CharacterName": "Doreen Winkings"
+    },
+    {
+        "CharacterName": "Gabby Wheels"
+    },
+    {
+        "CharacterName": "Duke Bottomley"
+    },
+    {
+        "CharacterName": "William Spigot"
+    },
+    {
+        "CharacterName": "Captain Douglas"
+    },
+    {
+        "CharacterName": "Sal Lifton"
+    },
+    {
+        "CharacterName": "Ned Simnel"
+    },
+    {
+        "CharacterName": "Rufus"
+    },
+    {
+        "CharacterName": "Modo"
+    },
+    {
+        "CharacterName": "Greebo"
+    },
+    {
+        "CharacterName": "Lily Weatherwax"
+    },
+    {
+        "CharacterName": "Emberella"
+    },
+    {
+        "CharacterName": "Mrs Pleasant"
+    },
+    {
+        "CharacterName": "Erzulie Gogol"
+    },
+    {
+        "CharacterName": "Baron Saturday"
+    },
+    {
+        "CharacterName": "Count Casanunda"
+    },
+    {
+        "CharacterName": "The Duc"
+    },
+    {
+        "CharacterName": "Desiderata Hollow"
+    },
+    {
+        "CharacterName": "Brutha"
+    },
+    {
+        "CharacterName": "Vorbis"
+    },
+    {
+        "CharacterName": "Om"
+    },
+    {
+        "CharacterName": "Great A'tuin"
+    },
+    {
+        "CharacterName": "Lu-Tze"
+    },
+    {
+        "CharacterName": "Brother Nhumrod"
+    },
+    {
+        "CharacterName": "Bishop Drunah"
+    },
+    {
+        "CharacterName": "General Iam Fri'it"
+    },
+    {
+        "CharacterName": "Sergeant Simony"
+    },
+    {
+        "CharacterName": "P'tang P'tang"
+    },
+    {
+        "CharacterName": "Didactylos"
+    },
+    {
+        "CharacterName": "Urn"
+    },
+    {
+        "CharacterName": "Sevrian Thaddeus Ungulant"
+    },
+    {
+        "CharacterName": "Tyrant of Ephebe"
+    },
+    {
+        "CharacterName": "Queen of the Elves"
+    },
+    {
+        "CharacterName": "King Verence II"
+    },
+    {
+        "CharacterName": "Shawn Ogg"
+    },
+    {
+        "CharacterName": "Ponder Stibbons"
+    },
+    {
+        "CharacterName": "King of the Elves"
+    },
+    {
+        "CharacterName": "Lankin"
+    },
+    {
+        "CharacterName": "Jason Ogg"
+    },
+    {
+        "CharacterName": "Binky"
+    },
+    {
+        "CharacterName": "Pewsey Ogg"
+    },
+    {
+        "CharacterName": "Millie Chillum"
+    },
+    {
+        "CharacterName": "Bestiality Carter"
+    },
+    {
+        "CharacterName": "Weaver"
+    },
+    {
+        "CharacterName": "Obidiah Carpenter"
+    },
+    {
+        "CharacterName": "Baker"
+    },
+    {
+        "CharacterName": "Thatcher"
+    },
+    {
+        "CharacterName": "Tailor"
+    },
+    {
+        "CharacterName": "Tinker"
+    },
+    {
+        "CharacterName": "Herne the Hunted"
+    },
+    {
+        "CharacterName": "Hodgesaargh"
+    },
+    {
+        "CharacterName": "Mr Brooks"
+    },
+    {
+        "CharacterName": "Angua von Überwald"
+    },
+    {
+        "CharacterName": "Cuddy"
+    },
+    {
+        "CharacterName": "Bauxite"
+    },
+    {
+        "CharacterName": "Beano"
+    },
+    {
+        "CharacterName": "Big Fido"
+    },
+    {
+        "CharacterName": "Blenkin"
+    },
+    {
+        "CharacterName": "Boffo"
+    },
+    {
+        "CharacterName": "Chubby"
+    },
+    {
+        "CharacterName": "Coalface"
+    },
+    {
+        "CharacterName": "Cornice-overlooking-Broadway"
+    },
+    {
+        "CharacterName": "Doctor Cruces"
+    },
+    {
+        "CharacterName": "Silas Cumberbatch"
+    },
+    {
+        "CharacterName": "Lord Downey"
+    },
+    {
+        "CharacterName": "Edward d'Eath"
+    },
+    {
+        "CharacterName": "Duke of Eorle"
+    },
+    {
+        "CharacterName": "Sir George"
+    },
+    {
+        "CharacterName": "Gayheart Talonthrust"
+    },
+    {
+        "CharacterName": "Bjorn Hammerhock"
+    },
+    {
+        "CharacterName": "Leonard of Quirm"
+    },
+    {
+        "CharacterName": "Queen Molly"
+    },
+    {
+        "CharacterName": "Lord Monflathers"
+    },
+    {
+        "CharacterName": "Lord Omnius"
+    },
+    {
+        "CharacterName": "Lady Omnius"
+    },
+    {
+        "CharacterName": "Captain Quirke"
+    },
+    {
+        "CharacterName": "Skully Multoon"
+    },
+    {
+        "CharacterName": "Lord Rust"
+    },
+    {
+        "CharacterName": "Mr. Scant"
+    },
+    {
+        "CharacterName": "Lady Selachii"
+    },
+    {
+        "CharacterName": "Sendivoge"
+    },
+    {
+        "CharacterName": "Viscount Skater"
+    },
+    {
+        "CharacterName": "Abba Stronginthearm"
+    },
+    {
+        "CharacterName": "Lord Venturi"
+    },
+    {
+        "CharacterName": "Willikins"
+    },
+    {
+        "CharacterName": "Dr. Whiteface"
+    },
+    {
+        "CharacterName": "Imp y Celyn"
+    },
+    {
+        "CharacterName": "Glod Glodsson"
+    },
+    {
+        "CharacterName": "Lias Bluestone"
+    },
+    {
+        "CharacterName": "Asphalt"
+    },
+    {
+        "CharacterName": "Quoth"
+    },
+    {
+        "CharacterName": "Mr. Clete"
+    },
+    {
+        "CharacterName": "Mr. Satchelmouth Lemon"
+    },
+    {
+        "CharacterName": "Herbert Shuffle"
+    },
+    {
+        "CharacterName": "Chair of Indefinite Studies"
+    },
+    {
+        "CharacterName": "Adrian Turnipseed"
+    },
+    {
+        "CharacterName": "Miss Eulalie Butts"
+    },
+    {
+        "CharacterName": "Miss Delacross"
+    },
+    {
+        "CharacterName": "Gloria Thogsdaughter"
+    },
+    {
+        "CharacterName": "Lady Sara"
+    },
+    {
+        "CharacterName": "Princess Jade"
+    },
+    {
+        "CharacterName": "Lady Odile Flume"
+    },
+    {
+        "CharacterName": "Crash"
+    },
+    {
+        "CharacterName": "Noddy"
+    },
+    {
+        "CharacterName": "Scum"
+    },
+    {
+        "CharacterName": "Jimbo"
+    },
+    {
+        "CharacterName": "The Duck Man"
+    },
+    {
+        "CharacterName": "Coffin Henry"
+    },
+    {
+        "CharacterName": "Foul Ole Ron"
+    },
+    {
+        "CharacterName": "Arnold Sideways"
+    },
+    {
+        "CharacterName": "Boy Willie"
+    },
+    {
+        "CharacterName": "Caleb the Ripper"
+    },
+    {
+        "CharacterName": "Ronald Saveloy"
+    },
+    {
+        "CharacterName": "Truckle the Uncivil"
+    },
+    {
+        "CharacterName": "Old Vincent"
+    },
+    {
+        "CharacterName": "Mad Hamish"
+    },
+    {
+        "CharacterName": "Lord Hong"
+    },
+    {
+        "CharacterName": "Four Big Sandal"
+    },
+    {
+        "CharacterName": "Three Maximum Luck"
+    },
+    {
+        "CharacterName": "Pretty Butterfly"
+    },
+    {
+        "CharacterName": "Lotus Blossom"
+    },
+    {
+        "CharacterName": "Two Fire Herb"
+    },
+    {
+        "CharacterName": "Three Yoked Oxen"
+    },
+    {
+        "CharacterName": "One Favourite Pearl"
+    },
+    {
+        "CharacterName": "Fate"
+    },
+    {
+        "CharacterName": "Offler"
+    },
+    {
+        "CharacterName": "Blind Io"
+    },
+    {
+        "CharacterName": "The Lady"
+    },
+    {
+        "CharacterName": "Quantum Weather Butterfly"
+    },
+    {
+        "CharacterName": "Hex"
+    },
+    {
+        "CharacterName": "Terror"
+    },
+    {
+        "CharacterName": "Panic"
+    },
+    {
+        "CharacterName": "Clancy"
+    },
+    {
+        "CharacterName": "Emperor of the Agatean Empire"
+    },
+    {
+        "CharacterName": "Mr Boggis"
+    },
+    {
+        "CharacterName": "Wilkins"
+    },
+    {
+        "CharacterName": "Imperial Guard"
+    },
+    {
+        "CharacterName": "Captain Three High Trees"
+    },
+    {
+        "CharacterName": "District Commissioner Kee"
+    },
+    {
+        "CharacterName": "Disembowel-Meself-Honourably Dibhala"
+    },
+    {
+        "CharacterName": "Five Tongs"
+    },
+    {
+        "CharacterName": "Two Little Wang"
+    },
+    {
+        "CharacterName": "Six Beneficent Winds"
+    },
+    {
+        "CharacterName": "One Big River"
+    },
+    {
+        "CharacterName": "Four Big Horns"
+    },
+    {
+        "CharacterName": "Misinformation"
+    },
+    {
+        "CharacterName": "Rumour"
+    },
+    {
+        "CharacterName": "Gossip"
+    },
+    {
+        "CharacterName": "Denial"
+    },
+    {
+        "CharacterName": "Perdita"
+    },
+    {
+        "CharacterName": "Christine"
+    },
+    {
+        "CharacterName": "Walter Plinge"
+    },
+    {
+        "CharacterName": "Mrs. Plinge"
+    },
+    {
+        "CharacterName": "Salzella"
+    },
+    {
+        "CharacterName": "Seldom Bucket"
+    },
+    {
+        "CharacterName": "Dr. Undershaft"
+    },
+    {
+        "CharacterName": "The Opera Ghost"
+    },
+    {
+        "CharacterName": "Enrico Basilica"
+    },
+    {
+        "CharacterName": "André"
+    },
+    {
+        "CharacterName": "Cheery Littlebottom"
+    },
+    {
+        "CharacterName": "Dorfl"
+    },
+    {
+        "CharacterName": "Dragon King of Arms"
+    },
+    {
+        "CharacterName": "Meshugah"
+    },
+    {
+        "CharacterName": "Arthur Carry"
+    },
+    {
+        "CharacterName": "Joshua H. Catterail"
+    },
+    {
+        "CharacterName": "Hopkinson"
+    },
+    {
+        "CharacterName": "Igneous"
+    },
+    {
+        "CharacterName": "Mrs. Rosemary Palm"
+    },
+    {
+        "CharacterName": "Mr. Slant"
+    },
+    {
+        "CharacterName": "Gerhardt Sock"
+    },
+    {
+        "CharacterName": "Father Tubelcek"
+    },
+    {
+        "CharacterName": "Visit-the-Infidel-with-Explanatory-Pamphlets"
+    },
+    {
+        "CharacterName": "Wee Mad Arthur"
+    },
+    {
+        "CharacterName": "Jonathan Teatime"
+    },
+    {
+        "CharacterName": "Hogfather"
+    },
+    {
+        "CharacterName": "Bilious"
+    },
+    {
+        "CharacterName": "Mr Winvoe"
+    },
+    {
+        "CharacterName": "Verruca Gnome"
+    },
+    {
+        "CharacterName": "Hair Loss Fairy"
+    },
+    {
+        "CharacterName": "Eater of Socks"
+    },
+    {
+        "CharacterName": "Electric Drill Chuck Key Fairy"
+    },
+    {
+        "CharacterName": "Stealer of Pencils"
+    },
+    {
+        "CharacterName": "God of Indigestion"
+    },
+    {
+        "CharacterName": "Towel Wasps"
+    },
+    {
+        "CharacterName": "Cheerful Fairy"
+    },
+    {
+        "CharacterName": "Blue Bird of Happiness"
+    },
+    {
+        "CharacterName": "Glingleglingleglingle Fairy"
+    },
+    {
+        "CharacterName": "The Tooth Fairy"
+    },
+    {
+        "CharacterName": "Twyla Gaiter"
+    },
+    {
+        "CharacterName": "Gawain Gaiter"
+    },
+    {
+        "CharacterName": "Mrs Gaiter"
+    },
+    {
+        "CharacterName": "Mr Gaiter"
+    },
+    {
+        "CharacterName": "Chickenwire"
+    },
+    {
+        "CharacterName": "Medium Dave Lilywhite"
+    },
+    {
+        "CharacterName": "Banjo Lilywhite"
+    },
+    {
+        "CharacterName": "Catseye"
+    },
+    {
+        "CharacterName": "Peachy"
+    },
+    {
+        "CharacterName": "Mr Sideney"
+    },
+    {
+        "CharacterName": "Chrysoprase"
+    },
+    {
+        "CharacterName": "Mr Brown"
+    },
+    {
+        "CharacterName": "Ernie"
+    },
+    {
+        "CharacterName": "Gouger"
+    },
+    {
+        "CharacterName": "Rooter"
+    },
+    {
+        "CharacterName": "Tusker"
+    },
+    {
+        "CharacterName": "Snouter"
+    },
+    {
+        "CharacterName": "Violet Bottler"
+    },
+    {
+        "CharacterName": "Mrs. Anaglypta Huggs"
+    },
+    {
+        "CharacterName": "71-hour Ahmed"
+    },
+    {
+        "CharacterName": "Prince Cadram"
+    },
+    {
+        "CharacterName": "Lt Hornett"
+    },
+    {
+        "CharacterName": "Greasy Arif"
+    },
+    {
+        "CharacterName": "Solid Jackson"
+    },
+    {
+        "CharacterName": "Les Jackson"
+    },
+    {
+        "CharacterName": "Jenkins"
+    },
+    {
+        "CharacterName": "Prince Khufurah"
+    },
+    {
+        "CharacterName": "Cumbling Michael"
+    },
+    {
+        "CharacterName": "Lord Selachii"
+    },
+    {
+        "CharacterName": "Private Bourke"
+    },
+    {
+        "CharacterName": "Ossie Brunt"
+    },
+    {
+        "CharacterName": "Mr. Burleigh"
+    },
+    {
+        "CharacterName": "Mrs. Evadne Cake"
+    },
+    {
+        "CharacterName": "Constable Downspout"
+    },
+    {
+        "CharacterName": "Constable Flint"
+    },
+    {
+        "CharacterName": "Mr. Frostrip"
+    },
+    {
+        "CharacterName": "Mr. Goriff"
+    },
+    {
+        "CharacterName": "Janil Goriff"
+    },
+    {
+        "CharacterName": "Bob-Bob Hardyoyo"
+    },
+    {
+        "CharacterName": "Jabbar"
+    },
+    {
+        "CharacterName": "Constable Pediment"
+    },
+    {
+        "CharacterName": "Verity Pushpram"
+    },
+    {
+        "CharacterName": "Mr. Scoplett"
+    },
+    {
+        "CharacterName": "Snowy Slopes"
+    },
+    {
+        "CharacterName": "Mrs. Spent"
+    },
+    {
+        "CharacterName": "Stoolie"
+    },
+    {
+        "CharacterName": "Buggy Swires"
+    },
+    {
+        "CharacterName": "William (aka The Artful Nudger)"
+    },
+    {
+        "CharacterName": "Gavin (aka Scumbag Gav)"
+    },
+    {
+        "CharacterName": "Mr. Wazir"
+    }
+]

@@ -19,6 +19,14 @@ namespace dwCheckApi.Controllers
             });
         }
 
+        protected JsonResult MessageResult(string message, bool success = true)
+        {
+            return Json(new {
+                Success = success,
+                Result = message
+            });
+        }
+
         protected JsonResult SingleResult(BaseViewModel singleResult)
         {
             return Json(new {

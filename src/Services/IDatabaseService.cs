@@ -2,8 +2,8 @@ namespace dwCheckApi.Services
 {
     public interface IDatabaseService
     {
-        void ClearDatabase();
+        bool ClearDatabase();
 
-        void SeedDatabase();
+        int SeedDatabase();
     }
 }

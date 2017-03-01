@@ -10,30 +10,35 @@ namespace dwCheckApi.Services
         {
             _context = context;
         }
-        public void ClearDatabase()
+        public bool ClearDatabase()
         {
-            _context.Database.EnsureDeleted();
-            _context.Database.EnsureCreated();
-            _context.SaveChanges();
+            var cleared = _context.Database.EnsureDeleted();
+            var created = _context.Database.EnsureCreated();
+            var entitiesadded = _context.SaveChanges();
+
+            return (cleared && created && entitiesadded == 0);
         }
 
-        public void SeedDatabase()
+        public int SeedDatabase()
         {
+            var entitiesAdded = default(int);
             var seeder = new DatabaseSeeder(_context);
             if(!_context.Books.Any())
             {
-                seeder.SeedBookEntitiesFromJson();
+                entitiesAdded += seeder.SeedBookEntitiesFromJson();
             }
 
             if (!_context.Characters.Any())
             {
-                seeder.SeedCharacterEntitiesFromJson();
+                entitiesAdded += seeder.SeedCharacterEntitiesFromJson();
             }
 
             if(!_context.BookCharacters.Any())
             {
-                seeder.SeedBookCharacterEntriesFromJson();
+                entitiesAdded += seeder.SeedBookCharacterEntriesFromJson();
             }
+
+            return entitiesAdded;
         }
     }
 }

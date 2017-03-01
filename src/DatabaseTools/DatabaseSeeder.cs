@@ -16,7 +16,7 @@ namespace dwCheckApi.DatabaseTools
             _context = context;
         }
 
-        public void SeedBookEntitiesFromJson()
+        public int SeedBookEntitiesFromJson()
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "BookSeedData.json");
             if (File.Exists(filePath))
@@ -28,11 +28,13 @@ namespace dwCheckApi.DatabaseTools
                 var distinctSeedData = seedData.GroupBy(b => b.BookName).Select(b => b.First());
 
                 _context.Books.AddRange(seedData);
-                _context.SaveChanges();
+                return _context.SaveChanges();
             }
+
+            return default(int);
         }
 
-        public void SeedCharacterEntitiesFromJson()
+        public int SeedCharacterEntitiesFromJson()
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "CharacterSeedData.json");
             if (File.Exists(filePath))
@@ -44,11 +46,13 @@ namespace dwCheckApi.DatabaseTools
                 var distinctSeedData = seedData.GroupBy(c => c.CharacterName).Select(c => c.First());
 
                 _context.Characters.AddRange(distinctSeedData);
-                _context.SaveChanges();
+                return _context.SaveChanges();
             }
+
+            return default(int);
         }
 
-        public void SeedBookCharacterEntriesFromJson()
+        public int SeedBookCharacterEntriesFromJson()
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "BookCharacterSeedData.json");
             if (File.Exists(filePath))
@@ -73,8 +77,10 @@ namespace dwCheckApi.DatabaseTools
                         }
                     }
                 }
-                _context.SaveChanges();
+                return _context.SaveChanges();
             }
+
+            return default(int);
         }
     }
 }
