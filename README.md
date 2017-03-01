@@ -5,7 +5,7 @@ This project is a .NET core implemented Web API for listing all of the (canon) [
 
 It uses Entity Framework Core to communicate with a Sqlite database, which contains a record for each of the Discworld novels.
 
-It has been released, as is, using a GPL v3 licence. For more information on the GPL V3 licence, please see either the `LICENSE` file in the root of the repository or see the tl;dr Legal page for [GPL V3](https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3))
+It has been released, as is, using an MIT licence. For more information on the MIT licence, please see either the `LICENSE` file in the root of the repository or see the tl;dr Legal page for [MIT](https://tldrlegal.com/license/mit-license)
 
 ## Building and Running
 
@@ -234,14 +234,27 @@ The data returned from `dwCheck`'s server is in a slightly different, more simpl
 
 # Seeding the Database
 
-During startup, in the Configure method, `dwCheck` will apply any outstanding mirgrations (which is not an acceptable best practise, but is ok for during development. This feature will be disabled once the code reaches release candidate) then seeds the database via the `EnsureSeedData` extention method, if there is no data.
+There are aseries of API endpoints related to clearing and seeding the database. These can be found at:
 
-*Note: Seeding of the initial dataset will not happen if deCheckApi detects a pre-existing database. However, migrations may still be applied*
+    /Database/DropData
+    /Database/SeedData
 
-This is an automatic process and requires no user input.
+These two commands (used in conjunction with each other) will drop all data from the database, then seed the database (respectively) from a series of JSON files that can be found in the `SeedData` directory.
+
+`dwCheckApi` has been designed so that the user can add as much data as they like via the JSON files. This means that `dwCheckApi` is not limited to Discworld novels and characters.
+
+A user of this API could alter the JSON files, drop the data and reseed and have a completely different data set - perhaps Stephen King novels, for example.
 
 # Data Source
 
 The [L-Space wiki](http://wiki.lspace.org/mediawiki/Bibliography#Novels) is currently being used to seed the database.
 
 All character and book data are copyrighted to Terry Pratchett and/or Transworld Publishers no infringement was intended.
+
+## A Note on the JSON files
+
+In the SeedData directory, there are a collection of JSON files. The data source for these files is a combination of the L-Space Wiki (mentioned above) and y own knowledge of the Discworld series.
+
+I have not altered any data from the L-Space Wiki in any way when transforming it into the JSON files. As such, the L-Space Wiki license (which is a Creative Commons Attribution ShareAlike 3.0 license) still applies.
+
+For more information on the license used by the L-Space Wiki, please see the `Data License.md` file.
