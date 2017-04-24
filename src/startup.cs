@@ -1,4 +1,4 @@
-using dwCheckApi.DatabaseContexts;
+﻿using dwCheckApi.DatabaseContexts;
 using dwCheckApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +28,14 @@ namespace dwCheckApi
         {
             // Add framework services.
             services.AddMvc();
+			services.AddCors(options =>
+		{
+			options.AddPolicy("CorsPolicy",
+				builder => builder.AllowAnyOrigin()
+				.AllowAnyMethod()
+				.AllowAnyHeader()
+				.AllowCredentials());
+		});
 
             // Give ourselves access to the DwContext
             services.AddDbContext<DwContext>(options =>
@@ -47,6 +55,7 @@ namespace dwCheckApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+	    app.UseCors("CorsPolicy");
             app.UseMvc();
 
             // Commented out because each time dotnet run is issued,
