@@ -14,5 +14,6 @@ namespace dwCheckApi.Models
         public byte[] BookCoverImage { get; set; }
         public string BookCoverImageUrl { get; set; }
         public virtual ICollection<BookCharacter> BookCharacter { get; set; } = new Collection<BookCharacter>();
+        public virtual ICollection<BookSeries> BookSeries { get; set; } = new Collection<BookSeries>();
     }
 }

@@ -7,6 +7,7 @@ namespace dwCheckApi.ViewModels
         public BookViewModel()
         {
             Characters = new List<string>();
+            Series = new List<string>();
         }
 
         public int BookOrdinal { get; set; }
@@ -17,5 +18,6 @@ namespace dwCheckApi.ViewModels
         public byte[] BookCoverImage { get; set; }
         public string BookCoverImageUrl { get; set; }
         public List<string> Characters { get; set; }
+        public List<string> Series { get; set; }
     }
 }

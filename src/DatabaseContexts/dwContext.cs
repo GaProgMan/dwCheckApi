@@ -13,6 +13,7 @@ namespace dwCheckApi.DatabaseContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BookCharacter>().HasKey(x => new { x.BookId, x.CharacterId });
+            modelBuilder.Entity<BookSeries>().HasKey(x => new { x.BookId, x.SeriesId });
 
             // Create shadow properties
             // For more information onShoadow properties, see:
@@ -44,6 +45,8 @@ namespace dwCheckApi.DatabaseContexts
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Character> Characters { get; set; }
+        public DbSet<Series> Series {get; set;}
         public DbSet<BookCharacter> BookCharacters { get; set; }
+        public DbSet<BookSeries> BookSeries { get; set; }
     }
 }

@@ -34,9 +34,10 @@ namespace dwCheckApi
                 //options.UseSqlite(Configuration.GetConnectionString("dwCheckApiConnection")));
                 options.UseSqlite(Configuration["Data:SqliteConnection:ConnectionString"]));
 
-            // DI our Book service in
+            // DI our services in
             services.AddTransient<IBookService, BookService>();
             services.AddTransient<ICharacterService, CharacterService>();
+            services.AddTransient<ISeriesService, SeriesService>();
             services.AddTransient<IDatabaseService, DatabaseService>();
         }
 

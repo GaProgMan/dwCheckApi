@@ -72,7 +72,9 @@ namespace dwCheckApi.Services
             return _dwContext.Books
                 .AsNoTracking()
                 .Include(book => book.BookCharacter)
-                .ThenInclude(bookCharacter => bookCharacter.Character);
+                .ThenInclude(bookCharacter => bookCharacter.Character)
+                .Include(book => book.BookSeries)
+                .ThenInclude(bookSeries => bookSeries.Series);
         }
     }
 }

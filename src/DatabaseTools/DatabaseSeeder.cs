@@ -52,6 +52,24 @@ namespace dwCheckApi.DatabaseTools
             return default(int);
         }
 
+        public int SeedSeriesEntitiesFromJson()
+        {
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "SeriesSeedData.json");
+            if (File.Exists(filePath))
+            {
+                var dataSet = File.ReadAllText(filePath);
+                var seedData = JsonConvert.DeserializeObject<List<Series>>(dataSet);
+
+                // ensure that we only get the distinct books (based on their name)
+                var distinctSeedData = seedData.GroupBy(b => b.SeriesName).Select(b => b.First());
+
+                _context.Series.AddRange(seedData);
+                return _context.SaveChanges();
+            }
+
+            return default(int);
+        }
+
         public int SeedBookCharacterEntriesFromJson()
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "BookCharacterSeedData.json");
@@ -73,6 +91,38 @@ namespace dwCheckApi.DatabaseTools
                             {
                                 Book = dbBook,
                                 Character = dbChar
+                            }); 
+                        }
+                    }
+                }
+                return _context.SaveChanges();
+            }
+
+            return default(int);
+        }
+
+        public int SeedBookSeriesEntriesFromJson()
+        {
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "BookSeriesSeedData.json");
+            if (File.Exists(filePath))
+            {
+                var dataSet = File.ReadAllText(filePath);
+                var seedData = JsonConvert.DeserializeObject<List<BookSeriesSeedData>>(dataSet);
+
+                foreach(var seedBook in seedData)
+                {
+                    var dbBook = _context.Books.Single(b => b.BookName == seedBook.BookName);
+
+                    foreach (var seriesData in seedBook.SeriesEntry)
+                    {
+                        var dbSeries = _context.Series.FirstOrDefault(s => s.SeriesName == seriesData.SeriesName);
+                        if (dbSeries != null)
+                        {
+                            _context.BookSeries.Add(new BookSeries
+                            {
+                                Book = dbBook,
+                                Ordinal = seriesData.OrdinalWithinSeries,
+                                Series = dbSeries
                             }); 
                         }
                     }

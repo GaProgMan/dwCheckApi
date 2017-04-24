@@ -25,6 +25,11 @@ namespace dwCheckApi.Helpers
                 viewModel.Characters.Add(bc.Character.CharacterName ?? string.Empty);
             }
 
+            foreach(var series in dbModel.BookSeries)
+            {
+                viewModel.Series.Add(series.Series.SeriesName ?? string.Empty);
+            }
+
             return viewModel;
         }
 

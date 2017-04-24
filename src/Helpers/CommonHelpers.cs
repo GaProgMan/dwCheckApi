@@ -21,6 +21,11 @@ namespace dwCheckApi.Helpers
             sb.Append($"\t'/Characters/GetByName' - Returns a single Character my their name (?characterName=), must match exactly{Environment.NewLine}");
             sb.Append($"\t'/Characters/Search' - Searches all Characters for a search string (?searchString=)");
 
+            sb.Append($"The following functions are available for Series:{Environment.NewLine}");
+            sb.Append($"\t'/Series/Get' - Returns a single Series by it's ID (set in the database){Environment.NewLine}");
+            sb.Append($"\t'/Series/GetByName' - Returns a single Series my it's name (?seriesName=), must match exactly{Environment.NewLine}");
+            sb.Append($"\t'/Series/Search' - Searches all Series for a search string (?searchString=){Environment.NewLine}");
+
             sb.Append($"The following functions are available for the Database itself:{Environment.NewLine}");
             sb.Append($"\t'/Database/DropData' - Useful for dropping all data from the database{Environment.NewLine}");
             sb.Append($"\t'/Database/SeedData - Useful for seeding all data (read from a series of JSON files){Environment.NewLine}");            

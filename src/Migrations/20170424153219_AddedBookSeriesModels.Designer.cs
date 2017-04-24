@@ -8,9 +8,10 @@ using dwCheckApi.DatabaseContexts;
 namespace src.Migrations
 {
     [DbContext(typeof(DwContext))]
-    partial class DwContextModelSnapshot : ModelSnapshot
+    [Migration("20170424153219_AddedBookSeriesModels")]
+    partial class AddedBookSeriesModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
@@ -69,8 +70,6 @@ namespace src.Migrations
                     b.Property<DateTime>("Created");
 
                     b.Property<DateTime>("Modified");
-
-                    b.Property<int>("Ordinal");
 
                     b.HasKey("BookId", "SeriesId");
 

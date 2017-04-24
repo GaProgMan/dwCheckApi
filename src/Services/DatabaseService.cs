@@ -33,10 +33,22 @@ namespace dwCheckApi.Services
                 entitiesAdded += seeder.SeedCharacterEntitiesFromJson();
             }
 
+            if (!_context.Series.Any())
+            {
+                entitiesAdded += seeder.SeedSeriesEntitiesFromJson();
+            }
+
             if(!_context.BookCharacters.Any())
             {
                 entitiesAdded += seeder.SeedBookCharacterEntriesFromJson();
             }
+
+            if (!_context.BookSeries.Any())
+            {
+                entitiesAdded += seeder.SeedBookSeriesEntriesFromJson();
+            }
+
+            
 
             return entitiesAdded;
         }
