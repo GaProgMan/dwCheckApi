@@ -33,10 +33,6 @@ namespace dwCheckApi.DatabaseContexts
                 {
                     dbSeeder.SeedBookEntitiesFromJson();
                 }
-                if (!context.Characters.Any())
-                {
-                    dbSeeder.SeedCharacterEntitiesFromJson();
-                }
                 if(!context.Series.Any())
                 {
                     dbSeeder.SeedSeriesEntitiesFromJson();

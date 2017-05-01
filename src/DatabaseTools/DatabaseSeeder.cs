@@ -33,25 +33,7 @@ namespace dwCheckApi.DatabaseTools
 
             return default(int);
         }
-
-        public int SeedCharacterEntitiesFromJson()
-        {
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "CharacterSeedData.json");
-            if (File.Exists(filePath))
-            {
-                var dataSet = File.ReadAllText(filePath);
-                var seedData = JsonConvert.DeserializeObject<IEnumerable<Character>>(dataSet);
-
-                // ensure that we only get the distinct characters (based on their name)
-                var distinctSeedData = seedData.GroupBy(c => c.CharacterName).Select(c => c.First());
-
-                _context.Characters.AddRange(distinctSeedData);
-                return _context.SaveChanges();
-            }
-
-            return default(int);
-        }
-
+        
         public int SeedSeriesEntitiesFromJson()
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "SeriesSeedData.json");
@@ -85,14 +67,17 @@ namespace dwCheckApi.DatabaseTools
                     foreach (var seedChar in seedBook.CharacterNames)
                     {
                         var dbChar = _context.Characters.FirstOrDefault(c => c.CharacterName == seedChar);
-                        if (dbChar != null)
+                        if (dbChar == null)
                         {
-                            _context.BookCharacters.Add(new BookCharacter
-                            {
-                                Book = dbBook,
-                                Character = dbChar
-                            }); 
+                            dbChar = new Character{
+                                CharacterName = seedChar
+                            };
                         }
+                        _context.BookCharacters.Add(new BookCharacter
+                        {
+                            Book = dbBook,
+                            Character = dbChar
+                        });
                     }
                 }
                 return _context.SaveChanges();

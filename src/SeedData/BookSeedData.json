@@ -166,5 +166,69 @@
         "BookIsbn13": "9780575065406",
         "BookDescription": "Discworld goes to war... A weathercock has risen from the sea of Discworld. Suddenly you can tell which way the wind is blowing. A new land has surfaced, and so have old feuds. And as two armies march, Commander Vimes of the Ankh-Morpork City Watch has got just a few hours to deal with a crime so big that there's no law against it. It's called 'war.'",
         "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/a/a6/Cover_Jingo.jpg"
+    },
+    {
+        "BookName": "The Last Continent",
+        "BookOrdinal": "22",
+        "BookIsbn10": "0552146145",
+        "BookIsbn13": "9780552146142",
+        "BookDescription": "This is the Discworld's last continent, a completely separate creation. It's hot. It's dry... very dry. There was this thing once called The Wet, which no one now believes in. Practically everything that's not poisonous is venomous. But it's the best bloody place in the world, all right? And it'll die in a few days. Except... Who is this hero striding across the red desert? Champion sheep shearer, horse rider, road warrior, beer drinker, bush ranger and someone who'll even eat a Meat Pie Floater when he's sober? A man in a hat, whose Luggage follows him on little legs, who's about to change history by preventing a swagman stealing a jumbuck by a billabong? Yes... all this place has between itself and wind-blown doom is Rincewind, the inept wizard who can't even spell wizard. He's the only hero left. Still... no worries, eh?",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/d/db/Cover_The_Last_Continent.jpg"
+    },
+    {
+        "BookName": "Carpe Jugulum",
+        "BookOrdinal": "23",
+        "BookIsbn10": "0552146153",
+        "BookIsbn13": "9780552146159",
+        "BookDescription": "Mightily Oats has not picked a good time to be a priest. He thought he'd come to the mountain kingdom of Lancre for a simple little religious ceremony. Now he's caught up in a war between vampires and witches, and he's not sure there is a right side. There're the witches – young Agnes, who is really in two minds about everything, Magrat, who is trying to combine witchcraft and nappies, Nanny Ogg, who is far too knowing... and Granny Weatherwax, who is big trouble. And the vampires are intelligent – not easily got rid of with a garlic enema or by going to the window, grasping the curtains and saying, 'I don't know about you, but isn't it a bit stuffy in here?' They've got style and fancy waistcoats. They're out of the casket and want a bite of the future. Mightily Oats knows he has a prayer, but wishes he had an axe.",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/3/34/CarpeJugulum.jpg"
+    },
+    {
+        "BookName": "The Fifth Elephant",
+        "BookOrdinal": "24",
+        "BookIsbn10": "0552146161",
+        "BookIsbn13": "9780552146166",
+        "BookDescription": "Sam Vimes is a man on the run. Yesterday he was a duke, a chief of police and the ambassador to the mysterious, fat-rich country of Überwald. Now he has nothing but his native wit and the gloomy trousers of Uncle Vanya (don't ask). It's snowing. It's freezing. And if he can't make it through the forest to civilization there's going to be a terrible war. But there are monsters on his trail. They're bright. They're fast. They're werewolves – and they're catching up. Sam Vimes is out of time, out of luck and already out of breath...",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/3/34/Cover_The_Fith_Elephant.jpg"
+    },
+    {
+        "BookName": "The Truth",
+        "BookOrdinal": "25",
+        "BookIsbn10": "0380978954",
+        "BookIsbn13": "9780380978953",
+        "BookDescription": "William de Worde is the accidental editor of the Discworld's first newspaper. Now he must cope with the traditional perils of a journalist's life -- people who want him dead, a recovering vampire with a suicidal fascination for flash photography, some more people who want him dead in a different way and, worst of all, the man who keeps begging him to publish pictures of his humorously shaped potatoes. William just wants to get at THE TRUTH. Unfortunately, everyone else wants to get at William. And it's only the third edition...",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/d/d0/Cover_The_Truth.jpg"
+    },
+    {
+        "BookName": "Thief of Time",
+        "BookOrdinal": "26",
+        "BookIsbn10": "0552148407",
+        "BookIsbn13": "9780552148405",
+        "BookDescription": "Time is a resource. Everyone knows it has to be managed. And on Discworld that is the job of the Monks of History, who store it and pump it from the places where it's wasted (like underwater -- how much time does a codfish need?) to places like cities, where there's never enough time. But the construction of the world's first truly accurate clock starts a race against, well, time, for Lu Tze and his apprentice Lobsang Ludd. Because it will stop time. And that will only be the start of everyone's problems.",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/4/49/Cover_Thief_of_Time.jpg"
+    },
+    {
+        "BookName": "The Last Hero",
+        "BookOrdinal": "27",
+        "BookIsbn10": "057506885X",
+        "BookIsbn13": "9780575068858",
+        "BookDescription": "With his ancient sword and his new walking stick and his old friends – and they're very old friends – Cohen the Barbarian is going on one final quest. It's been a good life. He's going to climb the highest mountain in the Discworld and meet his gods. He doesn't like the way they let men grow old and die. It's time, in fact, to give something back.",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/4/4e/Cover_The_Last_Hero.jpg"
+    },
+    {
+        "BookName": "The Amazing Maurice and his Educated Rodents",
+        "BookOrdinal": "28",
+        "BookIsbn10": "055255202X",
+        "BookIsbn13": "9780552552028",
+        "BookDescription": "Maurice, a streetwise tomcat, has the perfect money-making scam. He's found a stupid-looking kid who plays a pipe, and he has his very own plague of rats who are strangely educated, so Maurice can no longer think of them as 'lunch'. And everyone knows the stories about rats and pipers... But when they reach the stricken town of Bad Blintz, the little con suddenly goes down the drain. For someone there is playing a different tune. A dark, shadowy tune. Something very, very bad is waiting in the cellars. The educated rats must learn a new word. EVIL.",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/8/89/The_Amazing_Maurice_and_his_Educated_Rodents.jpg"
+    },
+    {
+        "BookName": "Night Watch",
+        "BookOrdinal": "29",
+        "BookIsbn10": "0385602642",
+        "BookIsbn13": "9780385602648",
+        "BookDescription": "This morning, Commander Vimes of the City Watch had it all. He was a Duke. He was rich. He was respected. He had a titanium cigar case. He was about to become a father. This morning he thought longingly about the good old days. Tonight, he's in them. Flung back in time by a mysterious accident, Sam Vimes has to start all over again. He must get a new name and a job, and there's only one job he's good at: cop in the Watch. He must track down a brutal murderer. He must find his younger self and teach him everything he knows. He must whip the cowardly, despised Night Watch into a crack fighting force – fast. Because Sam Vimes knows what's going to happen. He remembers it. He was there. It's part of history. And you can't change history...",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/4/4f/Cover_Night_Watch.jpg"
     }
 ]
