@@ -230,5 +230,99 @@
         "BookIsbn13": "9780385602648",
         "BookDescription": "This morning, Commander Vimes of the City Watch had it all. He was a Duke. He was rich. He was respected. He had a titanium cigar case. He was about to become a father. This morning he thought longingly about the good old days. Tonight, he's in them. Flung back in time by a mysterious accident, Sam Vimes has to start all over again. He must get a new name and a job, and there's only one job he's good at: cop in the Watch. He must track down a brutal murderer. He must find his younger self and teach him everything he knows. He must whip the cowardly, despised Night Watch into a crack fighting force – fast. Because Sam Vimes knows what's going to happen. He remembers it. He was there. It's part of history. And you can't change history...",
         "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/4/4f/Cover_Night_Watch.jpg"
+    },
+    {
+        "BookName": "The Wee Free Men",
+        "BookOrdinal": "30",
+        "BookIsbn10": "0552551864",
+        "BookIsbn13": "9780552551861",
+        "BookDescription": "There's trouble on the Aching farm – a monster in the river, a headless horseman in the driveway and nightmares spreading down from the hills. And now Tiffany Aching's little brother has been stolen by the Queen of the Fairies (although Tiffany doesn't think this is entirely a bad thing). Tiffany's got to get him back. To help her, she has a weapon (a frying pan), her granny's magic book (well, Diseases of the Sheep, actually) and— 'Crivens! Whut aboot us, ye daftie!' —oh yes. She's also got the Nac Mac Feegle, the Wee Free Men, the fightin', thievin', tiny blue-skinned pictsies who were thrown out of Fairyland for being Drunk and Disorderly...",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/1/1b/The_Wee_Free_Men.jpg"
+    },
+    {
+        "BookName": "Monstrous Regiment",
+        "BookOrdinal": "31",
+        "BookIsbn10": "0552212806",
+        "BookIsbn13": "9780552212809",
+        "BookDescription": "It was a sudden strange fancy... Polly Perks had to become a boy in a hurry. Cutting off her hair and wearing trousers was easy. Learning to fart and belch in public and walk like an ape took more time... And now she's enlisted in the army, and searching for her lost brother. But there's a war on. There's always a war on. And Polly and her fellow recruits are suddenly in the thick of it, without any training, and the enemy is hunting them. All they have on their side is the most artful sergeant in the army and a vampire with a lust for coffee. Well... they have the Secret. And as they take the war to the heart of the enemy, they have to use all the resources of... the Monstrous Regiment.",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/9/98/Cover_Monstrous_Regiment.jpg"
+    },
+    {
+        "BookName": "A Hat Full of Sky",
+        "BookOrdinal": "32",
+        "BookIsbn10": "0552157848",
+        "BookIsbn13": "9780552157841",
+        "BookDescription": "A real witch can ride a broomstick, cast spells and make a proper shamble out of nothing. Eleven-year-old Tiffany Aching can't. A real witch never casually steps out of her body, leaving it empty. Tiffany does. And there's something just waiting for a handy body to take over. Something ancient and horrible, which can't die. Now she's got to fight back and learn to be a real witch really quickly, with the help of arch-witch Mistress Weatherwax and the truly amazing Miss Level... – 'Crivens! And us!' Oh, yes. And the Nac Mac Feegle – the rowdiest, toughest, smelliest bunch of fairies ever to be thrown out of Fairyland for being drunk at two in the afternoon. They'll fight anything. And even they might not be enough...",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/3/3c/Cover_A_Hat_Full_of_Sky.jpg"
+    },
+    {
+        "BookName": "Going Postal",
+        "BookOrdinal": "33",
+        "BookIsbn10": "0552149438",
+        "BookIsbn13": "9780552149433",
+        "BookDescription": "Moist von Lipwig is a con artist and a fraud and a man faced with a life choice: be hanged, or put Ankh-Morpork's ailing postal service back on its feet. It's a tough decision. But he's got to see that the mail gets through, come rain, hail, sleet, dogs, the Post Office Workers Friendly and Benevolent Society, the evil chairman of the Grand Trunk Semaphore Company, and a midnight killer. Getting a date with Adora Belle Dearheart would be nice, too. Maybe it'll take a criminal to succeed where honest men have failed, or maybe it's a death sentence either way. Or perhaps there's a shot at redemption in the mad world of the mail, waiting for a man who's prepared to push the envelope...",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/5/57/Cover_Going_Postal.jpg"
+    },
+    {
+        "BookName": "Thud!",
+        "BookOrdinal": "34",
+        "BookIsbn10": "0552156639",
+        "BookIsbn13": "9780552156639",
+        "BookDescription": "THUD! Koom Valley? That was where the trolls ambushed the dwarfs, or the dwarfs ambushed the trolls. It was far away. It was a long time ago. But if he doesn't solve the murder of just one dwarf, Commander Sam Vimes of Ankh-Morpork City Watch is going to see the battle fought again, right outside his office (and perhaps inside his own Watch House). With his beloved Watch crumbling around him and war-drums sounding, he must unravel every clue, outwit every assassin and brave any darkness to find the solution. And darkness is following him.",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/6/6a/Cover_Thud.jpg"       
+    },
+    {
+        "BookName": "Wintersmith",
+        "BookOrdinal": "34",
+        "BookIsbn10": "0552158380",
+        "BookIsbn13": "9780552158381",
+        "BookDescription": "At 9, Tiffany Aching defeated the cruel Queen of Fairyland. At 11, she battled an ancient body-stealing evil. At 13, Tiffany faces a new challenge: a boy. And boys can be a bit of a problem when you're thirteen...",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/5/55/Cover_Wintersmith.JPG"
+    },
+    {
+        "BookName": "Making Money",
+        "BookOrdinal": "35",
+        "BookIsbn10": "0385613512",
+        "BookIsbn13": "9780385613514",
+        "BookDescription": "It's an offer you can't refuse. Who would not to wish to be the man in charge of Ankh-Morpork's Royal Mint and the bank next door? It's a job for life. But, as former con-man Moist von Lipwig is learning, the life is not necessarily for long. The Chief Cashier is almost certainly a vampire. There's something nameless in the cellar (and the cellar itself is pretty nameless), it turns out that the Royal Mint runs at a loss. A 300 year old wizard is after his girlfriend, he's about to be exposed as a fraud, but the Assassins' Guild might get him first. In fact lot of people want him dead. Oh... and every day he has to take the Chairman for walkies. Everywhere he looks he's making enemies. What he should be doing is... Making Money!",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/7/7a/Cover_Making_Money.jpg"
+    },
+    {
+        "BookName": "Unseen Academicals",
+        "BookOrdinal": "36",
+        "BookIsbn10": "0552165336",
+        "BookIsbn13": "9780552165334",
+        "BookDescription": "Football has come to the ancient city of Ankh-Morpork – not the old fashioned, grubby pushing and shoving, but the new, fast football with pointy hats for goalposts and balls that go gloing when you drop them. And now, the wizards of Unseen University must win a football match, without using magic, so they're in the mood for trying everything else. The prospect of the Big Match draws in a likely lad with a wonderful talent for kicking a tin can, a maker of jolly good pies, a dim but beautiful young woman who might just turn out to be the greatest fashion model there has ever been, and the mysterious Mr Nutt. (No one knows anything much about Mr Nutt, not even Mr Nutt, which worries him, too.) As the match approaches, four lives are entangled and changed for ever. Because the thing about football – the important thing about football – is that it is not just about football. Here we go! Here we go! Here we go!",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/8/83/UnseenAcademicals.jpg"
+    },
+    {
+        "BookName": "I Shall Wear Midnight",
+        "BookOrdinal": "37",
+        "BookIsbn10": "0552166057",
+        "BookIsbn13": "9780552166058",
+        "BookDescription": "A man with no eyes. No eyes at all. Two tunnels in his head ...It's not easy being a witch, and it's certainly not all whizzing about on broomsticks, but Tiffany Aching - teen witch - is doing her best. Until something evil wakes up, something that stirs up all the old stories about nasty old witches, so that just wearing a pointy hat suddenly seems a very bad idea. Worse still, this evil ghost from the past is hunting down one witch in particular. He's hunting for Tiffany. And he's found her…. A fabulous Discworld title filled with witches and magic and told in the inimitable Terry Pratchett style, 'I Shall Wear Midnight' is the fourth Discworld title to feature Tiffany and her tiny, fightin', boozin' pictsie friends, the Nac Mac Feegle (aka The Wee Free Men).",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/d/d2/ISWM.jpg"
+    },
+    {
+        "BookName": "Snuff",
+        "BookOrdinal": "38",
+        "BookIsbn10": "0062205862",
+        "BookIsbn13": "9780062205865",
+        "BookDescription": "According to the writer of the best selling crime novel ever to have been published in the city of Ankh-Morpork, it is a truth universally acknowledged that a policeman taking a holiday would barely have had time to open his suitcase before he finds his first corpse. And Commander Sam Vimes of the Ankh-Morpork City Watch is on holiday in the pleasant and innocent countryside, but not for him a mere body in the wardrobe, but many, many bodies and an ancient crime more terrible than murder. He is out of his jurisdiction, out of his depth, out of bacon sandwiches, occasionally snookered and occasionally out of his mind, but not out of guile. Where there is a crime there must be a finding, there must be a chase and there must be a punishment. They say that in the end all sins are forgiven. But not quite all...",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/5/58/Cover_snuff.jpg"
+    },
+    {
+        "BookName": "Raising Steam",
+        "BookIsbn10": "0575079290",
+        "BookIsbn13": "9780575079298",
+        "BookDescription": "To the consternation of the patrician, Lord Vetinari, a new invention has arrived in Ankh-Morpork - a great clanging monster of a machine that harnesses the power of all of the elements: earth, air, fire and water. This being Ankh-Morpork, it's soon drawing astonished crowds, some of whom caught the zeitgeist early and arrive armed with notepads and very sensible rainwear. Moist von Lipwig is not a man who enjoys hard work - as master of the Post Office, the Mint and the Royal Bank his input is, of course, vital... but largely dependent on words, which are fortunately not very heavy and don't always need greasing. However, he does enjoy being alive, which makes a new job offer from Vetinari hard to refuse... Steam is rising over Discworld, driven by Mister Simnel, the man wi' t'flat cap and sliding rule who has an interesting arrangement with the sine and cosine. Moist will have to grapple with gallons of grease, goblins, a fat controller with a history of throwing employees down the stairs and some very angry dwarfs if he's going to stop it all going off the rails...",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/1/1b/RaisingSteam.jpg"
+    },
+    {
+        "BookName": "The Shepherd's Crown",
+        "BookIsbn10": "0857534815",
+        "BookIsbn13": "9780552574471",
+        "BookDescription": "A SHIVERING OF WORLDS. Deep in the Chalk, something is stirring. The owls and the foxes can sense it, and Tiffany Aching feels it in her boots. An old enemy is gathering strength. This is a time of endings and beginnings, old friends and new, a blurring of edges and a shifting of power. Now Tiffany stands between the light and the dark, the good and the bad. As the fairy horde prepares for invasion, Tiffany must summon all the witches to stand with her. To protect the land. Her land. There will be a reckoning...",
+        "BookCoverImageUrl": "http://wiki.lspace.org/mediawiki/images/b/b6/Tsc.jpg"
     }
 ]
