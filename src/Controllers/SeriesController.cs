@@ -39,14 +39,14 @@ namespace dwCheckApi.Controllers
         {
             if (string.IsNullOrWhiteSpace(seriesName))
             {
-                return ErrorResponse("Character name is required");
+                return ErrorResponse("Series name is required");
             }
 
             var series = _seriesService.GetByName(seriesName);
 
             if (series == null)
             {
-                return ErrorResponse("No character found");
+                return ErrorResponse("No Series found");
             }
 
             return SingleResult(SeriesViewModelHelpers.ConvertToViewModel(series));

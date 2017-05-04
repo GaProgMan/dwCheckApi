@@ -2,15 +2,9 @@ using System.Collections.Generic;
 
 namespace dwCheckApi.DatabaseTools
 {
-    public class BookSeriesSeedData
-    {
-        public string BookName { get; set; }
-        public List<SeriesAndOrdinal> SeriesEntry { get; set; }
-    }
-
-    public class SeriesAndOrdinal
+    public class SeriesBookSeedData
     {
         public string SeriesName { get; set; }
-        public int OrdinalWithinSeries { get; set; }
+        public List<string> BookNames { get; set; }
     }
 }
