@@ -1,11 +1,12 @@
-version: 1.0.{build}-{branch}
+version: 1.0.{build}
 install:
 - cmd: >-
-    dotnet restore src/src.sln
+    dotnet restore
+    npm install -g bower
 build:
   verbosity: minimal
 after_build:
-- cmd: dotnet publish src --output %appveyor_build_folder%\dist
+- cmd: dotnet publish src\CoreWebApplication1 --output %appveyor_build_folder%\dist
 artifacts:
 - path: dist
   name: dist.web
