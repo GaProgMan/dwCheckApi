@@ -1,0 +1,90 @@
+[
+    {
+        "SeriesName": "Rincewind",
+        "BookNames": [
+            "The Colour of Magic",
+            "The Light Fantastic",
+            "Sourcery",
+            "Eric",
+            "Interesting Times",
+            "The Last Continent",
+            "The Last Hero",
+            "Unseen Academicals"
+        ]
+    },
+    {
+        "SeriesName": "Witches",
+        "BookNames": [
+            "Equal Rites",
+            "Wyrd Sisters",
+            "Witches Abroad",
+            "Lords and Ladies",
+            "Maskerade",
+            "Carpe Jugulum",
+            "The Wee Free Men",
+            "A Hat Full of Sky",
+            "Wintersmith",
+            "I Shall Wear Midnight",
+            "The Shepherd's Crown"
+        ]
+    },
+    {
+        "SeriesName": "Tiffany Aching",
+        "BookNames": [
+            "The Wee Free Men",
+            "A Hat Full of Sky",
+            "Wintersmith",
+            "I Shall Wear Midnight",
+            "The Shepherd's Crown"
+        ]
+    },
+    {
+        "SeriesName": "Death",
+        "BookNames": [
+            "Mort",
+            "Soul Music",
+            "Reaper Man",
+            "Hogfather",
+            "Thief of Time"
+        ]
+    },
+    {
+        "SeriesName": "Ancient Civilisations",
+        "BookNames":[
+            "Pyramids",
+            "Small Gods"
+        ]
+    },
+    {
+        "SeriesName": "Watch",
+        "BookNames":[
+            "Guards! Guards!",
+            "Men at Arms",
+            "Feet of Clay",
+            "Jingo",
+            "The Fifth Elephant",
+            "Night Watch",
+            "Thud!",
+            "Snuff"
+        ]
+    },
+    {
+        "SeriesName": "Industrial Revolution",
+        "BookNames":[
+            "Moving Pictures",
+            "The Truth",
+            "Monstrous Regiment",
+            "Going Postal",
+            "Making Money",
+            "Raising Steam"
+        ]
+    },
+    {
+        "SeriesName": "Moist von Lipwig",
+        "BookNames":[
+            "Going Postal",
+            "Making Money",
+            "Raising Steam"
+        ]
+    }
+]
