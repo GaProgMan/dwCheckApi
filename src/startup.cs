@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace dwCheckApi
 {
@@ -55,7 +56,12 @@ namespace dwCheckApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-	    app.UseCors("CorsPolicy");
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
+	        app.UseCors("CorsPolicy");
             app.UseMvc();
 
             // Commented out because each time dotnet run is issued,
@@ -66,7 +72,7 @@ namespace dwCheckApi
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
                     var context = serviceScope.ServiceProvider.GetService<DwContext>();       
-                    //context.Database.Migrate();
+                //    context.Database.Migrate();
                     context.EnsureSeedData();
                 }
             //}
