@@ -18,19 +18,9 @@ before_build:
   - dotnet restore --verbosity m
 build:
   project: .\src\src.csproj
-#build_script:
-  # - cd src
-  # Display .NET Core version
-  #- dotnet --version
-  # Display normal restore text
-  #- dotnet restore
-  # Display minimal restore text
-  #- dotnet restore --verbosity m
-  #- dotnet build
-#after_build:
-  #- cmd: >-
-  #  dotnet publish .\ --output %appveyor_build_folder%\dist
-#clone_depth: 1
+after_build:
+  # For once the build has completed
+clone_depth: 1
 test_script:
   # tests in here
 on_finish :
