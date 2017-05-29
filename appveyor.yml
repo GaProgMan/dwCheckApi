@@ -3,7 +3,7 @@ image: Visual Studio 2017
 branches:
   only:
   - master
-configuration: Release
+configuration: Debug
 platform: Any CPU
 init:
   # Good practise, because Windows
