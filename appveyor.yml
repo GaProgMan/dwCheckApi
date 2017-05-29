@@ -28,7 +28,7 @@ build:
   #- dotnet restore
   # Display minimal restore text
   #- dotnet restore --verbosity m
-  - dotnet build
+  #- dotnet build
 after_build:
   - cmd: >-
     dotnet publish .\ --output %appveyor_build_folder%\dist
