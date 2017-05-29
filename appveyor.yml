@@ -29,9 +29,9 @@ build:
   # Display minimal restore text
   #- dotnet restore --verbosity m
   #- dotnet build
-after_build:
-  - cmd: >-
-    dotnet publish .\ --output %appveyor_build_folder%\dist
+#after_build:
+  #- cmd: >-
+  #  dotnet publish .\ --output %appveyor_build_folder%\dist
 #clone_depth: 1
 test_script:
   # tests in here
