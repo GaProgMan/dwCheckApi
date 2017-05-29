@@ -3,8 +3,6 @@ image: Visual Studio 2017
 branches:
   only:
   - master
-configuration: Debug
-platform: Any CPU
 init:
   # Good practise, because Windows
   - cmd: git config --global core.autocrlf true
