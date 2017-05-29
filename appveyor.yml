@@ -17,7 +17,7 @@ before_build:
   # Display minimal restore text
   - dotnet restore --verbosity m
 build:
-  project: src.csproj
+  - dotnet build
 #build_script:
   # - cd src
   # Display .NET Core version
