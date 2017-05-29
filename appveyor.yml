@@ -32,7 +32,7 @@ build:
 after_build:
   - cmd: >-
     dotnet publish .\ --output %appveyor_build_folder%\dist
-clone_depth: 1
+#clone_depth: 1
 test_script:
   # tests in here
 on_finish :
