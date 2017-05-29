@@ -1,20 +1,18 @@
 version: '1.0.{build}'
+os: Visual Studio 2017
 init:
    # Don't need init, perhaps?
 install:
-   # .NET Core SDK binaries
-   # Download .NET Core 2.0 Preview 1 SDK and add to PATH
-  #  - ps: $urlCurrent = "https://download.microsoft.com/download/0/6/5/0656B047-5F2F-4281-A851-F30776F8616D/dotnet-dev-win-x64.2.0.0-preview1-005977.zip"
-  #  - ps: $env:DOTNET_INSTALL_DIR = "$pwd\.dotnetsdk"
-  #  - ps: mkdir $env:DOTNET_INSTALL_DIR -Force | Out-Null
-  #  - ps: $tempFileCurrent = [System.IO.Path]::GetTempFileName()
-  #  - ps: (New-Object System.Net.WebClient).DownloadFile($urlCurrent, $tempFileCurrent)
-  #  - ps: Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory($tempFileCurrent, $env:DOTNET_INSTALL_DIR)
-  #  - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
+   # Install repo specific stuff here
 build_script:
   - ps: Push-Location
   - cd src
-  - dotnet restore
+  # Display .NET Core version
+  - dotnet --version
+  # Display normal restore text
+  #- dotnet restore
+  # Display minimal restore text
+  - dotnet restore --verbosity m
   - dotnet build
   - ps: Pop-Location
 clone_depth: 1
@@ -22,5 +20,4 @@ test_script:
   # tests in here
 on_finish :
   # any cleanup in here
-#deploy: off
-os: Visual Studio 2017
+deploy: off
