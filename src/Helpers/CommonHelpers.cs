@@ -19,7 +19,7 @@ namespace dwCheckApi.Helpers
             sb.Append($"The following functions are available for Characters:{Environment.NewLine}");
             sb.Append($"\t'/Characters/Get' - Returns a single character by it's ID (set in the database){Environment.NewLine}");
             sb.Append($"\t'/Characters/GetByName' - Returns a single Character my their name (?characterName=), must match exactly{Environment.NewLine}");
-            sb.Append($"\t'/Characters/Search' - Searches all Characters for a search string (?searchString=)");
+            sb.Append($"\t'/Characters/Search' - Searches all Characters for a search string (?searchString=){Environment.NewLine}");
 
             sb.Append($"The following functions are available for Series:{Environment.NewLine}");
             sb.Append($"\t'/Series/Get' - Returns a single Series by it's ID (set in the database){Environment.NewLine}");
