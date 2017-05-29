@@ -1,6 +1,8 @@
 # DwCheckApi - .NET Core
 ## Description
 
+[![Build status](https://ci.appveyor.com/api/projects/status/6yojesrvj7d4q51c?svg=true)](https://ci.appveyor.com/project/GaProgMan/dwcheckapi)
+
 This project is a .NET core implemented Web API for listing all of the (canon) [Discworld](https://en.wikipedia.org/wiki/Discworld#Novels) novels.
 
 It uses Entity Framework Core to communicate with a Sqlite database, which contains a record for each of the Discworld novels.
