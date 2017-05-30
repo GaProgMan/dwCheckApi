@@ -1,0 +1,21 @@
+version: 1.1.{build}
+image: Visual Studio 2017
+branches:
+  only:
+  - master
+init:
+  # Good practise, because Windows
+  - git config --global core.autocrlf true
+before_build:
+  # Display minimal restore text
+  - cmd: dotnet restore ./src/src.csproj --verbosity m
+build_script:
+  # output will be in ./src/bin/debug/netcoreapp1.0/publish
+  - cmd: dotnet publish ./src/src.csproj
+artifacts:
+ - path: '\src\bin\Debug\netcoreapp1.0\publish'
+   name: WebSite
+   type: WebDeployPackage
+deploy:
+- provider: Environment
+  name: dwCheckApi-Production

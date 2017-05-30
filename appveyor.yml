@@ -9,17 +9,23 @@ init:
 install:
   # Install repo specific stuff here
 before_build:
-  - cd src
+  #- cd src
   # Display .NET Core version
-  - dotnet --version
+  - cmd: dotnet --version
   # Display normal restore text
-  #- dotnet restore
+  #- dotnet restore ./src/src.csproj
   # Display minimal restore text
-  - dotnet restore --verbosity m
-build:
-  project: .\src\src.csproj
+  - cmd: dotnet restore ./src/src.csproj --verbosity m
+build_script:
+  # output will be in ./src/bin/debug/netcoreapp1.0/publish
+  - cmd: dotnet publish ./src/src.csproj
+  #project: .\src\src.csproj
 after_build:
   # For once the build has completed
+artifacts:
+ - path: '\src\bin\Debug\netcoreapp1.0\publish'
+   name: WebSite
+   type: WebDeployPackage
 clone_depth: 1
 test_script:
   # tests in here
