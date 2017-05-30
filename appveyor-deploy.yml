@@ -18,4 +18,4 @@ artifacts:
    type: WebDeployPackage
 deploy:
 - provider: Environment
-  name: dwCheckApi - Web Deploy
+  name: dwCheckApi-Production
