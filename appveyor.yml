@@ -33,6 +33,8 @@ test_script:
   - cmd: cd tests
   - cmd: dotnet xunit
   - cmd: cd ..
+  - cmd: dir
+  - cmd: dir /src
 on_finish :
   # any cleanup in here
 deploy: off
