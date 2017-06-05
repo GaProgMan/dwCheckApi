@@ -29,8 +29,8 @@ artifacts:
 clone_depth: 1
 test_script:
   # tests in here
-  # - cmd: cd tests
   - cmd: dotnet restore ./tests/tests.csproj --verbosity m
+  - cmd: cd tests
   - cmd: dotnet xunit
   - cmd: cd ..
 on_finish :
