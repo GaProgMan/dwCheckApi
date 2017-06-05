@@ -10,10 +10,10 @@ before_build:
   # Display minimal restore text
   - cmd: dotnet restore ./src/src.csproj --verbosity m
 build_script:
-  # output will be in ./src/bin/debug/netcoreapp1.0/publish
+  # output will be in ./src/bin/debug/netcoreapp1.1/publish
   - cmd: dotnet publish ./src/src.csproj
 artifacts:
- - path: '\src\bin\Debug\netcoreapp1.0\publish'
+ - path: '\src\bin\Debug\netcoreapp1.1\publish'
    name: WebSite
    type: WebDeployPackage
 deploy:

@@ -32,7 +32,7 @@ test_script:
   - cmd: dotnet restore ./tests/tests.csproj --verbosity m
   - cmd: cd tests
   - cmd: dotnet xunit
-  - cmd: cd ..
+  #- cmd: cd ..
 on_finish :
   # any cleanup in here
 deploy: off
