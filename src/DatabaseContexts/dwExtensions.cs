@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System.IO;
 
 namespace dwCheckApi.DatabaseContexts
 {
@@ -31,7 +32,8 @@ namespace dwCheckApi.DatabaseContexts
                 var dbSeeder = new DatabaseSeeder(context);
                 if (!context.Books.Any())
                 {
-                    dbSeeder.SeedBookEntitiesFromJson();
+                    var pathToSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "BookSeedData.json");;
+                    dbSeeder.SeedBookEntitiesFromJson(pathToSeedData);
                 }
                 if (!context.BookCharacters.Any())
                 {

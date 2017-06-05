@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
-namespace dwCheckApi.DatabaseContexts 
+namespace dwCheckApi.DatabaseContexts
 {
-    public class DwContext : DbContext
+    public class DwContext : DbContext, IDwContext
     {
         public DwContext(DbContextOptions<DwContext> options) : base(options) { }
         public DwContext() { }

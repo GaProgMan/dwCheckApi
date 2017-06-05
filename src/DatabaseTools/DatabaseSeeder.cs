@@ -4,34 +4,37 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 
 namespace dwCheckApi.DatabaseTools
 {
     public class DatabaseSeeder
     {
-        private DwContext _context;
+        private IDwContext _context;
 
-        public DatabaseSeeder(DwContext context)
+        public DatabaseSeeder(IDwContext context)
         {
             _context = context;
         }
 
-        public int SeedBookEntitiesFromJson()
+        public int SeedBookEntitiesFromJson(string filePath)
         {
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "BookSeedData.json");
-            if (File.Exists(filePath))
+            if (string.IsNullOrWhiteSpace(filePath))
             {
-                var dataSet = File.ReadAllText(filePath);
-                var seedData = JsonConvert.DeserializeObject<List<Book>>(dataSet);
-
-                // ensure that we only get the distinct books (based on their name)
-                var distinctSeedData = seedData.GroupBy(b => b.BookName).Select(b => b.First());
-
-                _context.Books.AddRange(seedData);
-                return _context.SaveChanges();
+                throw new ArgumentException($"Value of {nameof(filePath)} must be supplied to {nameof(SeedBookEntitiesFromJson)}");
             }
+            if (!File.Exists(filePath))
+            {
+                throw new ArgumentException($"The file {nameof(filePath)} does not exist");
+            }
+            var dataSet = File.ReadAllText(filePath);
+            var seedData = JsonConvert.DeserializeObject<List<Book>>(dataSet);
 
-            return default(int);
+            // ensure that we only get the distinct books (based on their name)
+            var distinctSeedData = seedData.GroupBy(b => b.BookName).Select(b => b.First());
+
+            _context.Books.AddRange(seedData);
+            return _context.SaveChanges();
         }
 
         public int SeedBookCharacterEntriesFromJson()

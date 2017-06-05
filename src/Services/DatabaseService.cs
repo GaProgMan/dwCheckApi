@@ -1,6 +1,8 @@
 using dwCheckApi.DatabaseContexts;
 using dwCheckApi.DatabaseTools;
 using System.Linq;
+using System.IO;
+
 namespace dwCheckApi.Services
 {
     public class DatabaseService : IDatabaseService
@@ -25,7 +27,8 @@ namespace dwCheckApi.Services
             var seeder = new DatabaseSeeder(_context);
             if(!_context.Books.Any())
             {
-                entitiesAdded += seeder.SeedBookEntitiesFromJson();
+                var pathToBookSeedData = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "BookSeedData.json");;
+                entitiesAdded += seeder.SeedBookEntitiesFromJson(pathToBookSeedData);
             }
 
             if(!_context.BookCharacters.Any())
