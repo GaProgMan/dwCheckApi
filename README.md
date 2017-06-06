@@ -3,6 +3,10 @@
 ## Build Status
 [![Build status](https://ci.appveyor.com/api/projects/status/6yojesrvj7d4q51c?svg=true)](https://ci.appveyor.com/project/GaProgMan/dwcheckapi)
 
+### Licence
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
+(https://opensource.org/licenses/MIT)
+
 ## Description
 
 This project is a .NET core implemented Web API for listing all of the (canon) [Discworld](https://en.wikipedia.org/wiki/Discworld#Novels) novels.
