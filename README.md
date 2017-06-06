@@ -4,8 +4,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/6yojesrvj7d4q51c?svg=true)](https://ci.appveyor.com/project/GaProgMan/dwcheckapi)
 
 ### Licence
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
-(https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
