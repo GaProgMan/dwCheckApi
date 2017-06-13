@@ -42,56 +42,6 @@ It has been released, as is, using an MIT licence. For more information on the M
 
     This will start the Kestrel webserver, load the `dwCheckApi` application and tell you, via the terminal, what the url to access `dwCheckApi` will be. Usually this will be `http://localhost:5000`, but it may be different based on your system configuration.
 
-
-### .NET Core Build Information
-
-The following commands can be used to run different versions of dwCheckApi
-
-    dotnet bin/Debug/netcoreapp1.0/dwCheckApi.dll (for the debug build)
-
-    dotnet bin/Release/netcoreapp1.0/dwCheckApi.dll (for the release build)
-
-This set of commands explicitly inform the .NET Core runtime which build of the server we would like to run.
-
-If you do not explicitly provide a configuration in the build step, then the debug version of dwCheckApi will be built. If you explicitly request a Release build, but issue `dotnet run`, then a debug version of dwCheckApi will be built.
-
-To request a Release build of dwCheckApi, then the following command should produce one:
-
-    dotnet build --configuration Release
-
-## View Models
-
-The data returned from `dwCheck`'s server is in a slightly different, more simplified format, than that used for the Database Models.
-
-1. Book
-
-   The `Book` view model represents a novel in the Discworld series, and the names of any linked characters are included.
-
-   The `Book` view model contains the following fields:
-
-   | Property          | Type             | Description          |
-   | ------------------| -----------------|----------------------|
-   | BookOrdinal       | int              | Release Order        |
-   | BookName          | string           | Book Name |
-   | BookIsbn10        | string           | ISBN 10 of the book  |
-   | BookIsbn13        | string           | ISBN 13 of the book  |
-   | BookDescription   | string           | Book description (taken from the back of the book) |
-   | BookCoverImage    | byte array       | Represents the image for the cover art |
-   | BookCoverImageUrl | string           | is a URL to the cover art (to be used as a backup, if BookCoverImage is null) |
-   | Characters        | array of strings | an array, containing 0 or more entries, of character name strings |
-
-1. Character
-
-   The `Character` view model represents a character from the Discworld universe, and the names of any books they have appeared as major characters in are included.
-   
-   The `Character` view model contains the following fields:
-
-   | Property          | Type             | Description          |
-   | ------------------| -----------------|----------------------|
-   | CharacterName     | string           | Character's Name     |
-   | Books             | array of strings | An array, containing 0 or more entires, of book title strings |
-
-
 ## Polling and Usage of the API
 
 `dwCheckApi` has the following Controllers:
@@ -241,7 +191,7 @@ The data returned from `dwCheck`'s server is in a slightly different, more simpl
 
 # Seeding the Database
 
-There are aseries of API endpoints related to clearing and seeding the database. These can be found at:
+There are a series of API endpoints related to clearing and seeding the database. These can be found at:
 
     /Database/DropData
     /Database/SeedData
