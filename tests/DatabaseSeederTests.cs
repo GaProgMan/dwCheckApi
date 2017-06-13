@@ -6,6 +6,7 @@ using dwCheckApi.DatabaseTools;
 using dwCheckApi.Helpers;
 using dwCheckApi.Models;
 using dwCheckApi.ViewModels;
+using dwCheckApt.Tests.Helpers;
 using Moq;
 using Xunit;
 using System.IO;
@@ -17,13 +18,12 @@ namespace dwCheckApi.Tests
 {
     public class DatabaseSeederTests
     {
-        
         [Fact]
         public void DbSeeder_SeedBookData_NoDataSupplied_ShouldThrowException()
         {
             // Arrange
             var bookList = new List<Book>();
-            var mockBookSet = GetQueryableDbSet(bookList);
+            var mockBookSet = DbSetHelpers.GetQueryableDbSet(bookList);
             var mockset = new Mock<IDwContext>();
             mockset.Setup(m => m.Books).Returns(mockBookSet.Object);
 
@@ -39,31 +39,16 @@ namespace dwCheckApi.Tests
             // Arrange
             // TODO Add an interface here, to mock stuff properly
             var bookList = new List<Book>();
-            var mockBookSet = GetQueryableDbSet(bookList);
+            var mockBookSet = DbSetHelpers.GetQueryableDbSet(bookList);
             var mockset = new Mock<IDwContext>();
             mockset.Setup(m => m.Books).Returns(mockBookSet.Object);
             var testJsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "SeedData");
             var pathToSeedData = Path.Combine(testJsonDirectory, "TestBookSeedData.json");
             
-            
             // Act & Assert
             var dbSeeder = new DatabaseSeeder(mockset.Object);
             
             dbSeeder.SeedBookEntitiesFromJson(pathToSeedData);
-        }
-
-        private static Mock<DbSet<T>> GetQueryableDbSet<T>(List<T> sourceList) where T : class
-        {
-            var queryable = sourceList.AsQueryable();
-
-            var dbSet = new Mock<DbSet<T>>();
-            dbSet.As<IQueryable<T>>().Setup(m => m.Provider).Returns(queryable.Provider);
-            dbSet.As<IQueryable<T>>().Setup(m => m.Expression).Returns(queryable.Expression);
-            dbSet.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(queryable.ElementType);
-            dbSet.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(() => queryable.GetEnumerator());
-            dbSet.Setup(d => d.Add(It.IsAny<T>())).Callback<T>((s) => sourceList.Add(s));
-
-            return dbSet;
         }
     }
 }

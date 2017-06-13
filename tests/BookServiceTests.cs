@@ -6,6 +6,7 @@ using dwCheckApi.DatabaseTools;
 using dwCheckApi.Helpers;
 using dwCheckApi.Models;
 using dwCheckApi.ViewModels;
+using dwCheckApt.Tests.Helpers;
 using Moq;
 using Xunit;
 using System.IO;
@@ -79,5 +80,5 @@ namespace dwCheckApi.Tests
 
             return viewModels;
         }
-    }   
+    }
 }
