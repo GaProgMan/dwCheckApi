@@ -33,8 +33,6 @@ See `Code of Conduct.md` for details.
 
     `dotnet build`
 
-    *Note: this step explicitly builds a debug version of dwCheckApi. See the sub section on Build Information for more information.*
-
 1. Issue the Entity Framework command to update the database
 
     `dotnet ef database update`
@@ -46,6 +44,24 @@ See `Code of Conduct.md` for details.
     `dotnet run`
 
     This will start the Kestrel webserver, load the `dwCheckApi` application and tell you, via the terminal, what the url to access `dwCheckApi` will be. Usually this will be `http://localhost:5000`, but it may be different based on your system configuration.
+
+## Testing
+
+This repository contains an xUnit.NET test library. To run the tests:
+
+1. Change directory to the tests directory
+
+    `cd test`
+
+1. Issue the `dotnet` restore command (this resolves all NuGet packages)
+
+    `dotnet restore`
+
+1. Issue the `xunit` command
+
+    `dotnet xunit`
+
+    All tests will be run against a new build of `dwCheckApi` and results will be returned in the open shell/command prompt window.
 
 ## Polling and Usage of the API
 
