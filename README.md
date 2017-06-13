@@ -14,6 +14,11 @@ It uses Entity Framework Core to communicate with a Sqlite database, which conta
 
 It has been released, as is, using an MIT licence. For more information on the MIT licence, please see either the `LICENSE` file in the root of the repository or see the tl;dr Legal page for [MIT](https://tldrlegal.com/license/mit-license)
 
+## Code of Conduct
+dwCheckApi has a Code of Conduct which all contributors, maintainers and frokers must adhere to. When contributing, maintaining, forking or in any other way changing the code presented in this repository, all users must agree to this Code of Conduct.
+
+See `Code of Conduct.md` for details.
+
 ## Building and Running
 
 1. Change directory to the src directory
