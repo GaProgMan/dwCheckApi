@@ -18,7 +18,7 @@ test_script:
   - cmd: cd tests
   - cmd: dotnet xunit
 artifacts:
- - path: '\src\bin\ReleaseDebug\netcoreapp1.1\publish'
+ - path: '\src\bin\Release\netcoreapp2.0\publish'
    name: WebSite
    type: WebDeployPackage
 deploy:
