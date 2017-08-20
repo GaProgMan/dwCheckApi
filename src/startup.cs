@@ -133,8 +133,8 @@ namespace dwCheckApi
             app.UseCors("CorsPolicy");
             app.UseMvc();
 
-            if (env.IsDevelopment())
-            {
+            //if (env.IsDevelopment())
+            //{
                 // seed the database using an extension method
                 using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
                 {
@@ -142,7 +142,7 @@ namespace dwCheckApi
                     //context.Database.Migrate();
                     context.EnsureSeedData();
                 }
-            }
+            //}
         }
         #endregion
     }
