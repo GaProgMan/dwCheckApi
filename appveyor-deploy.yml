@@ -1,4 +1,4 @@
-version: 1.1.{build}
+version: '2.0.alpha-{build}'
 image: Visual Studio 2017
 branches:
   only:
