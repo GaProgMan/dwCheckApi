@@ -1,18 +1,12 @@
 using System.Collections.Generic;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using dwCheckApi.DatabaseContexts;
 using dwCheckApi.DatabaseTools;
-using dwCheckApi.Helpers;
 using dwCheckApi.Models;
-using dwCheckApi.ViewModels;
 using dwCheckApt.Tests.Helpers;
 using Moq;
 using Xunit;
 using System.IO;
 using System;
-using System.Diagnostics;
-using Xunit.Abstractions;
 
 namespace dwCheckApi.Tests
 {

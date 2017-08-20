@@ -3,6 +3,7 @@ image: Visual Studio 2017
 branches:
   only:
   - master
+clone_depth: 1
 init:
   # Good practise, because Windows
   - cmd: git config --global core.autocrlf true
@@ -12,27 +13,21 @@ before_build:
   #- cd src
   # Display .NET Core version
   - cmd: dotnet --version
-  # Display normal restore text
-  #- dotnet restore ./src/src.csproj
   # Display minimal restore text
-  - cmd: dotnet restore ./src/src.csproj --verbosity m
+  - cmd: dotnet restore --verbosity m
 build_script:
-  # output will be in ./src/bin/debug/netcoreapp1.1/publish
-  - cmd: dotnet publish ./src/src.csproj
-  #project: .\src\src.csproj
+  # output will be in ./src/bin/Release/netcoreapp2.0/publish/
+  - cmd: dotnet publish -c Release
 after_build:
   # For once the build has completed
+test_script:
+# tests in here
+- cmd: cd tests
+- cmd: dotnet xunit
 artifacts:
- - path: '\src\bin\Debug\netcoreapp1.1\publish'
+ - path: '\src\bin\Release\netcoreapp2.0\publish'
    name: WebSite
    type: WebDeployPackage
-clone_depth: 1
-test_script:
-  # tests in here
-  - cmd: dotnet restore ./tests/tests.csproj --verbosity m
-  - cmd: cd tests
-  - cmd: dotnet xunit
-  #- cmd: cd ..
 on_finish :
   # any cleanup in here
 deploy: off

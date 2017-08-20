@@ -3,24 +3,24 @@ image: Visual Studio 2017
 branches:
   only:
   - master
+clone_depth: 1
 init:
   # Good practise, because Windows
   - git config --global core.autocrlf true
 before_build:
   # Display minimal restore text
-  - cmd: dotnet restore ./src/src.csproj --verbosity m
+  - cmd: dotnet restore --verbosity m
 build_script:
-  # output will be in ./src/bin/debug/netcoreapp1.1/publish
-  - cmd: dotnet publish ./src/src.csproj
-artifacts:
- - path: '\src\bin\Debug\netcoreapp1.1\publish'
-   name: WebSite
-   type: WebDeployPackage
+  # output will be in ./src/bin/Release/netcoreapp2.0/publish/
+  - cmd: dotnet publish -c Release
 test_script:
   # tests in here
-  - cmd: dotnet restore ./tests/tests.csproj --verbosity m
   - cmd: cd tests
   - cmd: dotnet xunit
+artifacts:
+ - path: '\src\bin\ReleaseDebug\netcoreapp1.1\publish'
+   name: WebSite
+   type: WebDeployPackage
 deploy:
 - provider: Environment
   name: dwCheckApi-Production
