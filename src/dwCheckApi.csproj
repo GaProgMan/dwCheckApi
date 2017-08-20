@@ -30,4 +30,8 @@
     <!-- required for the `dotnet ef` command line options -->
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
   </ItemGroup>
+  <!-- Required to ensure that we have the appsettings file copied to the publish directory -->
+  <ItemGroup>
+    <None Include="appsettings.Production.json" CopyToPublishDirectory="Always" />
+  </ItemGroup>
 </Project>
