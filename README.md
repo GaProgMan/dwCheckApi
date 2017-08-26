@@ -3,6 +3,8 @@
 ## Build Status
 [![Build status](https://ci.appveyor.com/api/projects/status/6yojesrvj7d4q51c?svg=true)](https://ci.appveyor.com/project/GaProgMan/dwcheckapi)
 
+n.b. the above is for the master branch, only
+
 ### Licence
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -15,15 +17,29 @@ It uses Entity Framework Core to communicate with a Sqlite database, which conta
 It has been released, as is, using an MIT licence. For more information on the MIT licence, please see either the `LICENSE` file in the root of the repository or see the tl;dr Legal page for [MIT](https://tldrlegal.com/license/mit-license)
 
 ## Code of Conduct
-dwCheckApi has a Code of Conduct which all contributors, maintainers and frokers must adhere to. When contributing, maintaining, forking or in any other way changing the code presented in this repository, all users must agree to this Code of Conduct.
+dwCheckApi has a Code of Conduct which all contributors, maintainers and forkers must adhere to. When contributing, maintaining, forking or in any other way changing the code presented in this repository, all users must agree to this Code of Conduct.
 
 See `Code of Conduct.md` for details.
 
+## Creating the Database
+
+This will need to be perfored before running the application for the first time
+
+1. Change to the Persistence directory (i.e. `dwCheckApi/dwCheckApi.Persistence`)
+
+    `cd dwCheckApi.Persistence`
+
+1. Issue the Entity Framework command to update the database
+
+    `dotnet ef database update`
+
+    This will ensure that all migrations are used to create or alter the local database instance, ready for seeding (see `Seeding the Database`)
+
 ## Building and Running
 
-1. Change directory to the src directory
+1. Change to the api directory (i.e. `dwCheckApi/dwCheckApi`)
 
-    `cd src`
+    `cd dwCheckApi`
 
 1. Issue the `dotnet` restore command (this resolves all NuGet packages)
 
@@ -33,17 +49,24 @@ See `Code of Conduct.md` for details.
 
     `dotnet build`
 
-1. Issue the Entity Framework command to update the database
-
-    `dotnet ef database update`
-
-    This will ensure that all migrations are used to create or alter the local database instance, ready for seeding to.
-
 1. Issue the `dotnet` run command
 
     `dotnet run`
 
     This will start the Kestrel webserver, load the `dwCheckApi` application and tell you, via the terminal, what the url to access `dwCheckApi` will be. Usually this will be `http://localhost:5000`, but it may be different based on your system configuration.
+
+## Seeding the Database
+
+There are a series of API endpoints related to clearing and seeding the database. These can be found at:
+
+    /Database/DropData
+    /Database/SeedData
+
+These two commands (used in conjunction with each other) will drop all data from the database, then seed the database (respectively) from a series of JSON files that can be found in the `SeedData` directory.
+
+`dwCheckApi` has been designed so that the user can add as much data as they like via the JSON files. This means that `dwCheckApi` is not limited to Discworld novels and characters.
+
+A user of this API could alter the JSON files, drop the data and reseed and have a completely different data set - perhaps Stephen King novels, for example.
 
 ## Testing
 
@@ -51,7 +74,7 @@ This repository contains an xUnit.NET test library. To run the tests:
 
 1. Change directory to the tests directory
 
-    `cd test`
+    `cd dwCheckApi.Tests`
 
 1. Issue the `dotnet` restore command (this resolves all NuGet packages)
 
@@ -209,19 +232,6 @@ This repository contains an xUnit.NET test library. To run the tests:
                 ]
             }
         ]
-
-# Seeding the Database
-
-There are a series of API endpoints related to clearing and seeding the database. These can be found at:
-
-    /Database/DropData
-    /Database/SeedData
-
-These two commands (used in conjunction with each other) will drop all data from the database, then seed the database (respectively) from a series of JSON files that can be found in the `SeedData` directory.
-
-`dwCheckApi` has been designed so that the user can add as much data as they like via the JSON files. This means that `dwCheckApi` is not limited to Discworld novels and characters.
-
-A user of this API could alter the JSON files, drop the data and reseed and have a completely different data set - perhaps Stephen King novels, for example.
 
 # Data Source
 
