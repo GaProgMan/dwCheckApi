@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using dwCheckApi.Persistence;
 
 namespace dwCheckApi.DAL

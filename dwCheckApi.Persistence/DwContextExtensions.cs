@@ -1,9 +1,6 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using dwCheckApi.Persistence.Helpers;
-using Microsoft.EntityFrameworkCore;
 
 namespace dwCheckApi.Persistence
 {
@@ -11,11 +8,6 @@ namespace dwCheckApi.Persistence
     {
         public static int EnsureSeedData(this DwContext context)
         {
-            // if (!context.AllMigrationsApplied())
-            // {
-            //     context.Database.Migrate();
-            // }
-
             var bookCount = default(int);
             var characterCount = default(int);
             var bookSeriesCount = default(int);
