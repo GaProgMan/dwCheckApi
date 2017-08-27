@@ -4,7 +4,6 @@
         A .NET Core WebApi project, utilizing SqlLite and EF Core, for searching Discworld Books and Characters.
     </Description>
     <VersionPrefix>2.0.0</VersionPrefix>
-    <VersionSuffix>Alpha</VersionSuffix>
     <Authors>Jamie Taylor</Authors>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>dwCheckApi</AssemblyName>
@@ -32,7 +31,7 @@
   </ItemGroup>
   <!-- Required to ensure that we have the appsettings file copied to the publish directory -->
   <ItemGroup>
-    <None Include="appsettings.Production.json" CopyToPublishDirectory="Always" />
+    <None Include="appsettings.Production.json" CopyToPublishDirectory="Always" CopyToOutputDirectory="Always" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dwCheckApi.DAL\dwCheckApi.DAL.csproj" />
