@@ -3,9 +3,10 @@
 ## Build Status
 [![Build status](https://ci.appveyor.com/api/projects/status/6yojesrvj7d4q51c?svg=true)](https://ci.appveyor.com/project/GaProgMan/dwcheckapi)
 
-n.b. the above is for the master branch, only
+## Live Deployment Status
+[![Deployment status](https://ci.appveyor.com/api/projects/status/f2hk3k5hvl609jow?svg=true)](https://ci.appveyor.com/project/GaProgMan/dwcheckapi-c8vm5)
 
-### Licence
+## Licence
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
