@@ -42,7 +42,7 @@ namespace dwCheckApi.Tests
             // Act & Assert
             var dbSeeder = new DatabaseSeeder(mockset.Object);
             
-            dbSeeder.SeedBookEntitiesFromJson(pathToSeedData);
+            dbSeeder.SeedBookEntitiesFromJson(pathToSeedData).Wait();
         }
     }
 }
