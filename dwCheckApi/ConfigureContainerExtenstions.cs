@@ -1,4 +1,5 @@
-﻿using dwCheckApi.DAL;
+﻿using dwCheckApi.Common;
+using dwCheckApi.DAL;
 using dwCheckApi.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,10 +12,14 @@ namespace dwCheckApi
     /// </summary>
     public static class ConfigureContainerExtenstions
     {
-        public static void AddDbContext(this IServiceCollection serviceCollection, string connectionString)
+        private static string DbConnectionString => new DatabaseConfiguration().GetDatabaseConnectionString();
+        private static string CorsPolicyName => new CorsConfiguration().GetCorsPolicyName();
+
+        public static void AddDbContext(this IServiceCollection serviceCollection,
+            string connectionString = null)
         {
             serviceCollection.AddDbContext<DwContext>(options =>
-                options.UseSqlite(connectionString));
+                options.UseSqlite(connectionString ?? DbConnectionString));
         }
 
         public static void AddTransientServices(this IServiceCollection serviceCollection)
@@ -30,11 +35,11 @@ namespace dwCheckApi
             serviceCollection.AddMvc();
         }
 
-        public static void AddCorsPolicy(this IServiceCollection serviceCollection, string corsPolicyName)
+        public static void AddCorsPolicy(this IServiceCollection serviceCollection, string corsPolicyName = null)
         {
             serviceCollection.AddCors(options =>
             {
-                options.AddPolicy(corsPolicyName,
+                options.AddPolicy(corsPolicyName ?? CorsPolicyName,
                     builder => builder.AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader()

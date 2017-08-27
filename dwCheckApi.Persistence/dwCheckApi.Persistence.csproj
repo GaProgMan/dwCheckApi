@@ -11,10 +11,18 @@
     <PackageReference Include="NETStandard.Library" Version="2.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
+  
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
   </ItemGroup>
+  
   <ItemGroup>
+    <ProjectReference Include="..\dwCheckAiCommon\dwCheckAiCommon.csproj" />
+    <ProjectReference Include="..\dwCheckApi.Common\dwCheckApi.Common.csproj" />
     <ProjectReference Include="..\dwCheckApi.Entities\dwCheckApi.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\dwCheckApi\appsettings.Production.json" CopyToPublishDirectory="Always" CopyToOutputDirectory="Always" />
   </ItemGroup>
 </Project>

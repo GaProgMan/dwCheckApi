@@ -13,16 +13,15 @@ namespace dwCheckApi
         {
             Configuration = configuration;
         }
+        
         public IConfiguration Configuration { get; }
-
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCustomizedMvc();
-            // TODO don't hard code this
-            services.AddCorsPolicy("CorsPolicy");
-            // TODO don't hard code this
-            services.AddDbContext("Data Source=dwDatabase.db");
+            services.AddCorsPolicy();
+            services.AddDbContext();
             services.AddTransientServices();
         }
 
@@ -35,8 +34,7 @@ namespace dwCheckApi
                 app.EnsureDatabaseIsSeeded(false);
             }
 
-            // TODO don't hard code this
-            app.UseCorsPolicy("CorsPolicy");
+            app.UseCorsPolicy();
             
             app.UseStaticFiles();
             app.UseCustomisedMvc();

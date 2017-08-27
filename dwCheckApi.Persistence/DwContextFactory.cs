@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using dwCheckApi.Common;
 
 namespace dwCheckApi.Persistence
 {
@@ -14,13 +15,14 @@ namespace dwCheckApi.Persistence
     /// </remarks>
     public class DwContextFactory : IDesignTimeDbContextFactory<DwContext>
     {
+        private static string DbConnectionString => new DatabaseConfiguration().GetDatabaseConnectionString();
+
         public DwContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<DwContext>();
-            
-            // TODO: don't hard code this
-            optionsBuilder.UseSqlite("Data Source=dwDatabase.db");
-            
+
+            optionsBuilder.UseSqlite(DbConnectionString);
+
             return new DwContext(optionsBuilder.Options);
         }
     }

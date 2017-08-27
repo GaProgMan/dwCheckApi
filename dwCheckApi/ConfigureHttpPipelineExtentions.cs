@@ -1,4 +1,5 @@
-﻿using dwCheckApi.Persistence;
+﻿using dwCheckApi.Common;
+using dwCheckApi.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,8 @@ namespace dwCheckApi
     /// </summary>
     public static class ConfigureHttpPipelineExtentions
     {
+        private static string CorsPolicyName => new CorsConfiguration().GetCorsPolicyName();
+        
         public static void UseCustomisedMvc(this IApplicationBuilder applicationBuilder)
         {
             applicationBuilder.UseMvc(routes =>
@@ -20,9 +23,9 @@ namespace dwCheckApi
             });
         }
 
-        public static void UseCorsPolicy(this IApplicationBuilder applicationBuilder, string corsPolicyName)
+        public static void UseCorsPolicy(this IApplicationBuilder applicationBuilder, string corsPolicyName = null)
         {
-            applicationBuilder.UseCors(corsPolicyName);
+            applicationBuilder.UseCors(corsPolicyName ?? CorsPolicyName);
         }
 
         public static int EnsureDatabaseIsSeeded(this IApplicationBuilder applicationBuilder,
