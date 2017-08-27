@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using ClacksMiddleware.Extensions;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,8 +35,8 @@ namespace dwCheckApi
                 app.EnsureDatabaseIsSeeded(false);
             }
 
+            app.GnuTerryPratchett();
             app.UseCorsPolicy();
-            
             app.UseStaticFiles();
             app.UseCustomisedMvc();
         }

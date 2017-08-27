@@ -19,6 +19,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="NETStandard.Library" Version="2.0.0" />
+    <PackageReference Include="ClacksMiddlware" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <!--
