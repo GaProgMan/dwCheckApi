@@ -10,22 +10,21 @@ init:
 install:
   # Install repo specific stuff here
 before_build:
-  #- cd src
   # Display .NET Core version
   - cmd: dotnet --version
   # Display minimal restore text
   - cmd: dotnet restore --verbosity m
 build_script:
-  # output will be in ./src/bin/Release/netcoreapp2.0/publish/
+  # output will be in ./dwCheckApi/bin/Release/netcoreapp2.0/publish/
   - cmd: dotnet publish -c Release
 after_build:
   # For once the build has completed
 test_script:
 # tests in here
-- cmd: cd tests
+- cmd: cd dwCheckApi.Tests
 - cmd: dotnet xunit
 artifacts:
- - path: '\src\bin\Release\netcoreapp2.0\publish'
+ - path: '\dwCheckApi\bin\Release\netcoreapp2.0\publish'
    name: WebSite
    type: WebDeployPackage
 on_finish :

@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dwCheckApi.Entities\dwCheckApi.Entities.csproj">
+      <Project>{3020B814-5AC6-40FF-A40C-BE7955D8504D}</Project>
+      <Name>dwCheckApi.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

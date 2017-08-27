@@ -11,14 +11,14 @@ before_build:
   # Display minimal restore text
   - cmd: dotnet restore --verbosity m
 build_script:
-  # output will be in ./src/bin/Release/netcoreapp2.0/publish/
+  # output will be in ./dwCheckApisrc/bin/Release/netcoreapp2.0/publish/
   - cmd: dotnet publish -c Release
 test_script:
   # tests in here
-  - cmd: cd tests
+  - cmd: cd dwCheckApi.Tests
   - cmd: dotnet xunit
 artifacts:
- - path: '\src\bin\Release\netcoreapp2.0\publish'
+ - path: '\dwCheckApi\bin\Release\netcoreapp2.0\publish'
    name: WebSite
    type: WebDeployPackage
 deploy:
