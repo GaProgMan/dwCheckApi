@@ -17,7 +17,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\dwCheckAiCommon\dwCheckAiCommon.csproj" />
     <ProjectReference Include="..\dwCheckApi.Common\dwCheckApi.Common.csproj" />
     <ProjectReference Include="..\dwCheckApi.Entities\dwCheckApi.Entities.csproj" />
   </ItemGroup>
