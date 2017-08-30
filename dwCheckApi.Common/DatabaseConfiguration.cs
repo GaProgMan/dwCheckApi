@@ -4,10 +4,10 @@ namespace dwCheckApi.Common
 {
     public class DatabaseConfiguration : ConfigurationBase
     {
-        private string CorsPolicyKey = "dwCheckApiConnection";
+        private string DbConnectionKey = "dwCheckApiConnection";
         public string GetDatabaseConnectionString()
         {
-            return GetConfiguration().GetConnectionString(CorsPolicyKey);
+            return GetConfiguration().GetConnectionString(DbConnectionKey);
         }
     }
 }
