@@ -25,6 +25,12 @@ dwCheckApi has a Code of Conduct which all contributors, maintainers and forkers
 
 See `Code of Conduct.md` for details.
 
+## Pull Requests
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+Pull requests are welcome, but please take a moment to read the Code of Conduct before submitting them or commenting on any work in this repo.
+
 ## Creating the Database
 
 This will need to be perfored before running the application for the first time
