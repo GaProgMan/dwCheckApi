@@ -9,6 +9,9 @@
 ## Licence
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Code Triage Status
+[![Code Triagers Badge](https://www.codetriage.com/gaprogman/dwcheckapi/badges/users.svg)](https://www.codetriage.com/gaprogman/dwcheckapi)
+
 ## Description
 
 This project is a .NET core implemented Web API for listing all of the (canon) [Discworld](https://en.wikipedia.org/wiki/Discworld#Novels) novels.
