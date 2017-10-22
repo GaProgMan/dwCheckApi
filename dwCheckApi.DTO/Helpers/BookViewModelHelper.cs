@@ -11,6 +11,7 @@ namespace dwCheckApi.DTO.Helpers
         {
             var viewModel = new BookViewModel
             {
+                BookId = dbModel.BookId,
                 BookOrdinal = dbModel.BookOrdinal,
                 BookName = dbModel.BookName,
                 BookIsbn10 = dbModel.BookIsbn10,
