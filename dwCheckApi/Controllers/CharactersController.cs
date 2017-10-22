@@ -70,8 +70,11 @@ namespace dwCheckApi.Controllers
             // connected book (via the BookCharacter navigation property);
             // what we need to do is get all of the books for a given character before returning.
             return MultipleResults(characters.Select(@group =>
-                CharacterViewModelHelpers.ConvertToViewModel(@group.First(),
-                    @group.SelectMany(ch => ch.BookCharacter).Select(bc => bc.Book.BookName))).ToList());
+                CharacterViewModelHelpers
+                    .ConvertToViewModel(@group.First(),
+                        @group.SelectMany(ch => ch.BookCharacter)
+                            .OrderBy(ch => ch.Book.BookOrdinal)
+                            .Select(bc => bc.Book.BookName))).ToList());
         }
     }
 }
