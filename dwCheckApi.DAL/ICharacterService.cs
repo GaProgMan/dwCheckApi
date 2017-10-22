@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using dwCheckApi.Entities;
 
 namespace dwCheckApi.DAL 
@@ -7,6 +8,6 @@ namespace dwCheckApi.DAL
     {
         Character GetById (int id);
         Character GetByName (string characterName);
-        IEnumerable<Character> Search(string searchKey);
+        IEnumerable<IGrouping<string, Character>> Search(string searchKey);
     }
 }

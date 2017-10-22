@@ -7,16 +7,23 @@ namespace dwCheckApi.DTO.Helpers
 {
     public static class CharacterViewModelHelpers
     {
-        public static CharacterViewModel ConvertToViewModel (Character dbModel)
+        public static CharacterViewModel ConvertToViewModel (Character dbModel, IEnumerable<string> books = null)
         {
             var viewModel = new CharacterViewModel
             {
                 CharacterName = dbModel.CharacterName
             };
 
-            foreach (var bc in dbModel.BookCharacter)
+            if (books != null)
             {
-                viewModel.Books.Add(bc.Book.BookName ?? string.Empty);
+                viewModel.Books.AddRange(books);
+            }
+            else
+            {
+                foreach (var bc in dbModel.BookCharacter)
+                {
+                    viewModel.Books.Add(bc.Book.BookName ?? string.Empty);
+                }
             }
 
             return viewModel;

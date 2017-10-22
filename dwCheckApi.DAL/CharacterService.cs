@@ -15,7 +15,7 @@ namespace dwCheckApi.DAL
             _dwContext = dwContext;
         }
 
-        public IEnumerable<Character> Search(string searchKey)
+        public IEnumerable<IGrouping<string, Character>> Search(string searchKey)
         {
             var blankSearchString = string.IsNullOrEmpty(searchKey);
 
@@ -28,7 +28,7 @@ namespace dwCheckApi.DAL
                     .Where(ch => ch.CharacterName.ToLower().Contains(searchKey));
             }
 
-            return results.OrderBy(ch => ch.CharacterName);
+            return results.GroupBy(ch => ch.CharacterName);
         }
 
         public Character GetById (int id)

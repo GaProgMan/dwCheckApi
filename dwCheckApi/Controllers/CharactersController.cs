@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using dwCheckApi.DAL;
 using dwCheckApi.DTO.Helpers;
+using dwCheckApi.DTO.ViewModels;
 
 namespace dwCheckApi.Controllers
 {
@@ -62,8 +64,14 @@ namespace dwCheckApi.Controllers
             {
                 return ErrorResponse("Not Found");
             }
-                            
-            return MultipleResults(CharacterViewModelHelpers.ConvertToViewModels(characters.ToList()));
+            
+            // Long term, this needs a database or service level re-write.
+            // The issue was that each character was returning a single
+            // connected book (via the BookCharacter navigation property);
+            // what we need to do is get all of the books for a given character before returning.
+            return MultipleResults(characters.Select(@group =>
+                CharacterViewModelHelpers.ConvertToViewModel(@group.First(),
+                    @group.SelectMany(ch => ch.BookCharacter).Select(bc => bc.Book.BookName))).ToList());
         }
     }
 }
