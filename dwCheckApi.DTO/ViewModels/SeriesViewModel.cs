@@ -9,6 +9,7 @@ namespace dwCheckApi.DTO.ViewModels
             BookNames = new List<string>();
         }
 
+        public int SeriesId { get; set; }
         public string SeriesName { get; set; }
         public List<string> BookNames { get; set; }
     }

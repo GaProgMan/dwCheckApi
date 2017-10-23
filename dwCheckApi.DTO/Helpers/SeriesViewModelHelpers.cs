@@ -11,6 +11,7 @@ namespace dwCheckApi.DTO.Helpers
         {
             var viewModel = new SeriesViewModel
             {
+                SeriesId = dbModel.SeriesId,
                 SeriesName = dbModel.SeriesName
             };
 
