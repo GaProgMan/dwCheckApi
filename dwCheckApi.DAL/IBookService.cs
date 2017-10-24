@@ -10,5 +10,6 @@ namespace dwCheckApi.DAL
         Book FindByOrdinal (int id);
         Book GetByName(string bookName);
         IEnumerable<Book> Search(string searchKey);
+        IEnumerable<Book> Series(int seriesId);
     }
 }

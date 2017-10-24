@@ -38,5 +38,23 @@ namespace dwCheckApi.DTO.Helpers
         {
             return dbModel.Select(book => ConvertToViewModel(book)).ToList();
         }
+
+        public static BookBaseViewModel ConvertToBaseViewModel(Book dbModel)
+        {
+            var viewModel = new BookBaseViewModel
+            {
+                BookCoverImageUrl = dbModel.BookCoverImageUrl,
+                BookDescription = dbModel.BookDescription
+            };
+            
+
+            return viewModel;
+        }
+
+        public static List<BookBaseViewModel> ConvertToBaseViewModels(List<Book> dbModel)
+        {
+            return dbModel.Select(book => ConvertToBaseViewModel(book)).ToList();
+        }
+
     }
 }

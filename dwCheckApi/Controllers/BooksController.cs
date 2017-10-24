@@ -30,7 +30,7 @@ namespace dwCheckApi.Controllers
             {
                 return ErrorResponse("Not found");
             }
-            
+
             return SingleResult(BookViewModelHelpers.ConvertToViewModel(book));
         }
 
@@ -63,6 +63,20 @@ namespace dwCheckApi.Controllers
             }
 
             return MultipleResults(BookViewModelHelpers.ConvertToViewModels(dbBooks));
+        }
+
+        // Series/5
+        [HttpGet("Series/{seriesId}")]
+        public JsonResult GetForSeries(int seriesId)
+        {
+            var dbBooks = _bookService.Series(seriesId).ToList();
+
+            if (!dbBooks.Any())
+            {
+                return ErrorResponse();
+            }
+            
+            return MultipleResults(BookViewModelHelpers.ConvertToBaseViewModels(dbBooks));
         }
     }
 }
