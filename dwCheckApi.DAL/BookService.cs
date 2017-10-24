@@ -62,6 +62,13 @@ namespace dwCheckApi.DAL
             return results.OrderBy(book => book.BookOrdinal);
         }
 
+        public IEnumerable<Book> Series(int seriesId)
+        {
+            return BaseQuery()
+                .Where(book => book.BookSeries.Select(series => series.SeriesId).Contains(seriesId))
+                .OrderBy(book => book.BookOrdinal);
+        }
+
         private IEnumerable<Book> BaseQuery()
         {
             // Explicit joins of entities is taken from here:
