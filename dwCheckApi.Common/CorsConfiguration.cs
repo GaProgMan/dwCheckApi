@@ -1,5 +1,4 @@
-﻿using System;
-namespace dwCheckApi.Common
+﻿namespace dwCheckApi.Common
 {
     public class CorsConfiguration : ConfigurationBase
     {

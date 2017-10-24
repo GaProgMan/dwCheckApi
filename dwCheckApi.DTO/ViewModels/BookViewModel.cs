@@ -16,8 +16,8 @@ namespace dwCheckApi.DTO.ViewModels
         public string BookIsbn10 { get; set; }
         public string BookIsbn13 { get; set; }
         public string BookDescription { get; set; }
-        public byte[] BookCoverImage { get; set; }
-        public string BookCoverImageUrl { get; set; }
+        public string BookCoverImage { get; set; }
+        public bool BookImageIsBase64String { get; set; }
         public List<string> Characters { get; set; }
         public List<string> Series { get; set; }
     }

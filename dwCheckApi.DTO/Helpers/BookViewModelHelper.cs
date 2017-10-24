@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using dwCheckApi.DTO.ViewModels;
@@ -17,8 +18,8 @@ namespace dwCheckApi.DTO.Helpers
                 BookIsbn10 = dbModel.BookIsbn10,
                 BookIsbn13 = dbModel.BookIsbn13,
                 BookDescription = dbModel.BookDescription,
-                BookCoverImage = dbModel.BookCoverImage,
-                BookCoverImageUrl = dbModel.BookCoverImageUrl
+                BookCoverImage = GetBookImage(dbModel),
+                BookImageIsBase64String = ContainsImageData(dbModel)
             };
 
             foreach (var bc in dbModel.BookCharacter)
@@ -56,5 +57,16 @@ namespace dwCheckApi.DTO.Helpers
             return dbModel.Select(book => ConvertToBaseViewModel(book)).ToList();
         }
 
+        private static bool ContainsImageData(Book dbModel)
+        {
+            return dbModel.BookCoverImage.Length > 0;
+        }
+        
+        private static string GetBookImage(Book dbModel)
+        {
+            return ContainsImageData(dbModel)
+                ? Convert.ToBase64String(dbModel.BookCoverImage)
+                : dbModel.BookCoverImageUrl;
+        }
     }
 }

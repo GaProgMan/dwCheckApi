@@ -40,7 +40,4 @@
     <ProjectReference Include="..\dwCheckApi.Entities\dwCheckApi.Entities.csproj" />
     <ProjectReference Include="..\dwCheckApi.Persistence\dwCheckApi.Persistence.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DatabaseTools" />
-  </ItemGroup>
 </Project>

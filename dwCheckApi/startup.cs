@@ -34,7 +34,7 @@ namespace dwCheckApi
                 app.UseDeveloperExceptionPage();
                 app.EnsureDatabaseIsSeeded(false);
             }
-
+            
             app.GnuTerryPratchett();
             app.UseCorsPolicy();
             app.UseStaticFiles();

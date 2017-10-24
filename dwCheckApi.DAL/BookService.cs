@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using dwCheckApi.Entities;
 using dwCheckApi.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +9,6 @@ namespace dwCheckApi.DAL
     public class BookService : IBookService
     {
         private readonly DwContext _dwContext;
-        private IBookService _bookServiceImplementation;
 
         public BookService (DwContext dwContext)
         {

@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using dwCheckApi.DAL;
 using dwCheckApi.DTO.Helpers;
-using dwCheckApi.DTO.ViewModels;
 
 namespace dwCheckApi.Controllers
 {
