@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using dwCheckApi.Entities;
 using dwCheckApi.Persistence;
 
 namespace dwCheckApi.DAL
@@ -21,6 +25,16 @@ namespace dwCheckApi.DAL
         public int SeedDatabase()
         {
             return _context.EnsureSeedData();
+        }
+
+        public IEnumerable<Book> BooksWithoutCoverBytes()
+        {
+            return _context.Books.Where(b => b.BookCoverImage == null || b.BookCoverImage.Length == 0);
+        }
+
+        public async Task<int> SaveAnyChanges()
+        {
+            return await _context.SaveChangesAsync();
         }
     }
 }
