@@ -1,6 +1,8 @@
-﻿using ClacksMiddleware.Extensions;
+﻿using System.Linq;
+using ClacksMiddleware.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -20,6 +22,15 @@ namespace dwCheckApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<GzipCompressionProvider>();
+                options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[]
+                    {
+                        "text/plain", "application/json"
+                    });
+            });
+            
             services.AddCustomizedMvc();
             services.AddCorsPolicy();
             services.AddDbContext();
@@ -35,6 +46,7 @@ namespace dwCheckApi
                 app.EnsureDatabaseIsSeeded(false);
             }
             
+            app.UseResponseCompression();
             app.GnuTerryPratchett();
             app.UseCorsPolicy();
             app.UseStaticFiles();
