@@ -44,7 +44,8 @@ namespace dwCheckApi.DTO.Helpers
         {
             var viewModel = new BookBaseViewModel
             {
-                BookCoverImageUrl = dbModel.BookCoverImageUrl,
+                BookCoverImage = GetBookImage(dbModel),
+                BookImageIsBase64String = ContainsImageData(dbModel),
                 BookDescription = dbModel.BookDescription
             };
             
