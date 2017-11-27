@@ -27,8 +27,12 @@ namespace dwCheckApi.Helpers
             sb.Append($"\t'/Series/Search' - Searches all Series for a search string (?searchString=){Environment.NewLine}");
 
             sb.Append($"The following functions are available for the Database itself:{Environment.NewLine}");
+            sb.Append($"\t'/Database/ApplyBookCoverArt' - Looks through the database for books without cover art and gets the Base64 string which represents the book cover art{Environment.NewLine}");
             sb.Append($"\t'/Database/DropData' - Useful for dropping all data from the database{Environment.NewLine}");
-            sb.Append($"\t'/Database/SeedData - Useful for seeding all data (read from a series of JSON files){Environment.NewLine}");            
+            sb.Append($"\t'/Database/SeedData - Useful for seeding all data (read from a series of JSON files){Environment.NewLine}");
+            
+            sb.Append($"The following functions are available for the application itself:{Environment.NewLine}");
+            sb.Append($"\t'/Version - Returns the semver string for this application{Environment.NewLine}");
             return sb.ToString();
         }
     }
