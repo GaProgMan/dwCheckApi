@@ -43,5 +43,27 @@ namespace dwCheckApi
                 return context.EnsureSeedData();
             }
         }
+
+        /// <summary>
+        /// Used to tell the <see cref="IApplicationBuilder"/> to use Swagger and the Swagger UI
+        /// </summary>
+        /// <param name="applicationBuilder">
+        /// The <see cref="IApplicationBuilder"/> which is used in the Http Pipeline
+        /// </param>
+        /// <param name="swaggerUrl">The URL for the Swagger endpoint</param>
+        /// <param name="swaggerDescription">The description for the Swagger endpoint</param>
+        public static void UseSwagger(this IApplicationBuilder applicationBuilder,
+            string swaggerUrl, string swaggerDescription)
+        {
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            applicationBuilder.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying
+            // the Swagger JSON endpoint.
+            applicationBuilder.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint(swaggerUrl, swaggerDescription);
+            });
+        }
     }
 }

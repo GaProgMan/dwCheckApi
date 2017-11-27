@@ -39,29 +39,7 @@ namespace dwCheckApi
             services.AddCorsPolicy();
             services.AddDbContext();
             services.AddTransientServices();
-            
-            // Register the Swagger generator, defining one or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc($"v{CommonHelpers.GetVersionNumber()}",
-                    new Info
-                    {
-                        Title = "dwCheckApi",
-                        Version = $"v{CommonHelpers.GetVersionNumber()}",
-                        Description = "A simple APi to get the details on Books, Characters and Series within a canon of novels",
-                        Contact = new Contact
-                        {
-                            Name = "Jamie Taylor",
-                            Email = "",
-                            Url = "https://dotnetcore.gaprogman.com"
-                        }
-                    }
-                );
-                // Set the comments path for the Swagger JSON and UI.
-                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
-                var xmlPath = Path.Combine(basePath, "dwCheckApi.xml"); 
-                c.IncludeXmlComments(xmlPath); 
-            });
+            services.AddSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,15 +56,8 @@ namespace dwCheckApi
             app.UseCorsPolicy();
             app.UseStaticFiles();
             
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint($"/swagger/v{CommonHelpers.GetVersionNumber()}/swagger.json",
-                    $"dwCheckApi {CommonHelpers.GetVersionNumber()}");
-            });
+            app.UseSwagger($"/swagger/v{CommonHelpers.GetVersionNumber()}/swagger.json",
+                $"dwCheckApi {CommonHelpers.GetVersionNumber()}");
             
             app.UseCustomisedMvc();
         }
