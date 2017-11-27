@@ -11,6 +11,7 @@ namespace dwCheckApi.Controllers
         {
             return CommonHelpers.IncorrectUsageOfApi();
         }
+        
         protected JsonResult ErrorResponse(string message = "Not Found")
         {
             return Json (new {

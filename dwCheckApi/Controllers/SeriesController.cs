@@ -6,6 +6,7 @@ using dwCheckApi.DTO.Helpers;
 namespace dwCheckApi.Controllers
 {
     [Route("/[controller]")]
+    [Produces("application/json")]
     public class SeriesController : BaseController
     {
         private readonly ISeriesService _seriesService;
@@ -14,14 +15,16 @@ namespace dwCheckApi.Controllers
         {
             _seriesService = seriesService;
         }
-
-        [HttpGet]
-        public string Get()
-        {
-            return IncorrectUseOfApi();
-        }
-
-        // GET/5
+        
+        /// <summary>
+        /// Used to get a Series record by its ID
+        /// </summary>
+        /// <param name="id">The ID of the Series Record</param>
+        /// <returns>
+        /// If a Series record can be found, then a <see cref="BaseController.SingleResult"/>
+        /// is returned, which contains a <see cref="dwCheckApi.DTO.ViewModels.SeriesViewModel"/>.
+        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// </returns>
         [HttpGet("Get/{id}")]
         public JsonResult GetById(int id)
         {
@@ -34,6 +37,15 @@ namespace dwCheckApi.Controllers
             return SingleResult(SeriesViewModelHelpers.ConvertToViewModel(dbSeries));
         }
 
+        /// <summary>
+        /// Used to get a Series record by its name
+        /// </summary>
+        /// <param name="seriesName">The name of the Series record to return</param>
+        /// <returns>
+        /// If a Series record can be found, then a <see cref="BaseController.SingleResult"/>
+        /// is returned, which contains a <see cref="dwCheckApi.DTO.ViewModels.SeriesViewModel"/>.
+        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// </returns>
         [HttpGet("GetByName")]
         public JsonResult GetByName(string seriesName)
         {
@@ -52,6 +64,15 @@ namespace dwCheckApi.Controllers
             return SingleResult(SeriesViewModelHelpers.ConvertToViewModel(series));
         }
 
+        /// <summary>
+        /// Used to search Series records by their name
+        /// </summary>
+        /// <param name="searchString">The string to use when searching for Series</param>
+        /// <returns>
+        /// If a Series records can be found, then a <see cref="BaseController.SingleResult"/>
+        /// is returned, which contains a collection of <see cref="dwCheckApi.DTO.ViewModels.SeriesViewModel"/>.
+        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// </returns>
         [HttpGet("Search")]
         public JsonResult Search(string searchString)
         {
