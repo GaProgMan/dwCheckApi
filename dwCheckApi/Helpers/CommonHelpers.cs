@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 
 namespace dwCheckApi.Helpers
 {
@@ -32,8 +33,16 @@ namespace dwCheckApi.Helpers
             sb.Append($"\t'/Database/SeedData - Useful for seeding all data (read from a series of JSON files){Environment.NewLine}");
             
             sb.Append($"The following functions are available for the application itself:{Environment.NewLine}");
-            sb.Append($"\t'/Version - Returns the semver string for this application{Environment.NewLine}");
+            sb.Append($"\t'/Version - Returns the semver fromatted version string for this application{Environment.NewLine}");
+            sb.Append($"\t'/swagger - Returns Swagger formatted API documentation for the application{Environment.NewLine}");
             return sb.ToString();
+        }
+
+        public static string GetVersionNumber()
+        {
+            return Assembly.GetEntryAssembly()
+                .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
+                .InformationalVersion;
         }
     }
 }

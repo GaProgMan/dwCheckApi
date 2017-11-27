@@ -6,6 +6,7 @@ using dwCheckApi.DTO.Helpers;
 namespace dwCheckApi.Controllers
 {
     [Route("/[controller]")]
+    [Produces("application/json")]
     public class BooksController : BaseController
     {
         private readonly IBookService _bookService;
@@ -15,13 +16,16 @@ namespace dwCheckApi.Controllers
             _bookService = bookService;
         }
 
-        [HttpGet]
-        public string Get()
-        {
-            return IncorrectUseOfApi();
-        }
 
-        // Get/5
+        /// <summary>
+        /// Used to get a Book record by its ordinal (the order in which it was released)
+        /// </summary>
+        /// <param name="id">The ordinal of a Book to return</param>
+        /// <returns>
+        /// If a Book record can be found, then a <see cref="BaseController.SingleResult"/>
+        /// is returned, which contains a <see cref="dwCheckApi.DTO.ViewModels.BookViewModel"/>.
+        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// </returns>
         [HttpGet("Get/{id}")]
         public JsonResult GetByOrdinal(int id)
         {
@@ -34,6 +38,15 @@ namespace dwCheckApi.Controllers
             return SingleResult(BookViewModelHelpers.ConvertToViewModel(book));
         }
 
+        /// <summary>
+        /// Used to get a Book by its title
+        /// </summary>
+        /// <param name="bookName">The name to use when searching for a book</param>
+        /// <returns>
+        /// If a Book record can be found, then a <see cref="BaseController.SingleResult"/>
+        /// is returned, which contains a <see cref="dwCheckApi.DTO.ViewModels.BookViewModel"/>.
+        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// </returns>
         [HttpGet("GetByName")]
         public JsonResult GetByName(string bookName)
         {
@@ -51,7 +64,16 @@ namespace dwCheckApi.Controllers
             return SingleResult(BookViewModelHelpers.ConvertToViewModel(book));
         }
 
-        // Search?searchKey
+        /// <summary>
+        /// Used to search all Book records with a given search string (searches against Book
+        /// name, description and ISBN numbers)
+        /// </summary>
+        /// <param name="searchString">The search string to use</param>
+        /// <returns>
+        /// If Book records can be found, then a <see cref="BaseController.MultipleResults"/>
+        /// is returned, which contains a collection of <see cref="dwCheckApi.DTO.ViewModels.BookViewModel"/>.
+        /// If no records can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// </returns>
         [HttpGet("Search")]
         public JsonResult Search(string searchString)
         {
@@ -65,7 +87,15 @@ namespace dwCheckApi.Controllers
             return MultipleResults(BookViewModelHelpers.ConvertToViewModels(dbBooks));
         }
 
-        // Series/5
+        /// <summary>
+        /// Used to get all Book records within a Series, by the series ID
+        /// </summary>
+        /// <param name="seriesId">The ID of the series</param>
+        /// <returns>
+        /// If Book records can be found, then a <see cref="BaseController.MultipleResults"/>
+        /// is returned, which contains a collection of <see cref="dwCheckApi.DTO.ViewModels.BookViewModel"/>.
+        /// If no records can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// </returns>
         [HttpGet("Series/{seriesId}")]
         public JsonResult GetForSeries(int seriesId)
         {

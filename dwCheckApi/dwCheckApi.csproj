@@ -11,6 +11,14 @@
     <PackageId>dwCheckApi</PackageId>
     <RuntimeFrameworkVersion>2.0.0</RuntimeFrameworkVersion>
   </PropertyGroup>
+  <!-- Add XML documentation for Swagger (debug) -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\dwCheckApi.xml</DocumentationFile>
+  </PropertyGroup>
+  <!-- Add XML documentation for Swagger (release) -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp2.0\dwCheckApi.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <Content Update="wwwroot;Views;appsettings.json;web.config">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -20,6 +28,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="NETStandard.Library" Version="2.0.0" />
     <PackageReference Include="ClacksMiddlware" Version="2.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
     <!--
