@@ -60,7 +60,7 @@ namespace dwCheckApi.DTO.Helpers
 
         private static bool ContainsImageData(Book dbModel)
         {
-            return dbModel.BookCoverImage.Length > 0;
+            return dbModel.BookCoverImage?.Length > 0;
         }
         
         private static string GetBookImage(Book dbModel)
