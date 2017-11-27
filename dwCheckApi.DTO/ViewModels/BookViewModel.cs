@@ -15,7 +15,6 @@ namespace dwCheckApi.DTO.ViewModels
         public string BookName { get; set; }
         public string BookIsbn10 { get; set; }
         public string BookIsbn13 { get; set; }
-        public string BookDescription { get; set; }
         public List<string> Characters { get; set; }
         public List<string> Series { get; set; }
     }
