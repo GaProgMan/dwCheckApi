@@ -57,6 +57,7 @@ namespace dwCheckApi
         /// <param name="serviceCollection">
         /// The <see cref="IServiceCollection"/> which is used in the Containter
         /// </param>
+        /// <param name="versionNumberString">The version number for the application</param>
         /// <param name="includeXmlDocumentation">
         /// Whether or not to include XmlDocumentation (defaults to True)
         /// </param>
@@ -70,7 +71,7 @@ namespace dwCheckApi
         ///     <DocumentationFile>bin\Release\netcoreapp2.0\dwCheckApi.xml</DocumentationFile>
         ///  </PropertyGroup>
         /// </remarks>
-        public static void AddSwagger(this IServiceCollection serviceCollection,
+        public static void AddSwagger(this IServiceCollection serviceCollection, string versionNumberString,
             bool includeXmlDocumentation = true)
         {
             // Register the Swagger generator, defining one or more Swagger documents

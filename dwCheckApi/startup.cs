@@ -39,7 +39,7 @@ namespace dwCheckApi
             services.AddCorsPolicy();
             services.AddDbContext();
             services.AddTransientServices();
-            services.AddSwagger();
+            services.AddSwagger($"v{CommonHelpers.GetVersionNumber()}");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
