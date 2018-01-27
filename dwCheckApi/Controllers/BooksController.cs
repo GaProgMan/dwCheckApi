@@ -108,5 +108,28 @@ namespace dwCheckApi.Controllers
             
             return MultipleResults(BookViewModelHelpers.ConvertToBaseViewModels(dbBooks));
         }
+        
+        /// <summary>
+        /// Used to get the Cover Art for a Book record with a given ID
+        /// </summary>
+        /// <param name="bookId">
+        /// The Bookd ID for the relevant book record (this is the identity, not the ordinal)
+        /// </param>
+        /// <returns>
+        /// If a Book record can be found, then a <see cref="BaseController.SingleResult"/>
+        /// is returned, which contains a <see cref="dwCheckApi.DTO.ViewModels.BookCoverViewModel"/>.
+        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// </returns>
+        [HttpGet("GetBookCover/{bookId}")]
+        public JsonResult GetBookCover(int bookId)
+        {
+            var dbBook = _bookService.FindById(bookId);
+            if (dbBook == null)
+            {
+                return ErrorResponse();
+            }
+
+            return SingleResult(BookViewModelHelpers.ConverToBookCoverViewModel(dbBook));
+        }
     }
 }
