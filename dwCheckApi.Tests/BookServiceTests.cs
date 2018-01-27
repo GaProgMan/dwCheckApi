@@ -68,8 +68,7 @@ namespace dwCheckApi.Tests
                 BookName = "Test Book",
                 BookDescription = "Test entry for unit tests only",
                 BookIsbn10 = "1234567890",
-                BookIsbn13 = "1234567890123",
-                BookCoverImage = ""
+                BookIsbn13 = "1234567890123"
             });
 
             return viewModels;
