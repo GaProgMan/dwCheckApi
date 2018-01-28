@@ -79,7 +79,7 @@ namespace dwCheckApi.Controllers
                 : MultipleResults(foundCharacters
                     .Select(character => CharacterViewModelHelpers
                         .ConvertToViewModel(character.Key,
-                            character.ToDictionary(bc => bc.BookId, bc => bc.Book.BookName))));
+                            character.ToDictionary(bc => bc.Book.BookOrdinal, bc => bc.Book.BookName))));
         }
     }
 }
