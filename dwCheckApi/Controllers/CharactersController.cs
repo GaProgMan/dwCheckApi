@@ -29,12 +29,9 @@ namespace dwCheckApi.Controllers
         public JsonResult GetById(int id)
         {
             var dbCharacter = _characterService.GetById(id);
-            if (dbCharacter == null)
-            {
-                return ErrorResponse("Not found");
-            }
-            
-            return SingleResult(CharacterViewModelHelpers.ConvertToViewModel(dbCharacter));
+            return dbCharacter == null
+                ? ErrorResponse("Not found")
+                : SingleResult(CharacterViewModelHelpers.ConvertToViewModel(dbCharacter.CharacterName));
         }
 
         /// <summary>
@@ -56,12 +53,9 @@ namespace dwCheckApi.Controllers
 
             var character = _characterService.GetByName(characterName);
 
-            if (character == null)
-            {
-                return ErrorResponse("No character found");
-            }
-
-            return SingleResult(CharacterViewModelHelpers.ConvertToViewModel(character));
+            return character == null
+                ? ErrorResponse("No character found")
+                : SingleResult(CharacterViewModelHelpers.ConvertToViewModel(character.CharacterName));
         }
 
         /// <summary>
@@ -76,24 +70,16 @@ namespace dwCheckApi.Controllers
         [HttpGet("Search")]
         public JsonResult Search(string searchString)
         {
-            var characters = _characterService
-                .Search(searchString);
+            var foundCharacters = _characterService
+                .Search(searchString).ToList();
 
-            if (!characters.Any())
-            {
-                return ErrorResponse("Not Found");
-            }
-            
-            // Long term, this needs a database or service level re-write.
-            // The issue was that each character was returning a single
-            // connected book (via the BookCharacter navigation property);
-            // what we need to do is get all of the books for a given character before returning.
-            return MultipleResults(characters.Select(@group =>
-                CharacterViewModelHelpers
-                    .ConvertToViewModel(@group.First(),
-                        @group.SelectMany(ch => ch.BookCharacter)
-                            .OrderBy(ch => ch.Book.BookOrdinal)
-                            .Select(bc => bc.Book.BookName))).ToList());
+           
+            return !foundCharacters.Any()
+                ? ErrorResponse("No Characters found")
+                : MultipleResults(foundCharacters
+                    .Select(character => CharacterViewModelHelpers
+                        .ConvertToViewModel(character.Key,
+                            character.ToDictionary(bc => bc.BookId, bc => bc.Book.BookName))));
         }
     }
 }

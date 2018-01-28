@@ -8,6 +8,6 @@ namespace dwCheckApi.DAL
     {
         Character GetById (int id);
         Character GetByName (string characterName);
-        IEnumerable<IGrouping<string, Character>> Search(string searchKey);
+        IEnumerable<IGrouping<string, BookCharacter>> Search(string searchKey);
     }
 }

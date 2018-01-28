@@ -6,10 +6,10 @@ namespace dwCheckApi.DTO.ViewModels
     {
         public CharacterViewModel()
         { 
-            Books = new List<string>();
+            Books = new Dictionary<int, string>();
         }
 
         public string CharacterName { get; set; }
-        public List<string> Books { get; set; }
+        public Dictionary<int, string> Books { get; set; }
     }
 }
