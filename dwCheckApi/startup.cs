@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using ClacksMiddleware.Extensions;
 using dwCheckApi.Helpers;
 using Microsoft.AspNetCore.Builder;
@@ -8,8 +7,6 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.PlatformAbstractions;
-using Swashbuckle.AspNetCore.Swagger;
 
 
 namespace dwCheckApi
