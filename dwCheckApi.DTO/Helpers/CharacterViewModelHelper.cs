@@ -14,7 +14,7 @@ namespace dwCheckApi.DTO.Helpers
 
             if (books != null)
             {
-                viewModel.Books = books;
+                viewModel.Books = new SortedDictionary<int, string>(books);
             }
 
             return viewModel;
