@@ -23,6 +23,7 @@ namespace dwCheckApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddResponseCaching();
             services.AddResponseCompression(options =>
             {
                 options.Providers.Add<GzipCompressionProvider>();
@@ -47,7 +48,8 @@ namespace dwCheckApi
                 app.UseDeveloperExceptionPage();
                 app.EnsureDatabaseIsSeeded(false);
             }
-            
+
+            app.UseResponseCaching();
             app.UseResponseCompression();
             app.GnuTerryPratchett();
             app.UseCorsPolicy();
