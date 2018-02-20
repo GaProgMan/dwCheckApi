@@ -2,7 +2,9 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using dwCheckApi.DAL;
+using dwCheckApi.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace dwCheckApi.Controllers
 {
@@ -10,9 +12,12 @@ namespace dwCheckApi.Controllers
     [Produces("application/json")]
     public class DatabaseController : BaseController
     {
+        private readonly IConfiguration _configuration;
         private readonly IDatabaseService _databaseService;
-        public DatabaseController(IDatabaseService databaseService)
+        
+        public DatabaseController(IConfiguration configuration, IDatabaseService databaseService)
         {
+            _configuration = configuration;
             _databaseService = databaseService;
         }
 
@@ -35,12 +40,21 @@ namespace dwCheckApi.Controllers
         /// <summary>
         /// Used to drop all current data from the database and recreate any tables
         /// </summary>
+        /// <param name="secret">
+        /// A passphrase like secret to ensure that a Drop Data action should take place
+        /// </param>
         /// <returns>
         /// A <see cref="BaseController.MessageResult"/>
         /// </returns>
-        [HttpGet("DropData")]
-        public JsonResult DropData()
+        [HttpDelete("DropData")]
+        public JsonResult DropData(string secret = null)
         {
+            if (SecretChecker.CheckUserSuppliedSecretValue(secret,
+                _configuration["dropDatabaseSecretValue"]))
+            {
+                return ErrorResponse("Incorrect secret");
+            }
+
             var success = _databaseService.ClearDatabase();
 
             return MessageResult("Database tabled dropped and recreated", success);

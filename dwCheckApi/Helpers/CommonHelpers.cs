@@ -35,6 +35,7 @@ namespace dwCheckApi.Helpers
             sb.Append($"The following functions are available for the application itself:{Environment.NewLine}");
             sb.Append($"\t'/Version - Returns the semver fromatted version string for this application{Environment.NewLine}");
             sb.Append($"\t'/swagger - Returns Swagger formatted API documentation for the application{Environment.NewLine}");
+            
             return sb.ToString();
         }
 

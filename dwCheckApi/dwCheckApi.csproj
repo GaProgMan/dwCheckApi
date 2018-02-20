@@ -10,6 +10,7 @@
     <OutputType>Exe</OutputType>
     <PackageId>dwCheckApi</PackageId>
     <RuntimeFrameworkVersion>2.0.0</RuntimeFrameworkVersion>
+    <UserSecretsId>8dd69dfc-8bd6-46b4-9bec-186b9044a48d</UserSecretsId>
   </PropertyGroup>
   <!-- Add XML documentation for Swagger (debug) -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -26,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.0" />
     <PackageReference Include="NETStandard.Library" Version="2.0.0" />
     <PackageReference Include="ClacksMiddlware" Version="2.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="1.1.0" />
@@ -38,6 +40,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
     <!-- required for the `dotnet ef` command line options -->
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+    <!-- required for user secrets -->
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
   </ItemGroup>
   <!-- Required to ensure that we have the appsettings file copied to the publish directory -->
   <ItemGroup>
