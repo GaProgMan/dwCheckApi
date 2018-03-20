@@ -30,7 +30,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.0" />
     <PackageReference Include="NETStandard.Library" Version="2.0.0" />
     <PackageReference Include="ClacksMiddlware" Version="2.0.0" />
-    <PackageReference Include="OwaspHeaders.Core" Version="3.0.0.2" />
+    <PackageReference Include="OwaspHeaders.Core" Version="3.0.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
