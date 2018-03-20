@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using dwCheckApi.Common;
 using dwCheckApi.Persistence;
 using Microsoft.AspNetCore.Builder;
