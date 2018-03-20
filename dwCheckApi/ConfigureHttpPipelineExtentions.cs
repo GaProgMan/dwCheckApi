@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using dwCheckApi.Common;
 using dwCheckApi.Persistence;
 using Microsoft.AspNetCore.Builder;
@@ -78,7 +79,11 @@ namespace dwCheckApi
         /// <param name="applicationBuilder">
         /// The <see cref="IApplicationBuilder"/> which is used in the Http Pipeline
         /// </param>
-        public static void UserSecureHeaders(this IApplicationBuilder applicationBuilder)
+        /// <param name="blockAndUpgradeInsecure">
+        /// OPTIONAL: Used to enable/disable blocking and upgrading odf all requests
+        /// when not in developement
+        /// </param>
+        public static void UseSecureHeaders(this IApplicationBuilder applicationBuilder, bool blockAndUpgradeInsecure = true)
         {
             var config = SecureHeadersMiddlewareBuilder
                 .CreateBuilder()
@@ -86,7 +91,7 @@ namespace dwCheckApi
                 .UseXFrameOptions()
                 .UseXSSProtection()
                 .UseContentTypeOptions()
-                .UseContentSecurityPolicy()
+                .UseContentSecurityPolicy(blockAllMixedContent:blockAndUpgradeInsecure, upgradeInsecureRequests: blockAndUpgradeInsecure)
                 .UsePermittedCrossDomainPolicies()
                 .UseReferrerPolicy()
                 .Build();
