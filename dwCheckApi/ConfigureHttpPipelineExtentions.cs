@@ -1,7 +1,12 @@
-﻿using dwCheckApi.Common;
+﻿using System.Collections.Generic;
+using dwCheckApi.Common;
 using dwCheckApi.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using OwaspHeaders.Core;
+using OwaspHeaders.Core.Enums;
+using OwaspHeaders.Core.Extensions;
+using OwaspHeaders.Core.Models;
 
 namespace dwCheckApi
 {
@@ -64,6 +69,48 @@ namespace dwCheckApi
             {
                 c.SwaggerEndpoint(swaggerUrl, swaggerDescription);
             });
+        }
+
+        /// <summary>
+        /// Used to include the <see cref="SecureHeadersMiddleware"/> middleware and set up the
+        /// <see cref="SecureHeadersMiddlewareConfiguration"/> for it.
+        /// </summary>
+        /// <param name="applicationBuilder">
+        /// The <see cref="IApplicationBuilder"/> which is used in the Http Pipeline
+        /// </param>
+        public static void UserSecureHeaders(this IApplicationBuilder applicationBuilder)
+        {
+            var config = SecureHeadersMiddlewareBuilder
+                .CreateBuilder()
+                .UseHsts()
+                .UseXFrameOptions()
+                .UseXSSProtection()
+                .UseContentTypeOptions()
+                .UseContentSecurityPolicy()
+                .UsePermittedCrossDomainPolicies()
+                .UseReferrerPolicy()
+                .Build();
+
+            config.ContentSecurityPolicyConfiguration.ScriptSrc = new List<ContenSecurityPolicyElement>()
+            {
+                new ContenSecurityPolicyElement
+                {
+                    CommandType = CspCommandType.Directive,
+                    DirectiveOrUri = "self"
+                },
+                new ContenSecurityPolicyElement
+                {
+                    CommandType = CspCommandType.Directive,
+                    DirectiveOrUri = "sha256-gw/4FeYphgTzu5mo/iOEEHUjrRJsQ/F6lgqdtSc23GU="
+                },
+                new ContenSecurityPolicyElement
+                {
+                    CommandType = CspCommandType.Directive,
+                    DirectiveOrUri = "sha256-7I8kfi1IZHgnTNHryKWWH/oZV9dIkctQ77ABbgrpy6w="
+                }
+            };
+            
+            applicationBuilder.UseSecureHeadersMiddleware(config);
         }
     }
 }
