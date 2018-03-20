@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using OwaspHeaders.Core.Extensions;
 
 
 namespace dwCheckApi
@@ -49,6 +50,7 @@ namespace dwCheckApi
                 app.EnsureDatabaseIsSeeded(false);
             }
 
+            app.UserSecureHeaders();
             app.UseResponseCaching();
             app.UseResponseCompression();
             app.GnuTerryPratchett();
