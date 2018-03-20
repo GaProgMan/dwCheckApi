@@ -78,11 +78,7 @@ namespace dwCheckApi
         /// <param name="applicationBuilder">
         /// The <see cref="IApplicationBuilder"/> which is used in the Http Pipeline
         /// </param>
-        /// <param name="blockAndUpgrade">
-        /// OPTIONAL: Used to ensure that we don't block and upgrade all isecure requests when
-        /// in development
-        /// </param>
-        public static void UseSecureHeaders(this IApplicationBuilder applicationBuilder, bool blockAndUpgrade = true)
+        public static void UserSecureHeaders(this IApplicationBuilder applicationBuilder)
         {
             var config = SecureHeadersMiddlewareBuilder
                 .CreateBuilder()
@@ -90,7 +86,7 @@ namespace dwCheckApi
                 .UseXFrameOptions()
                 .UseXSSProtection()
                 .UseContentTypeOptions()
-                .UseContentSecurityPolicy(blockAllMixedContent: blockAndUpgrade, upgradeInsecureRequests:blockAndUpgrade)
+                .UseContentSecurityPolicy()
                 .UsePermittedCrossDomainPolicies()
                 .UseReferrerPolicy()
                 .Build();

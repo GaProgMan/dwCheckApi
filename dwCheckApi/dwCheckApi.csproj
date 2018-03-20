@@ -3,7 +3,7 @@
     <Description>
         A .NET Core WebApi project, utilizing SqlLite and EF Core, for searching Discworld Books and Characters.
     </Description>
-    <VersionPrefix>2.5.0</VersionPrefix>
+    <VersionPrefix>2.4.0</VersionPrefix>
     <Authors>Jamie Taylor</Authors>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>dwCheckApi</AssemblyName>
@@ -53,8 +53,5 @@
     <ProjectReference Include="..\dwCheckApi.DTO\dwCheckApi.DTO.csproj" />
     <ProjectReference Include="..\dwCheckApi.Entities\dwCheckApi.Entities.csproj" />
     <ProjectReference Include="..\dwCheckApi.Persistence\dwCheckApi.Persistence.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="wwwroot" />
   </ItemGroup>
 </Project>
