@@ -3,7 +3,9 @@ using ClacksMiddleware.Extensions;
 using dwCheckApi.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -33,7 +35,7 @@ namespace dwCheckApi
                         "text/plain", "application/json"
                     });
             });
-            
+
             services.AddCustomizedMvc();
             services.AddCorsPolicy();
             services.AddDbContext();
@@ -51,7 +53,7 @@ namespace dwCheckApi
             }
 
             // Only block and upgrade all insecure requests when not in dev
-            app.UseSecureHeaders(env.IsProduction() || env.IsStaging());
+            app.UseSecureHeaders(env.IsProdOrStaging());
             app.UseResponseCaching();
             app.UseResponseCompression();
             app.GnuTerryPratchett();
