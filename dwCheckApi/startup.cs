@@ -50,7 +50,8 @@ namespace dwCheckApi
                 app.EnsureDatabaseIsSeeded(false);
             }
 
-            app.UserSecureHeaders();
+            // Only block and upgrade all insecure requests when not in dev
+            app.UserSecureHeaders(env.IsProduction() || env.IsStaging());
             app.UseResponseCaching();
             app.UseResponseCompression();
             app.GnuTerryPratchett();
