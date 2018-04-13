@@ -111,6 +111,11 @@ namespace dwCheckApi
                 {
                     CommandType = CspCommandType.Directive,
                     DirectiveOrUri = "sha256-7I8kfi1IZHgnTNHryKWWH/oZV9dIkctQ77ABbgrpy6w="
+                },
+                new ContenSecurityPolicyElement
+                {
+                    CommandType = CspCommandType.Directive,
+                    DirectiveOrUri = "sha256-3kf2chgLlsbYoTHVrm7JlIF6/529E3h6TGATiBxN4kU="
                 }
             };
             
