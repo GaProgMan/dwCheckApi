@@ -1,10 +1,8 @@
 # DwCheckApi - .NET Core
 
-## Build Status
-[![Build status](https://ci.appveyor.com/api/projects/status/6yojesrvj7d4q51c?svg=true)](https://ci.appveyor.com/project/GaProgMan/dwcheckapi)
+## Note
 
-## Live Deployment Status
-[![Deployment status](https://ci.appveyor.com/api/projects/status/f2hk3k5hvl609jow?svg=true)](https://ci.appveyor.com/project/GaProgMan/dwcheckapi-c8vm5)
+AppVeyor projects have been removed, as this project now uses docker and the chosen docker images are Linux based (for size and speed reasons)
 
 ## Licence
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
