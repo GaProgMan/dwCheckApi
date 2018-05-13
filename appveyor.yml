@@ -11,7 +11,7 @@ install:
   # Install repo specific stuff here
   docker version
 build_script:
-  - docker build . -t gaprogman/dwcheckapi:{build}
+  - docker build . -t gaprogman/dwcheckapi
 on_finish :
   # any cleanup in here
 deploy: off
