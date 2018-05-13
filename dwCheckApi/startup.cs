@@ -50,7 +50,8 @@ namespace dwCheckApi
             }
 
             // Only block and upgrade all insecure requests when not in dev
-            app.UseSecureHeaders(env.IsProdOrStaging());
+            // temporarily commented out, in order to get the docker container runnning
+            //app.UseSecureHeaders(env.IsProdOrStaging());
             app.UseResponseCaching();
             app.UseResponseCompression();
             app.GnuTerryPratchett();

@@ -5,20 +5,19 @@
     </Description>
     <VersionPrefix>2.5.2</VersionPrefix>
     <Authors>Jamie Taylor</Authors>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>dwCheckApi</AssemblyName>
     <OutputType>Exe</OutputType>
     <PackageId>dwCheckApi</PackageId>
-    <RuntimeFrameworkVersion>2.0.0</RuntimeFrameworkVersion>
     <UserSecretsId>8dd69dfc-8bd6-46b4-9bec-186b9044a48d</UserSecretsId>
   </PropertyGroup>
   <!-- Add XML documentation for Swagger (debug) -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netcoreapp2.0\dwCheckApi.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netcoreapp2.1\dwCheckApi.xml</DocumentationFile>
   </PropertyGroup>
   <!-- Add XML documentation for Swagger (release) -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netcoreapp2.0\dwCheckApi.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netcoreapp2.1\dwCheckApi.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Content Update="wwwroot;Views;appsettings.json;web.config">
@@ -26,11 +25,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.0" />
-    <PackageReference Include="NETStandard.Library" Version="2.0.0" />
-    <PackageReference Include="ClacksMiddlware" Version="2.0.0" />
-    <PackageReference Include="OwaspHeaders.Core" Version="3.0.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0-rc1-final" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.1.0-rc1-final" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+    <PackageReference Include="ClacksMiddlware" Version="2.0.2" />
+    <PackageReference Include="OwaspHeaders.Core" Version="3.3.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
@@ -38,11 +37,7 @@
         Useful for the `dotnet-aspnet-codegenerator` command line
         options (for generating controllers and views
       -->
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
-    <!-- required for the `dotnet ef` command line options -->
-    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
-    <!-- required for user secrets -->
-    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.1.0-preview1-final" />
   </ItemGroup>
   <!-- Required to ensure that we have the appsettings file copied to the publish directory -->
   <ItemGroup>
