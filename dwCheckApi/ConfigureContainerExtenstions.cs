@@ -64,11 +64,11 @@ namespace dwCheckApi
         /// <remarks>
         /// <param name="includeXmlDocumentation"/> requries:
         ///   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        ///     <DocumentationFile>bin\Debug\netcoreapp2.0\dwCheckApi.xml</DocumentationFile>
+        ///     <DocumentationFile>bin\Debug\netcoreapp2.1\dwCheckApi.xml</DocumentationFile>
         ///  </PropertyGroup>
         /// for debug builds and:
         ///   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        ///     <DocumentationFile>bin\Release\netcoreapp2.0\dwCheckApi.xml</DocumentationFile>
+        ///     <DocumentationFile>bin\Release\netcoreapp2.1\dwCheckApi.xml</DocumentationFile>
         ///  </PropertyGroup>
         /// </remarks>
         public static void AddSwagger(this IServiceCollection serviceCollection, string versionNumberString,
