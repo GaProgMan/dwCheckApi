@@ -5,7 +5,6 @@ using dwCheckApi.Helpers;
 using dwCheckApi.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.PlatformAbstractions;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace dwCheckApi
@@ -94,7 +93,7 @@ namespace dwCheckApi
                 
                 if (!includeXmlDocumentation) return;
                 // Set the comments path for the Swagger JSON and UI.
-                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                var basePath = Directory.GetCurrentDirectory();
                 var xmlPath = Path.Combine(basePath, "dwCheckApi.xml");
                 if (File.Exists(xmlPath))
                 {
