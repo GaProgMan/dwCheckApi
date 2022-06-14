@@ -61,6 +61,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: ["build"]
     steps:
+
+      ## The first thing we need to do is get the latest code out from git, otherwise
+      ## we can't build anything
+      - name: Checkout the code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       ## Run all of the discovered tests for this repository, telling the dotnet
       ## tooling to not waste time building (--no-build), use the Release config
       ## (--configuration Release), and only print the normal amount of logs to
