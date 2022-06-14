@@ -81,7 +81,7 @@ jobs:
       ## by our tests, and it can help us to identify where we should spend our
       ## personal and technical bandwidth in shoring up the test coverage. 
       - name: Run tests
-        run: dotnet test dwCheckApi.sln --configuration Release --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+        run: dotnet test dwCheckApi.sln --configuration Release --collect:"XPlat Code Coverage" --results-directory ./coverage
 
       ## We are about to use a GitHub action called Code Coverage Summary to get a
       ## human readable summary of the code coverage stuff from the previous step.
@@ -105,7 +105,7 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: '60 80'
+          thresholds: '5 80'
 
       ## Create the PR to add the Code Coverage Summary to the repo
       - name: Add Coverage PR Comment
