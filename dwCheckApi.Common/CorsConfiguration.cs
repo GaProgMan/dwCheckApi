@@ -10,7 +10,7 @@
             {
                 RaiseValueNotFoundException(CorsPolicyKey);
             }
-            return section.Value;
+            return section!.Value;
         }
     }
 }

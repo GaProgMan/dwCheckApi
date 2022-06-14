@@ -1,9 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using dwCheckApi.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace dwCheckApi.Persistence
 {
-    public static class ModelBuilderExtentions
+    [ExcludeFromCodeCoverage]
+    public static class ModelBuilderExtensions
     {
         /// <summary>
         /// Used to create the the primary keys for dwCheckApi's database model

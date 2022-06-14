@@ -3,9 +3,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace dwCheckApi.Persistence.Migrations
 {
+    [ExcludeFromCodeCoverage]
     [DbContext(typeof(DwContext))]
     partial class DwContextModelSnapshot : ModelSnapshot
     {

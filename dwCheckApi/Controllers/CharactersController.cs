@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using dwCheckApi.DAL;
 using dwCheckApi.DTO.Helpers;
+using dwCheckApi.DTO.ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace dwCheckApi.Controllers
 {
@@ -21,17 +23,26 @@ namespace dwCheckApi.Controllers
         /// </summary>
         /// <param name="id">The ID fo the Character record to return</param>
         /// <returns>
-        /// If a Character record can be found, then a <see cref="BaseController.SingleResult"/>
+        /// If a Character record can be found, then a <see cref="BaseController.SingleResult{T}"/>
         /// is returned, which contains a <see cref="dwCheckApi.DTO.ViewModels.CharacterViewModel"/>.
-        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// If no record can be found, then an <see cref="BaseController.NotFoundResponse"/> is returned
         /// </returns>
         [HttpGet("Get/{id}")]
-        public JsonResult GetById(int id)
+        [ProducesResponseType(typeof(SingleResult<CharacterViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SingleResult<string>), StatusCodes.Status404NotFound)]
+        public IActionResult GetById(int id)
         {
             var dbCharacter = _characterService.GetById(id);
-            return dbCharacter == null
-                ? ErrorResponse("Not found")
-                : SingleResult(CharacterViewModelHelpers.ConvertToViewModel(dbCharacter.CharacterName));
+            if (dbCharacter == null)
+            {
+                return NotFoundResponse("Character not found");
+            }
+
+            return Ok(new SingleResult<CharacterViewModel>
+            {
+                Success = true,
+                Result = CharacterViewModelHelpers.ConvertToViewModel(dbCharacter.CharacterName)
+            });
         }
 
         /// <summary>
@@ -39,23 +50,32 @@ namespace dwCheckApi.Controllers
         /// </summary>
         /// <param name="characterName">The name of the Character record to return</param>
         /// <returns>
-        /// If a Character record can be found, then a <see cref="BaseController.SingleResult"/>
+        /// If a Character record can be found, then a <see cref="BaseController.SingleResult{T}"/>
         /// is returned, which contains a <see cref="dwCheckApi.DTO.ViewModels.CharacterViewModel"/>.
-        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// If no record can be found, then an <see cref="BaseController.NotFoundResponse"/> is returned
         /// </returns>
         [HttpGet("GetByName")]
-        public JsonResult GetByName(string characterName)
+        [ProducesResponseType(typeof(SingleResult<CharacterViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SingleResult<string>), StatusCodes.Status404NotFound)]
+        public IActionResult GetByName(string characterName)
         {
             if (string.IsNullOrWhiteSpace(characterName))
             {
-                return ErrorResponse("Character name is required");
+                return NotFoundResponse("Character name is required");
             }
 
             var character = _characterService.GetByName(characterName);
 
-            return character == null
-                ? ErrorResponse("No character found")
-                : SingleResult(CharacterViewModelHelpers.ConvertToViewModel(character.CharacterName));
+            if (character == null)
+            {
+                return NotFoundResponse("Character not found");
+            }
+
+            return Ok(new SingleResult<CharacterViewModel>
+            {
+                Success = true,
+                Result = CharacterViewModelHelpers.ConvertToViewModel(character.CharacterName)
+            });
         }
 
         /// <summary>
@@ -63,23 +83,32 @@ namespace dwCheckApi.Controllers
         /// </summary>
         /// <param name="searchString">The string to use when searching for Character records</param>
         /// <returns>
-        /// If a Character records can be found, then a <see cref="BaseController.SingleResult"/>
+        /// If a Character records can be found, then a <see cref="BaseController.SingleResult{T}"/>
         /// is returned, which contains a collection of <see cref="dwCheckApi.DTO.ViewModels.CharacterViewModel"/>.
-        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// If no record can be found, then an <see cref="BaseController.NotFoundResponse"/> is returned
         /// </returns>
         [HttpGet("Search")]
-        public JsonResult Search(string searchString)
+        [ProducesResponseType(typeof(MultipleResult<CharacterViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SingleResult<string>), StatusCodes.Status404NotFound)]
+        public IActionResult Search(string searchString)
         {
             var foundCharacters = _characterService
                 .Search(searchString).ToList();
+            if (!foundCharacters.Any())
+            {
+                return NotFoundResponse("No Characters found");
+            }
 
-           
-            return !foundCharacters.Any()
-                ? ErrorResponse("No Characters found")
-                : MultipleResults(foundCharacters
-                    .Select(character => CharacterViewModelHelpers
-                        .ConvertToViewModel(character.Key,
-                            character.ToDictionary(bc => bc.Book.BookOrdinal, bc => bc.Book.BookName))));
+            var flattenedCharacters = foundCharacters
+                .Select(character => CharacterViewModelHelpers
+                    .ConvertToViewModel(character.Key,
+                        character.ToDictionary(bc => bc.Book.BookOrdinal, bc => bc.Book.BookName)));
+
+            return Ok(new MultipleResult<CharacterViewModel>
+            {
+                Success = true,
+                Result = flattenedCharacters.ToList()
+            });
         }
     }
 }

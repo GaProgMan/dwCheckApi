@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 using dwCheckApi.Entities;
@@ -5,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dwCheckApi.Persistence
 {
+    [ExcludeFromCodeCoverage]
     public class DwContext : DbContext, IDwContext
     {
         public DwContext(DbContextOptions<DwContext> options) : base(options) { }

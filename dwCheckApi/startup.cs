@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using ClacksMiddleware.Extensions;
 using dwCheckApi.Helpers;
 using Microsoft.AspNetCore.Builder;
@@ -6,11 +7,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
 
 namespace dwCheckApi
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -33,7 +35,7 @@ namespace dwCheckApi
                     });
             });
 
-            services.AddCustomizedMvc();
+            services.AddControllers();
             services.AddCorsPolicy();
             services.AddDbContext();
             services.AddTransientServices();
@@ -41,17 +43,16 @@ namespace dwCheckApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.EnsureDatabaseIsSeeded(false);
             }
-
-            // Only block and upgrade all insecure requests when not in dev
-            // temporarily commented out, in order to get the docker container runnning
-            //app.UseSecureHeaders(env.IsProdOrStaging());
+            
+            app.UseRouting();
+            
             app.UseResponseCaching();
             app.UseResponseCompression();
             app.GnuTerryPratchett();
@@ -61,7 +62,10 @@ namespace dwCheckApi
             app.UseSwagger($"/swagger/v{CommonHelpers.GetVersionNumber()}/swagger.json",
                 $"dwCheckApi {CommonHelpers.GetVersionNumber()}");
             
-            app.UseCustomisedMvc();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

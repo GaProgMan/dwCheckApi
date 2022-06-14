@@ -2,6 +2,7 @@
 using dwCheckApi.Common;
 using dwCheckApi.Persistence;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using OwaspHeaders.Core;
 using OwaspHeaders.Core.Enums;
@@ -14,19 +15,9 @@ namespace dwCheckApi
     /// This class is based on some of the suggestions bty K. Scott Allen in
     /// his NDC 2017 talk https://www.youtube.com/watch?v=6Fi5dRVxOvc
     /// </summary>
-    public static class ConfigureHttpPipelineExtentions
+    public static class ConfigureHttpPipelineExtension
     {
         private static string CorsPolicyName => new CorsConfiguration().GetCorsPolicyName();
-        
-        public static void UseCustomisedMvc(this IApplicationBuilder applicationBuilder)
-        {
-            applicationBuilder.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
-        }
 
         public static void UseCorsPolicy(this IApplicationBuilder applicationBuilder, string corsPolicyName = null)
         {
@@ -37,16 +28,14 @@ namespace dwCheckApi
             bool autoMigrateDatabase)
         {
             // seed the database using an extension method
-            using (var serviceScope = applicationBuilder.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
-                .CreateScope())
+            using var serviceScope = applicationBuilder.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
+                .CreateScope();
+            var context = serviceScope.ServiceProvider.GetService<DwContext>();
+            if (autoMigrateDatabase)
             {
-                var context = serviceScope.ServiceProvider.GetService<DwContext>();
-                if (autoMigrateDatabase)
-                {
-                    //context.Database.Migrate();
-                }
-                return context.EnsureSeedData();
+                context.Database.Migrate();
             }
+            return context.EnsureSeedData();
         }
 
         /// <summary>
@@ -80,7 +69,7 @@ namespace dwCheckApi
         /// </param>
         /// <param name="blockAndUpgradeInsecure">
         /// OPTIONAL: Used to enable/disable blocking and upgrading odf all requests
-        /// when not in developement
+        /// when not in development
         /// </param>
         public static void UseSecureHeaders(this IApplicationBuilder applicationBuilder, bool blockAndUpgradeInsecure = true)
         {
@@ -95,24 +84,24 @@ namespace dwCheckApi
                 .UseReferrerPolicy()
                 .Build();
 
-            config.ContentSecurityPolicyConfiguration.ScriptSrc = new List<ContenSecurityPolicyElement>()
+            config.ContentSecurityPolicyConfiguration.ScriptSrc = new List<ContentSecurityPolicyElement>()
             {
-                new ContenSecurityPolicyElement
+                new ContentSecurityPolicyElement
                 {
                     CommandType = CspCommandType.Directive,
                     DirectiveOrUri = "self"
                 },
-                new ContenSecurityPolicyElement
+                new ContentSecurityPolicyElement
                 {
                     CommandType = CspCommandType.Directive,
                     DirectiveOrUri = "sha256-gw/4FeYphgTzu5mo/iOEEHUjrRJsQ/F6lgqdtSc23GU="
                 },
-                new ContenSecurityPolicyElement
+                new ContentSecurityPolicyElement
                 {
                     CommandType = CspCommandType.Directive,
                     DirectiveOrUri = "sha256-7I8kfi1IZHgnTNHryKWWH/oZV9dIkctQ77ABbgrpy6w="
                 },
-                new ContenSecurityPolicyElement
+                new ContentSecurityPolicyElement
                 {
                     CommandType = CspCommandType.Directive,
                     DirectiveOrUri = "sha256-3kf2chgLlsbYoTHVrm7JlIF6/529E3h6TGATiBxN4kU="

@@ -25,7 +25,7 @@ namespace dwCheckApi.DTO.Helpers
 
         public static List<SeriesViewModel> ConvertToViewModels(List<Series> dbModels)
         {
-            return dbModels.Select (s => ConvertToViewModel(s)).ToList();
+            return dbModels.Select (ConvertToViewModel).ToList();
         }
     }
 }

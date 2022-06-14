@@ -43,7 +43,7 @@ namespace dwCheckApi.DTO.Helpers
             return dbModel.Select(ConvertToBaseViewModel).ToList();
         }
 
-        public static BookCoverViewModel ConverToBookCoverViewModel(Book dbModel)
+        public static BookCoverViewModel ConvertToBookCoverViewModel(Book dbModel)
         {
             return new BookCoverViewModel
             {

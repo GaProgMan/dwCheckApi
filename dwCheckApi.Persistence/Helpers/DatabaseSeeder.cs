@@ -27,7 +27,7 @@ namespace dwCheckApi.Persistence.Helpers
             {
                 throw new ArgumentException($"The file { filePath} does not exist");
             }
-            var dataSet = File.ReadAllText(filePath);
+            var dataSet = await File.ReadAllTextAsync(filePath);
             var seedData = JsonConvert.DeserializeObject<List<Book>>(dataSet);
 
             // ensure that we only get the distinct books (based on their name)
@@ -42,7 +42,7 @@ namespace dwCheckApi.Persistence.Helpers
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "BookCharacterSeedData.json");
             if (File.Exists(filePath))
             {
-                var dataSet = File.ReadAllText(filePath);
+                var dataSet = await File.ReadAllTextAsync(filePath);
                 var seedData = JsonConvert.DeserializeObject<List<BookCharacterSeedData>>(dataSet);
 
                 foreach(var seedBook in seedData)
@@ -76,7 +76,7 @@ namespace dwCheckApi.Persistence.Helpers
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "SeedData", "SeriesBookSeedData.json");
             if (File.Exists(filePath))
             {
-                var dataSet = File.ReadAllText(filePath);
+                var dataSet = await File.ReadAllTextAsync(filePath);
                 var seedData = JsonConvert.DeserializeObject<List<SeriesBookSeedData>>(dataSet);
 
                 var entitiesToAdd = new List<BookSeries>();
