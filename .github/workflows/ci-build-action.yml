@@ -12,6 +12,7 @@ on:
 jobs:
 
   build:
+
     runs-on: ubuntu-latest
     steps:
       ## The first thing we need to do is get the latest code out from git, otherwise
@@ -76,7 +77,7 @@ jobs:
       ## by our tests, and it can help us to identify where we should spend our
       ## personal and technical bandwidth in shoring up the test coverage. 
       - name: Run tests
-        run: dotnet test --configuration Release --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+        run: dotnet test dwCheckApi.sln --configuration Release --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
 
       ## We are about to use a GitHub action called Code Coverage Summary to get a
       ## human readable summary of the code coverage stuff from the previous step.
