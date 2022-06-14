@@ -19,6 +19,4 @@ namespace dwCheckApi.Controllers
             return IncorrectUseOfApi();
         }
     }
-
-
 }

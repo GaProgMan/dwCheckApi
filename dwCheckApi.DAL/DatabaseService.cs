@@ -17,9 +17,9 @@ namespace dwCheckApi.DAL
         {
             var cleared = _context.Database.EnsureDeleted();
             var created = _context.Database.EnsureCreated();
-            var entitiesadded = _context.SaveChanges();
+            var entitiesAdded = _context.SaveChanges();
 
-            return (cleared && created && entitiesadded == 0);
+            return cleared && created && entitiesAdded == 0;
         }
 
         public int SeedDatabase()

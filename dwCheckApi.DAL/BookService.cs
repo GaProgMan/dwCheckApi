@@ -29,8 +29,6 @@ namespace dwCheckApi.DAL
 
         public Book GetByName(string bookName)
         {
-            var blankSearchString = string.IsNullOrWhiteSpace(bookName);
-
             if (string.IsNullOrEmpty(bookName))
             {
                 // TODO: what here?

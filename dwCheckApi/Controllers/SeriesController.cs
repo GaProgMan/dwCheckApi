@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using dwCheckApi.DAL;
 using dwCheckApi.DTO.Helpers;
+using dwCheckApi.DTO.ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace dwCheckApi.Controllers
 {
@@ -15,26 +17,32 @@ namespace dwCheckApi.Controllers
         {
             _seriesService = seriesService;
         }
-        
+
         /// <summary>
         /// Used to get a Series record by its ID
         /// </summary>
         /// <param name="id">The ID of the Series Record</param>
         /// <returns>
-        /// If a Series record can be found, then a <see cref="BaseController.SingleResult"/>
+        /// If a Series record can be found, then a <see cref="BaseController.SingleResult{T}"/>
         /// is returned, which contains a <see cref="dwCheckApi.DTO.ViewModels.SeriesViewModel"/>.
-        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// If no record can be found, then an <see cref="BaseController.NotFoundResponse"/> is returned
         /// </returns>
         [HttpGet("Get/{id}")]
-        public JsonResult GetById(int id)
+        [ProducesResponseType(typeof(SingleResult<SeriesViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SingleResult<string>), StatusCodes.Status404NotFound)]
+        public IActionResult GetById(int id)
         {
             var dbSeries = _seriesService.GetById(id);
             if (dbSeries == null)
             {
-                return ErrorResponse("Not found");
+                return NotFoundResponse("Not found");
             }
-            
-            return SingleResult(SeriesViewModelHelpers.ConvertToViewModel(dbSeries));
+
+            return Ok(new SingleResult<SeriesViewModel>
+            {
+                Success = true,
+                Result = SeriesViewModelHelpers.ConvertToViewModel(dbSeries)
+            });
         }
 
         /// <summary>
@@ -42,26 +50,32 @@ namespace dwCheckApi.Controllers
         /// </summary>
         /// <param name="seriesName">The name of the Series record to return</param>
         /// <returns>
-        /// If a Series record can be found, then a <see cref="BaseController.SingleResult"/>
+        /// If a Series record can be found, then a <see cref="BaseController.SingleResult{T}"/>
         /// is returned, which contains a <see cref="dwCheckApi.DTO.ViewModels.SeriesViewModel"/>.
-        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// If no record can be found, then an <see cref="BaseController.NotFoundResponse"/> is returned
         /// </returns>
         [HttpGet("GetByName")]
-        public JsonResult GetByName(string seriesName)
+        [ProducesResponseType(typeof(SingleResult<SeriesViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SingleResult<string>), StatusCodes.Status404NotFound)]
+        public IActionResult GetByName(string seriesName)
         {
             if (string.IsNullOrWhiteSpace(seriesName))
             {
-                return ErrorResponse("Series name is required");
+                return NotFoundResponse("Series name is required");
             }
 
             var series = _seriesService.GetByName(seriesName);
 
             if (series == null)
             {
-                return ErrorResponse("No Series found");
+                return NotFoundResponse("No Series found");
             }
 
-            return SingleResult(SeriesViewModelHelpers.ConvertToViewModel(series));
+            return Ok(new SingleResult<SeriesViewModel>
+            {
+                Success = true,
+                Result = SeriesViewModelHelpers.ConvertToViewModel(series)
+            });
         }
 
         /// <summary>
@@ -69,22 +83,28 @@ namespace dwCheckApi.Controllers
         /// </summary>
         /// <param name="searchString">The string to use when searching for Series</param>
         /// <returns>
-        /// If a Series records can be found, then a <see cref="BaseController.SingleResult"/>
+        /// If a Series records can be found, then a <see cref="BaseController.MultipleResult{T}"/>
         /// is returned, which contains a collection of <see cref="dwCheckApi.DTO.ViewModels.SeriesViewModel"/>.
-        /// If no record can be found, then an <see cref="BaseController.ErrorResponse"/> is returned
+        /// If no record can be found, then an <see cref="BaseController.NotFoundResponse"/> is returned
         /// </returns>
         [HttpGet("Search")]
-        public JsonResult Search(string searchString)
+        [ProducesResponseType(typeof(MultipleResult<SeriesViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SingleResult<string>), StatusCodes.Status404NotFound)]
+        public IActionResult Search(string searchString)
         {
             var series = _seriesService
-                .Search(searchString);
+                .Search(searchString).ToList();
 
             if (!series.Any())
             {
-                return ErrorResponse("Not Found");
+                return NotFoundResponse($"No series found for supplied search string: {searchString}");
             }
-                            
-            return MultipleResults(SeriesViewModelHelpers.ConvertToViewModels(series.ToList()));
+
+            return Ok(new MultipleResult<SeriesViewModel>
+            {
+                Success = true,
+                Result = SeriesViewModelHelpers.ConvertToViewModels(series.ToList())
+            });
         }
     }
 }

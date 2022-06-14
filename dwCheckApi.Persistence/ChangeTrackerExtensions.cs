@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace dwCheckApi.Persistence
 {
-    public static class ChangeTrackerExtentions
+    public static class ChangeTrackerExtensions
     {
         public static void ApplyAuditInformation(this ChangeTracker changeTracker)
         {
             foreach (var entry in changeTracker.Entries())
             {
-                if (!(entry.Entity is BaseAuditClass baseAudit)) continue;
+                if (entry.Entity is not BaseAuditClass baseAudit) continue;
                 
                 var now = DateTime.UtcNow;
                 switch (entry.State)

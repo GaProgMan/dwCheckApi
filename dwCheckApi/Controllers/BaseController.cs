@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using dwCheckApi.DTO.ViewModels;
 using dwCheckApi.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,41 +6,34 @@ namespace dwCheckApi.Controllers
 {
     public class BaseController : Controller
     {
-        protected string IncorrectUseOfApi()
+        protected record SingleResult<T> where T : class
+        {
+            public bool Success { get; set; }
+            public T Result { get; set; }
+        }
+
+        protected record MultipleResult<T> where T : class
+        {
+            public bool Success { get; set; }
+            public List<T> Result { get; set; }
+        }
+
+        protected static string IncorrectUseOfApi()
         {
             return CommonHelpers.IncorrectUsageOfApi();
         }
         
-        protected JsonResult ErrorResponse(string message = "Not Found")
+        protected IActionResult NotFoundResponse(string message = "Not Found")
         {
-            return Json (new {
+            return NotFound(new SingleResult<string>{
                 Success = false,
                 Result = message
             });
         }
 
-        protected JsonResult MessageResult(string message, bool success = true)
+        protected static IActionResult ErrorResponse(int statusCode, string message = "Internal server error")
         {
-            return Json(new {
-                Success = success,
-                Result = message
-            });
-        }
-
-        protected JsonResult SingleResult(BaseViewModel singleResult)
-        {
-            return Json(new {
-                Success = true,
-                Result = singleResult
-            });
-        }
-
-        protected JsonResult MultipleResults(IEnumerable<BaseViewModel> multipleResults)
-        {
-            return Json (new {
-                Success = true,
-                Result = multipleResults
-            });
+            return new StatusCodeResult(statusCode);
         }
     }
 }
