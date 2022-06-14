@@ -1,0 +1,35 @@
+name: 'weekly artifacts cleanup'
+
+## Rather than this action firing on a push or PR, we want this action to fire
+## on a regular interval. For that, we use a cron-string. This action currently
+## fires automatically at 1 am UTC every day (or as close to it as possible).
+## Check https://crontab.guru for examples and a cron string builder
+on:
+  schedule:
+    - cron: '0 1 * * *'
+
+jobs:
+
+  ## We only one job: clean up any build artifacts which are more than 7 days
+  ## old.
+  ## This is because GitHub only allows us to have a certain amount of storage
+  ## space for build artifacts on free accounts, and it's always a good idea
+  ## to clean up after yourself
+  delete-artifacts:
+
+    ## Each job can run on different OS images. Even though the repo has a hard
+    ## requirement on Windows for it's build job, this one can be run on a Linux
+    ## image - we're specifying Ubuntu vLatest here.
+    runs-on: ubuntu-latest
+
+    steps:
+
+      ## We only want one step, and we want it to use the following action.
+      - uses: kolpav/purge-artifacts-action@v1
+        with:
+          ## GitHub will create and insert a token here for us. This token will
+          ## allow the delete-artifacts job to reach into the GitHub settings
+          ## for us and delete any artifacts which were created more than 7 days
+          ## ago.
+          token: ${{ secrets.GITHUB_TOKEN }}
+          expire-in: 7days # Setting this to 0 will delete all artifacts
