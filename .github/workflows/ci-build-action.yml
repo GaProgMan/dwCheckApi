@@ -1,0 +1,152 @@
+# name: 'CI build action'
+
+# ## Only builds when someone pushes to main
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
+
+# jobs:
+
+#   build:
+
+#     runs-on: ubuntu-latest
+#     steps:
+#       ## The first thing we need to do is get the latest code out from git, otherwise
+#       ## we can't build anything
+#       - name: Checkout the code
+#         uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 0
+      
+#       ## Next we need to ensure that we have the .NET tooling installed.
+#       - name: Install the .NET SDK
+#         uses: actions/setup-dotnet@v1
+#         with:
+#           ## Ensure that we have AT LEAST version 6.0 of .NET, but don't include any
+#           ## pre-release builds
+#           dotnet-version: '6.0.x'
+#           include-prerelease: false
+#         ## Set a number of environment variables for the .NET tooling (these need
+#         ## to be set on our first step which uses the .NET tooling in order to take
+#         ## effect).
+#         ## We're setting these so that our logs are shorter, easier to read, and
+#         ## so that builds are around 1-2 second faster than normally. 
+#         env:
+#           ## removes logo and telemetry message from first run of dotnet cli 
+#           DOTNET_NOLOGO: 1
+#           ## opt-out of .NET tooling telemetry being sent to Microsoft 
+#           DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+#       ## Now we need to restore any NuGet packages that we rely on in order to build
+#       ## or run the application
+#       - name: Install code level dependencies
+#         run: dotnet restore
+#         working-directory: ${{env.working-directory}}
+      
+#       ## Building is next. Note the use of both the --configuration and
+#       ## --no-restore flags.
+#       ## The first flag sets the build configuration. We want Release here as it
+#       ## will produce a smaller binary than a Debug (which is the default) build.
+#       ## When running a Release build, the compiler will optimise your code and
+#       ## remove any debugging statements that it adds in order to make debugging
+#       ## easier - note: its still possible to debug Release code.
+#       ## The second flag tells the .NET tooling not to attempt to restore any NuGet
+#       ## packages. This is a time saving operation, as we restored them in the
+#       ## previous step.
+#       - name: Build
+#         run: dotnet build --configuration Release --no-restore
+#         working-directory: ${{env.working-directory}}
+
+#   test:
+#     runs-on: ubuntu-latest
+#     needs: ["build"]
+#     steps:
+#       ## Run all of the discovered tests for this repository, telling the dotnet
+#       ## tooling to not waste time building (--no-build), use the Release config
+#       ## (--configuration Release), and only print the normal amount of logs to
+#       ## the screen (--verbosity normal).
+#       ## We also want it to collect cross platform readable code coverage stats
+#       ## (--collect: "XPlat Code Coverage") and store them in a known location
+#       ## (-- results-directory ./coverage)
+#       ## The code coverage stats will show us how much of the code base is covered
+#       ## by our tests. This can be useful to identify which areas are NOT covered
+#       ## by our tests, and it can help us to identify where we should spend our
+#       ## personal and technical bandwidth in shoring up the test coverage. 
+#       - name: Run tests
+#         run: dotnet test dwCheckApi.sln --configuration Release --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+
+#       ## We are about to use a GitHub action called Code Coverage Summary to get a
+#       ## human readable summary of the code coverage stuff from the previous step.
+#       ## The Code Coverage Summary action requires the code coverage stuff to be
+#       ## in a predictable location, so let's copy those files right now.
+#       - name: Copy Coverage To Known Location
+#         run: cp coverage/**/coverage.cobertura.xml coverage.cobertura.xml
+
+#       ## Generate a Code Coverage report based on the code coverage we've gotten
+#       ## in the previous steps.
+#       ## This will create a file on disk, but not in the repo. So we'll need to
+#       ## create a PR off the back of this action to add that file to the repo.
+#       - name: Code Coverage Summary Report
+#         uses: irongut/CodeCoverageSummary@v1.2.0
+#         with:
+#           filename: coverage.cobertura.xml
+#           badge: true
+#           fail_below_min: true
+#           format: markdown
+#           hide_branch_rate: false
+#           hide_complexity: true
+#           indicators: true
+#           output: both
+#           thresholds: '60 80'
+
+#       ## Create the PR to add the Code Coverage Summary to the repo
+#       - name: Add Coverage PR Comment
+#         uses: marocchino/sticky-pull-request-comment@v2
+#         if: github.event_name == 'pull_request'
+#         with:
+#           recreate: true
+#           path: code-coverage-results.md
+
+#   release:
+#     runs-on: ubuntu-latest
+#     needs: ["test"]
+
+#     steps:
+#       ## Now that we have the binary built, we want to publish it. A publish
+#       ## action takes the built binary, grabs any runtime required libraries,
+#       ## then copies everything to the output directory.
+#       ## In this command we're:
+#       ##  - Copying the output to a directory called "publish" in the root of the
+#       ##    source directory (-o publish) 
+#       ##  -  Ensuring that the packaged version of the application is the Release
+#       ##     build only (-c Release)
+#       ##  - Ensuring that the .NET tooling doesn't waste time restoring any NuGet
+#       ##    packages before publishing, as we've already done this
+#       - name: publish
+#         run: dotnet publish -o ../../../publish -c Release
+#         working-directory: ${{env.working-directory}}
+      
+#       ## Now that we have everything built and packaged, we want to create a build
+#       ## artifact. A build artifact is something that a user/consumer can download
+#       ## as a result of the build.
+#       ## Build artifacts will always be available to download on the GitHub actions
+#       ## results page.
+#       ## This means that we don't have to build the code ourself and ship it to the
+#       ## user. They can simply head to the download page and grab the zip file
+#       ## called "invoice-generator", and it will have everything that they need to
+#       ## run the app.
+#       - uses: actions/upload-artifact@v2
+#         if: ${{ success() }}
+#         with:
+#           name: invoice-generator
+#           path: ${{ github.workspace }}/publish/*
+      
+#       ## In future versions of this pipeline, we'll create a GitHub Release and put
+#       ## the invoice-generator zip file there. Releases are show on the repo homepage
+#       ## on the right-hand side (assuming a left-to-right culture).
+#       ## However, this build pipeline will do for now.
+
