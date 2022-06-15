@@ -5,6 +5,13 @@ on:
   push:
     branches:
       - main
+    ## Builds not be run if the following files are the ones which are
+    ## changed in a push to main
+    ## see: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-excluding-paths
+    paths-ignore:
+      - '**/README.md'
+      - '**/Dockerfile'
+      - '**/global.json'
 
 jobs:
 

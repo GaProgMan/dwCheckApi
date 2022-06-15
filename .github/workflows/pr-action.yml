@@ -5,6 +5,13 @@ on:
   pull_request:
     branches:
       - main
+    ## Builds not be run if the following files are the ones which are
+    ## changed in a PR
+    ## see: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-excluding-paths
+    paths-ignore:
+      - '**/README.md'
+      - '**/Dockerfile'
+      - '**/global.json'
 
 jobs:
 
@@ -94,6 +101,7 @@ jobs:
       ## in the previous steps.
       ## This will create a file on disk, but not in the repo. So we'll need to
       ## create a PR off the back of this action to add that file to the repo.
+      ## See: https://github.com/irongut/CodeCoverageSummary for docs
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.2.0
         with:
