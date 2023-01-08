@@ -15,7 +15,7 @@ COPY ./dwCheckApi.sln ./dwCheckApi.sln
 COPY ./global.json ./global.json
 
 # Restore all packages
-RUN dotnet restore ./dwCheckApi/dwCheckApi.csproj --force --no-cache
+RUN dotnet restore --force --no-cache
 
 # Copy the remaining source
 COPY ./dwCheckApi.Common/ ./dwCheckApi.Common/
@@ -27,7 +27,7 @@ COPY ./dwCheckApi.Tests/ ./dwCheckApi.Tests/
 COPY ./dwCheckApi/ ./dwCheckApi/
 
 # Build the source code
-RUN dotnet build ./dwCheckApi/dwCheckApi.csproj --configuration Release --no-restore
+RUN dotnet build --configuration Release --no-restore
 
 # Install the dotnet ef global tool
 ## The following was taken from https://itnext.io/database-development-in-docker-with-entity-framework-core-95772714626f
