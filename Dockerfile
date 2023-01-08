@@ -39,14 +39,16 @@ WORKDIR ./dwCheckApi.Persistence
 RUN dotnet ef database update
 
 # # Run all tests
-WORKDIR ..
-RUN dotnet test dwCheckApi.sln
+WORKDIR ./dwCheckApi.Tests
+RUN dotnet test --configuration Release --no-build 
 
 # Publish application
-RUN dotnet publish ./dwCheckApi/dwCheckApi.csproj --configuration Release --no-restore --no-build --output "../dist"
+WORKDIR ../dwCheckApi
+RUN dotnet publish dwCheckApi.csproj --configuration Release --no-restore --no-build --output "../dist"
 
 # Copy the created database
-RUN cp ./dwCheckApi.Persistence/dwDatabase.db ../dist/dwDatabase.db
+WORKDIR ..
+RUN cp ./dwCheckApi/dwDatabase.db ./dist/dwDatabase.db
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS app
