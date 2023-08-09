@@ -1,48 +1,51 @@
-using System.Collections.Generic;
-using dwCheckApi.Tests.Helpers;
-using Moq;
 using Xunit;
 using System.IO;
 using System;
-using dwCheckApi.Entities;
+using System.Threading.Tasks;
 using dwCheckApi.Persistence;
 using dwCheckApi.Persistence.Helpers;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace dwCheckApi.Tests
 {
     public class DatabaseSeederTests
     {
+        private readonly DbContextOptions<DwContext> _contextOptions;
+        public DatabaseSeederTests()
+        {
+            _contextOptions = new DbContextOptionsBuilder<DwContext>()
+                .UseInMemoryDatabase("dwCheckApi.Tests.InMemoryContext")
+                .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning))
+                .Options;
+        }
         [Fact]
         public async void DbSeeder_SeedBookData_NoDataSupplied_ShouldThrowException()
         {
             // Arrange
-            var bookList = new List<Book>();
-            var mockBookSet = DbSetHelpers.GetQueryableDbSet(bookList);
-            var mockset = new Mock<IDwContext>();
-            mockset.Setup(m => m.Books).Returns(mockBookSet.Object);
+            await using var context = new DwContext(_contextOptions);
 
             // Act & Assert
-            var dbSeeder = new DatabaseSeeder(mockset.Object);
+            var dbSeeder = new DatabaseSeeder(context);
             var argEx = await Assert.ThrowsAsync<ArgumentException>(() =>
                 dbSeeder.SeedBookEntitiesFromJson(string.Empty));
         }
-
+        
         [Fact]
-        public void DbSeeder_SeedBookData_DataSupplied_ShouldNotThrowException()
+        public async Task DbSeeder_SeedBookData_DataSupplied_ShouldNotThrowException()
         {
             // Arrange
-            // TODO Add an interface here, to mock stuff properly
-            var bookList = new List<Book>();
-            var mockBookSet = DbSetHelpers.GetQueryableDbSet(bookList);
-            var mockset = new Mock<IDwContext>();
-            mockset.Setup(m => m.Books).Returns(mockBookSet.Object);
+            await using var context = new DwContext(_contextOptions);
+            
             var testJsonDirectory = Path.Combine(Directory.GetCurrentDirectory(), "SeedData");
             var pathToSeedData = Path.Combine(testJsonDirectory, "TestBookSeedData.json");
+            var dbSeeder = new DatabaseSeeder(context);
             
-            // Act & Assert
-            var dbSeeder = new DatabaseSeeder(mockset.Object);
+            // Act
+            var entitiesAdded = await dbSeeder.SeedBookEntitiesFromJson(pathToSeedData);
             
-            dbSeeder.SeedBookEntitiesFromJson(pathToSeedData).Wait();
+            // Assert
+            Assert.NotEqual(0, entitiesAdded);
         }
     }
 }
