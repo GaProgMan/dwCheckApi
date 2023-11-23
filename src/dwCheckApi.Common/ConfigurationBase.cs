@@ -15,7 +15,7 @@ namespace dwCheckApi.Common
 
         protected void RaiseValueNotFoundException(string configurationKey)
         {
-            throw new Exception($"appsettings key ({configurationKey}) could not be found.");
+            throw new ValueNotFoundException($"appsettings key ({configurationKey}) could not be found.");
         }
     }
 }
