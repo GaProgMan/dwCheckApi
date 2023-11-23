@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using dwCheckApi.DAL;
 using dwCheckApi.Helpers;
@@ -104,10 +104,10 @@ namespace dwCheckApi.Controllers
 
             try
             {
-                using var webclient = new WebClient();
+                using var client = new HttpClient();
                 foreach (var book in relevantBooks)
                 {
-                    var coverData = webclient.DownloadData(book.BookCoverImageUrl);
+                    var coverData = await client.GetByteArrayAsync(book.BookCoverImageUrl);
                     book.BookCoverImage = coverData;
                 }
             }
