@@ -199,5 +199,35 @@ namespace dwCheckApi.Controllers
                 Result = BookViewModelHelpers.ConvertToBookCoverViewModel(dbBook)
             });
         }
+        
+        /// <summary>
+        /// Returns an array of all the books in the database 
+        /// </summary>
+        /// <returns>
+        /// If Book records can be found, then a <see cref="BaseController.MultipleResult{T}"/>
+        /// is returned, which contains a collection of <see cref="dwCheckApi.DTO.ViewModels.BookViewModel"/>.
+        /// If no records can be found, then an <see cref="BaseController.NotFoundResponse"/> is returned
+        /// </returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     GET /All
+        ///
+        /// </remarks>
+        /// <response code="200">All books in the database</response>
+        /// <response code="404">No books could be found in the database</response>
+        [HttpGet("All")]
+        [ProducesResponseType(typeof(MultipleResult<BookViewModel>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SingleResult<string>), StatusCodes.Status404NotFound)]
+        public IActionResult GetAll()
+        {
+            var books = _bookService.GetAll().ToList();
+            if (!books.Any())
+            {
+                return NotFoundResponse("No books found");
+            }
+
+            return Ok(BookViewModelHelpers.ConvertToViewModels(books));
+        }
     }
 }
