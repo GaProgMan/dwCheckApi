@@ -31,13 +31,18 @@ namespace dwCheckApi.DAL
         {
             if (string.IsNullOrEmpty(bookName))
             {
-                // TODO: what here?
+                // TODO: replace this if check with a Guard clause
                 return null;
             }
 
             bookName = bookName.ToLower();
 
             return BaseQuery().FirstOrDefault(book => book.BookName.ToLower() == (bookName));
+        }
+
+        public IEnumerable<Book> GetAll()
+        {
+            return BaseQuery();
         }
 
         public IEnumerable<Book> Search(string searchKey)
