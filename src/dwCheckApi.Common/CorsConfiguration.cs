@@ -2,11 +2,11 @@
 {
     public class CorsConfiguration : ConfigurationBase
     {
-        private string CorsPolicyKey = "CorsPolicy:name";
+        protected string CorsPolicyKey = "CorsPolicy:name";
         public string GetCorsPolicyName()
         {
             var section = GetConfiguration().GetSection(CorsPolicyKey);
-            if (section == null)
+            if (section == null || string.IsNullOrEmpty(section.Value))
             {
                 RaiseValueNotFoundException(CorsPolicyKey);
             }

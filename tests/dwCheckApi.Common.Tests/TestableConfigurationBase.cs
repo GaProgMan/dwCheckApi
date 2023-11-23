@@ -4,6 +4,10 @@ namespace dwCheckApi.Common.Tests
 {
     public abstract class TestableConfigurationBase : ConfigurationBase
     {
+        public TestableConfigurationBase()
+        {
+            JsonFileName = "appsettings.Tests.json";
+        }
         public IConfigurationRoot CallGetConfiguration()
         {
             return GetConfiguration();

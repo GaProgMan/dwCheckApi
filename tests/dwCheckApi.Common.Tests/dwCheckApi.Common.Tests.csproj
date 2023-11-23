@@ -23,7 +23,20 @@
     </ItemGroup>
 
     <ItemGroup>
+        <!-- Required to ensure that we have the appsettings file copied to the publish directory -->
+        <None Include="appsettings.Tests.json" CopyToPublishDirectory="Always" CopyToOutputDirectory="Always" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\..\src\dwCheckApi.Common\dwCheckApi.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="appsettings.Tests.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

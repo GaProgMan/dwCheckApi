@@ -5,7 +5,7 @@ namespace dwCheckApi.Common.Tests
 {
     public class ConfigurationBaseTests
     {
-        private readonly TestableConfigurationBase _configurationBaseMock = Substitute.For<TestableConfigurationBase>();
+        private TestableConfigurationBase _configurationBaseMock = Substitute.For<TestableConfigurationBase>();
 
         [Fact]
         public void GetConfiguration_ReturnsIConfigurationRoot()
@@ -15,7 +15,7 @@ namespace dwCheckApi.Common.Tests
         }
 
         [Fact]
-        public void RaiseValueNotFoundException_ThrowsException()
+        public void RaiseValueNotFoundException_ThrowsValueNotFoundException()
         {
             const string keyToSearch = "NonExistentKey";
             var exception =
