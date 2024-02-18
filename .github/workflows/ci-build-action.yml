@@ -30,10 +30,8 @@ jobs:
       - name: Install the .NET SDK
         uses: actions/setup-dotnet@v4
         with:
-          ## Ensure that we have AT LEAST version 6.0 of .NET, but don't include any
-          ## pre-release builds
-          dotnet-version: '6.0.x'
-          include-prerelease: false
+          ## Ensure that we install the version of the .NET SDK found in the global.json file
+          global-json-file: global.json
         ## Set a number of environment variables for the .NET tooling (these need
         ## to be set on our first step which uses the .NET tooling in order to take
         ## effect).
