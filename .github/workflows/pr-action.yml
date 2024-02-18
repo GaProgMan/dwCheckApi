@@ -21,13 +21,13 @@ jobs:
       ## The first thing we need to do is get the latest code out from git, otherwise
       ## we can't build anything
       - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       
       ## Next we need to ensure that we have the .NET tooling installed.
       - name: Install the .NET SDK
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
           ## Ensure that we have AT LEAST version 6.0 of .NET, but don't include any
           ## pre-release builds
@@ -72,7 +72,7 @@ jobs:
       ## The first thing we need to do is get the latest code out from git, otherwise
       ## we can't build anything
       - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
