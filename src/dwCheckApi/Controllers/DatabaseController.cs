@@ -65,7 +65,7 @@ namespace dwCheckApi.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult DropData(string secret = null)
         {
-            if (SecretChecker.CheckUserSuppliedSecretValue(secret,
+            if (!SecretChecker.CheckUserSuppliedSecretValue(secret,
                 _configuration["dropDatabaseSecretValue"]))
             {
                 return ErrorResponse(StatusCodes.Status401Unauthorized,"Incorrect secret");
