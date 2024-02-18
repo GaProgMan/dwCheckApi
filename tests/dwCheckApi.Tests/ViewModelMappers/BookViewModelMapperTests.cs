@@ -86,6 +86,7 @@ namespace dwCheckApi.Tests.ViewModelMappers
             Assert.NotNull(viewModel);
             Assert.Equal(viewModel.bookId, dbBook.BookId);
             Assert.Equal(viewModel.BookCoverImage, dbBook.BookCoverImageUrl);
+            Assert.False(viewModel.BookImageIsBase64String);
         }
 
         private Book GetTestBookById(int id)
